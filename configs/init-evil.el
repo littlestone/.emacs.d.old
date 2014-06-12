@@ -17,7 +17,7 @@
 (evilnc-default-hotkeys)
 
 ;; Helps not to screw up the paredit setup when using evil-mode
-(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode) 
+(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
 
 ;; Clear insert state bindings.
 (setcdr evil-insert-state-map nil)
@@ -66,6 +66,7 @@
 (evil-set-initial-state 'grep-mode 'emacs)
 (evil-set-initial-state 'dired-mode 'normal)
 (evil-set-initial-state 'ibuffer-mode 'normal)
+(evil-set-initial-state 'magit-mode 'normal)
 (evil-set-initial-state 'magit-status-mode 'normal)
 
 ;; Change mode-line color by evil state
@@ -75,7 +76,7 @@
             (lambda ()
               (let ((color (cond ((minibufferp) default-color)
                                  ((evil-insert-state-p) '("#000000" . "#4169E1"))
-								 ((buffer-modified-p) '("#000000" . "#FFA500"))
+                 ((buffer-modified-p) '("#000000" . "#FFA500"))
                                  (t default-color))))
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
