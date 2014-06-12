@@ -14,6 +14,13 @@
     (progn
       (setq exec-path (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin"))
       (setenv "PATH" (concat "C:\\Program Files (x86)\\Git\\bin;" (getenv "PATH")))))
+	  
+;; Subtler highlight
+(set-face-background 'magit-item-highlight "#121212")
+(set-face-background 'diff-file-header "#121212")
+(set-face-foreground 'diff-context "#666666")
+(set-face-foreground 'diff-added "#00cc33")
+(set-face-foreground 'diff-removed "#ff0000")
 
 ;; Full screen magit-status
 (defadvice magit-status (around magit-fullscreen activate)
