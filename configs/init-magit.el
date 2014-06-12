@@ -6,8 +6,14 @@
 
 (add-hook 'magit-log-edit-mode-hook
           (lambda ()
-            (set-fill-column 72)
+            (set-fill-column 80)
             (auto-fill-mode 1)))
+
+;; Add all git related command path, exec-path is important for Magit, setenv is used by eshell
+(if (eq system-type 'windows-nt)
+    (progn
+      (setq exec-path (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin"))
+      (setenv "PATH" (concat "C:\\Program Files (x86)\\Git\\bin;" (getenv "PATH")))))
 
 ;; Full screen magit-status
 (defadvice magit-status (around magit-fullscreen activate)
