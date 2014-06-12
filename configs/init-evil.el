@@ -67,7 +67,7 @@
 (evil-set-initial-state 'eshell-mode 'emacs)
 (evil-set-initial-state 'grep-mode 'emacs)
 (evil-set-initial-state 'magit-mode 'emacs)
-(evil-set-initial-state 'magit-commit-mode 'emacs)
+(evil-set-initial-state 'git-commit-mode 'emacs)
 (evil-set-initial-state 'magit-status-mode 'emacs)
 
 ;; Change mode-line color by evil state
