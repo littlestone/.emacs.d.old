@@ -10,7 +10,7 @@
 
 ;; Answering just 'y' or 'n' will do
 (defalias 'yes-or-no-p 'y-or-n-p)
-				 
+
 ;; Save place in files between sessions
 (setq-default save-place t)
 

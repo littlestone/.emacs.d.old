@@ -18,11 +18,12 @@
   (require 'package)
   (require 'dash)
   (package-initialize)
+
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                            ("marmalade" . "http://marmalade-repo.org/packages/")
                            ("melpa" . "http://melpa.milkbox.net/packages/")
-                           ("tromey" . "http://tromey.com/elpa/")
-                           ))
+                           ("tromey" . "http://tromey.com/elpa/")))
+
   (when (not package-archive-contents)
     (package-refresh-contents))
 
@@ -53,6 +54,7 @@
        epl                      ; Emacs Package Library
        expand-region            ; Increase selected region by semantic units
        fill-column-indicator    ; Graphically indicate the fill column
+       fold-this                ; Just fold this region please
        git-commit-mode          ; Major mode for editing git commit messages
        git-rebase-mode          ; Major mode for editing git rebase files
        ido-ubiquitous           ; Use ido (nearly) everywhere
@@ -62,12 +64,14 @@
        key-chord                ; map pairs of simultaneously pressed keys to commands
        magit                    ; Control Git from Emacs
        markdown-mode            ; Emacs Major mode for Markdown-formatted text files
+       move-text                ; Move current line or region with M-up or M-down.
        multiple-cursors         ; Multiple cursors for Emacs
        paredit                  ; minor mode for editing parentheses
        pkg-info                 ; Information about packages
        popup                    ; Visual Popup User Interface
        rainbow-delimiters       ; Highlight nested parens, brackets, braces a different color at each depth
        rainbow-mode             ; Colorize color names in buffers
+       s                        ; The long lost Emacs string manipulation library
        slime                    ; Superior Lisp Interaction Mode for Emacs
        smarter-compile          ; an interface to `compile
        smex                     ; M-x interface with Ido-style fuzzing matching
@@ -80,8 +84,7 @@
       (init--install-packages)
     (error
      (package-refresh-contents)
-     (init--install-packages)))
-  )
+     (init--install-packages))))
 
 ;;
 ;;=================================================================================

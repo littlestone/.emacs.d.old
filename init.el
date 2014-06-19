@@ -26,15 +26,6 @@
 (setq custom-file (concat user-emacs-directory "configs/custom.el"))
 (load custom-file)
 
-;; Functions (load all files in defuns-dir)
-(setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
-(dolist (file (directory-files defuns-dir t "\\w+"))
-  (when (file-regular-p file)
-    (load file)))
-
-;; Common lisp library
-(require 'cl)
-
 ;;;
 ;;;============================================================================
 ;;;
@@ -60,3 +51,14 @@
 (if (eq system-type 'windows-nt)
   (require 'init-cygwin))   
 
+;; Third Party Functions (load all files in site-lisp-dir)
+(setq site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
+(dolist (file (directory-files site-lisp-dir t "\\w+"))
+  (when (file-regular-p file)
+    (load file)))
+
+;; User Defined Functions (load all files in defuns-dir)
+(setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
+(dolist (file (directory-files defuns-dir t "\\w+"))
+  (when (file-regular-p file)
+    (load file)))
