@@ -37,7 +37,7 @@
 (require 'cl-lib)
 
 (defvar my-paren-dual-colors
-  '("green" "yellow")
+  '("yellow" "green")
   )
 
 (cl-loop

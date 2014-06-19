@@ -51,14 +51,6 @@
        dash-functional          ; Collection of useful combinators for Emacs List
        dired-single             ; Reuse the current dired buffer to visit another directory
        epl                      ; Emacs Package Library
-       evil                     ; extensible vi layer
-       evil-indent-textobject   ; evil textobjects based on indentation
-       evil-leader              ; let there be <leader>
-       evil-matchit             ; Vim matchit ported into Emacs (requires EVIL)
-       evil-nerd-commenter      ; Commnet/uncomment lines efficiently. Like Nerd Commenter in Vim
-       evil-numbers             ; increment/decrement numbers like in vim
-       evil-paredit             ; Paredit support for evil keybindings
-       evil-visualstar          ; Starts a * or # search from visual selection
        expand-region            ; Increase selected region by semantic units
        fill-column-indicator    ; Graphically indicate the fill column
        git-commit-mode          ; Major mode for editing git commit messages
@@ -81,6 +73,7 @@
        smex                     ; M-x interface with Ido-style fuzzing matching
        tabbar                   ; Display a tab bar in the header line
        undo-tree                ; Treat undo history as a tree
+       w3m                      ; an Emacs interface to w3m
        )))
 
   (condition-case nil

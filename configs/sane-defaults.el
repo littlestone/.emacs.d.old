@@ -5,18 +5,41 @@
 ;; All roads lead to $HOME
 (setq default-directory "~/")
 
-;; Buffer full file name as title
-(setq frame-title-format '(buffer-file-name "%f" ("%b")))
+;; Write temporary files to own directory
+(progn
+  (defvar --temporary-directory (concat user-emacs-directory "temps"))
+  (if (not (file-exists-p --temporary-directory))
+      (make-directory --temporary-directory))
 
-;; Answering just 'y' or 'n' will do
-(defalias 'yes-or-no-p 'y-or-n-p)
-				 
+  (setq temporary-file-directory (concat user-emacs-directory "temps/")
+        save-place-file (expand-file-name "places" temporary-file-directory)
+        savehist-file (expand-file-name "history" temporary-file-directory)
+        recentf-save-file (expand-file-name "recentf" temporary-file-directory)
+        tramp-save-file (expand-file-name "tramp" temporary-file-directory)
+		auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
+        auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
+
+;; Write backup files to own directory
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat user-emacs-directory "backups")))))
+
+;; Make backups of files, even when they're in version control
+(setq vc-make-backup-files t)
+(setq backup-by-copying t) ; stop emacs's backup changing the file's creation date of the original file
+
 ;; Save place in files between sessions
 (setq-default save-place t)
 
 ;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
 (setq recentf-max-saved-items 50) ; just 20 is too recent
+
+;; Buffer full file name as title
+(setq frame-title-format '(buffer-file-name "%f" ("%b")))
+
+;; Answering just 'y' or 'n' will do
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Interactively do things
 (ido-mode t)
@@ -69,30 +92,6 @@
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
-
-;; Write temporary files to own directory
-(progn
-  (defvar --temporary-directory (concat user-emacs-directory "temps"))
-  (if (not (file-exists-p --temporary-directory))
-      (make-directory --temporary-directory))
-	  
-  (setq temporary-file-directory (concat user-emacs-directory "temps/")
-      backup-directory-alist `((".*" . ,temporary-file-directory))
-      save-place-file (expand-file-name "places" temporary-file-directory)
-	  savehist-file (expand-file-name "history" temporary-file-directory)
-      recentf-save-file (expand-file-name "recentf" temporary-file-directory)
-	  tramp-save-file (expand-file-name "tramp" temporary-file-directory)
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
-
-;; Write backup files to own directory
-(progn
-  (setq backup-directory-alist
-        `(("." . ,(expand-file-name
-                   (concat user-emacs-directory "backups")))))	  
-  ;; Make backups of files, even when they're in version control
-  (setq vc-make-backup-files t)
-  ;; Stop emacs's backup changing the file's creation date of the original file
-  (setq backup-by-copying t))
 
 ;; Sane defaults
 (setq delete-by-moving-to-trash t             ; move deleted file to Recycle Bin
@@ -190,4 +189,4 @@
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
-(provide 'init-sane-defaults)
+(provide 'sane-defaults)
