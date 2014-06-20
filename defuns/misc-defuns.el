@@ -27,12 +27,12 @@
   (browse-url (concat "http://localhost:" (number-to-string port) "/")))
 
 ;; shorthand for interactive lambdas
-(defmacro λ (&rest body)
-  `(lambda ()
-     (interactive)
-     ,@body))
+(defmacro Î» (&rest body)
+`(lambda ()
+   (interactive)
+   ,@body))
 
-(global-set-key (kbd "s-l") (λ (insert "\u03bb")))
+(global-set-key (kbd "s-l") (Î» (insert "\u03bb")))
 
 ;; command to help set up magit-gh-pulls
 (defun magit-gh-pulls-setup (repoid)
@@ -165,7 +165,7 @@ Both PATTERN and CONTENTS are matched as regular expressions."
   (interactive)
   (kmacro-push-ring)
   (edit-kbd-macro 'view-lossage))
-  
+
 ;;; ======================================================================================
 
 ;; Google search
@@ -267,3 +267,22 @@ Including indent-buffer, which should not be called automatically on save."
     (shell-command-on-region (mark) (point) "python -m json.tool" (buffer-name) t)
     )
   (message "Ah, much better!"))
+
+(defun find-nearest-color (color &optional use-hsv)
+  "Finds the nearest color by RGB distance to `color'. If called with a universal argument (or if `use-hsv' is set) use HSV instead of RGB. Runs \\[list-colors-display] after setting `list-colors-sort'"
+  (interactive "sColor: \nP")
+  (let ((list-colors-sort `(,(if (or use-hsv current-prefix-arg)
+                                 'hsv-dist
+                               'rgb-dist) . ,color)))
+    (if (color-defined-p color)
+        (list-colors-display)
+      (error "The color \"%s\" does not exist." color))))
+
+(defun find-nearest-color-at-point (pt)
+  "Finds the nearest color at point `pt'. If called interactively, `pt' is the value immediately under `point'."
+  (interactive "d")
+  (find-nearest-color (with-syntax-table (copy-syntax-table (syntax-table))
+                        ;; turn `#' into a word constituent to help
+                        ;; `thing-at-point' find HTML color codes.
+                        (modify-syntax-entry ?# "w")
+                        (thing-at-point 'word))))

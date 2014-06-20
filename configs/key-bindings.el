@@ -40,7 +40,7 @@
 ;; Providing a variety of completions and expansions
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-;; Multiple cursors
+;; Multiple curors
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -191,8 +191,10 @@
 
 ;; Navigation bindings
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
-(global-set-key (kbd "<home>") 'beginning-of-buffer)
-(global-set-key (kbd "<end>") 'end-of-buffer)
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+(global-set-key (kbd "<C-home>") 'beginning-of-buffer)
+(global-set-key (kbd "<C-end>") 'end-of-buffer)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 
@@ -258,6 +260,11 @@
 
 ;; Yank and indent
 (global-set-key (kbd "C-S-y") 'yank-unindented)
+
+;; Yank's numeric prefix argument should repeat the yank
+(global-set-key (kbd "C-y") (lambda (n)
+                              (interactive "p")
+                              (dotimes (i (abs n)) (yank))))
 
 ;; Toggle quotes
 (global-set-key (kbd "C-\"") 'toggle-quotes)

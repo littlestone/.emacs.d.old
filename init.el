@@ -18,9 +18,9 @@
 (unless (server-running-p) (server-start))
 
 ;; Set up load path
+(add-to-list 'load-path (concat user-emacs-directory "elisp"))
 (add-to-list 'load-path (concat user-emacs-directory "defuns"))
 (add-to-list 'load-path (concat user-emacs-directory "configs"))
-(add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
 
 ;; Emacs's customization
 (setq custom-file (concat user-emacs-directory "configs/custom.el"))
@@ -38,6 +38,7 @@
 (require 'init-packages)
 (require 'init-erc)
 (require 'init-w3m)
+(require 'init-org)
 (require 'init-dired)
 (require 'init-slime)
 (require 'init-cider)
@@ -49,11 +50,11 @@
 
 ;; Emacs - Cygwin Customization
 (if (eq system-type 'windows-nt)
-  (require 'init-cygwin))   
+  (require 'init-cygwin))
 
-;; Third Party Functions (load all files in site-lisp-dir)
-(setq site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
-(dolist (file (directory-files site-lisp-dir t "\\w+"))
+;; Third Party Functions (load all files in elisp-dir)
+(setq elisp-dir (expand-file-name "elisp" user-emacs-directory))
+(dolist (file (directory-files elisp-dir t "\\w+"))
   (when (file-regular-p file)
     (load file)))
 

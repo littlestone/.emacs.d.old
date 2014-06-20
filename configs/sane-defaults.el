@@ -16,7 +16,7 @@
         savehist-file (expand-file-name "history" temporary-file-directory)
         recentf-save-file (expand-file-name "recentf" temporary-file-directory)
         tramp-save-file (expand-file-name "tramp" temporary-file-directory)
-		auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
+    auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
         auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
 
 ;; Write backup files to own directory
