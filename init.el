@@ -35,7 +35,7 @@
 (require 'sane-defaults)
 (require 'mode-mappings)
 (require 'key-bindings)
-(require 'init-packages)
+(require 'packages)
 (require 'init-erc)
 (require 'init-w3m)
 (require 'init-org)

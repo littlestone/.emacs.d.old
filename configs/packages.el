@@ -3,7 +3,7 @@
 ;;; =====================================
 
 ;; IPEX Proxy
-(when t
+(when nil
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
           ("http" . "isa1ids.ipex.network:8080")
@@ -57,6 +57,7 @@
        fold-this                ; Just fold this region please
        git-commit-mode          ; Major mode for editing git commit messages
        git-rebase-mode          ; Major mode for editing git rebase files
+       helm                     ; Emacs incremental and narrowing framework
        ido-ubiquitous           ; Use ido (nearly) everywhere
        iy-go-to-char            ; Go to next CHAR which is similar to "f" and "t" in vim
        js2-mode                 ; Improved JavaScript editing mode
@@ -117,4 +118,4 @@
 ;; An interface to `compile
 (require 'smarter-compile)
 
-(provide 'init-packages)
+(provide 'packages)

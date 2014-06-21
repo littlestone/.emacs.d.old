@@ -178,6 +178,6 @@ Start a new script from `dos-template'. Read help pages for Dos commands with
   (set (make-local-variable 'outline-regexp) ":[^:]")
   (set-syntax-table dos-mode-syntax-table))
 
-(provide 'dos)
+(provide 'dos-mode)
 
 ;;; dos.el ends here
