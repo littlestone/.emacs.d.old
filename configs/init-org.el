@@ -11,10 +11,10 @@
 
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(global-set-key (kbd "C-c a") 'org-agenda) 
+(global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
-(setq org-agenda-include-diary t) 
+(setq org-agenda-include-diary t)
 (setq org-log-done t)
 
 (setq org-todo-keywords
@@ -29,8 +29,11 @@
               ("HOLD" :foreground "orange" :weight bold)
               ("CANCELLED" :foreground "RoyalBlue" :weight bold))))
 
-(setq org-agenda-files (list "~/Dropbox/org/work.org"
-                             "~/Dropbox/org/school.org" 
-                             "~/Dropbox/org/home.org"))		  
+(setq org-agenda-files (list "~/Dropbox/org/book.org"
+                             "~/Dropbox/org/home.org"
+                             "~/Dropbox/org/reminder.org"
+                             "~/Dropbox/org/school.org"
+                             "~/Dropbox/org/trading.org"
+                             "~/Dropbox/org/work.org"))
 
 (provide 'init-org)
