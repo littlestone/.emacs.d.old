@@ -135,7 +135,7 @@
 ;;            - improve idiom detection
 ;; 1.4.10b,c VB1 -improve visual-basic-check-style
 ;; 1.4.10d   VB1 -correct font lock keywords for case
-;;               -improve visual-basic-check-style + add highlight overlay 
+;;               -improve visual-basic-check-style + add highlight overlay
 ;; 1.4.11 Wang Yao - correct the regular expression for imenu
 ;;                 - remove the string-to-char for imenu-syntax-alist, for xemacs error
 ;;                 - change the condition of visual-basic-enable-font-lock which prevents emacs from running in command-line mode when the emacs-version is 19.29
@@ -235,8 +235,8 @@ Default value is 3 as per http://en.wikibooks.org/wiki/Visual_Basic/Coding_Stand
 (defcustom visual-basic-ide-pathname nil
   "*The full pathname of your Visual Basic exe file, if any."
   :type '(choice
-	  (const nil :tag "no IDE available" )
-	  (file :must-match  t :tag "IDE exe path" ))
+          (const nil :tag "no IDE available" )
+          (file :must-match  t :tag "IDE exe path" ))
   :group 'visual-basic)
 
 (defcustom visual-basic-allow-single-line-if t
@@ -261,7 +261,7 @@ types of errors are automatically corrected.
   "Variable naming convention, scope prefix regexp. Please refer
 to
 http://en.wikibooks.org/wiki/Visual_Basic/Coding_Standards. This
-is used by function `visual-basic-propertize-attribute'. 
+is used by function `visual-basic-propertize-attribute'.
 
 Note: shall not contain any \\( \\) (use \\(?: if need be)."
   :type 'regexp
@@ -270,13 +270,13 @@ Note: shall not contain any \\( \\) (use \\(?: if need be)."
 
 (defcustom visual-basic-variable-type-prefix-re
   (regexp-opt '("i" ; integer
-		"l" ; long
-		"flt"; single or double
-		"obj" "o"; object
-		"v" ; variant
-		"dbl" "sng"; double single
-		"s"; string
-		) t)
+                "l" ; long
+                "flt"; single or double
+                "obj" "o"; object
+                "v" ; variant
+                "dbl" "sng"; double single
+                "s"; string
+                ) t)
   "Variable naming convention, type prefix regexp. Please refer
 to
 http://en.wikibooks.org/wiki/Visual_Basic/Coding_Standards. This
@@ -314,13 +314,13 @@ Note: shall not contain any \\( \\) (use \\(?: if need be)."
   (modify-syntax-entry ?\n ">" visual-basic-mode-syntax-table)
   (modify-syntax-entry ?\\ "w" visual-basic-mode-syntax-table)
   (modify-syntax-entry ?_ "_" visual-basic-mode-syntax-table)
-  ; Make operators puncutation so that regexp search \_< and \_> works properly
+                                        ; Make operators puncutation so that regexp search \_< and \_> works properly
   (modify-syntax-entry ?+ "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?- "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?* "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?/ "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?\\ "." visual-basic-mode-syntax-table)
-  ; Make =, etc., punctuation so that dynamic abbreviations work properly
+                                        ; Make =, etc., punctuation so that dynamic abbreviations work properly
   (modify-syntax-entry ?\= "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?\< "." visual-basic-mode-syntax-table)
   (modify-syntax-entry ?\> "." visual-basic-mode-syntax-table))
@@ -374,10 +374,10 @@ Note: shall not contain any \\( \\) (use \\(?: if need be)."
 (defconst visual-basic-dim-regexp
   "^[ \t]*\\([Cc]onst\\|[Dd]im\\|[Pp]rivate\\|[Pp]ublic\\)\\_>"  )
 
-(defconst visual-basic-lettable-type-regexp 
-  (concat "\\`" 
-	  (regexp-opt '("Integer" "Long" "Variant" "Double" "Single" "Boolean") t)
-	  "\\'"))
+(defconst visual-basic-lettable-type-regexp
+  (concat "\\`"
+          (regexp-opt '("Integer" "Long" "Variant" "Double" "Single" "Boolean") t)
+          "\\'"))
 
 ;; Includes the compile-time #if variation.
 ;; KJW fixed if to require a whitespace so as to avoid matching, for
@@ -604,7 +604,7 @@ Commands:
 ;; Is this what the abbrev table hook entry is for?
 (defun visual-basic-construct-keyword-abbrev-table ()
   "Construction abbreviation table from list of keywords."
-(if visual-basic-mode-abbrev-table
+  (if visual-basic-mode-abbrev-table
       nil
     (let ((words visual-basic-all-keywords)
           (word nil)
@@ -637,17 +637,17 @@ Commands:
 (defun visual-basic-in-code-context-p ()
   "Predicate true when pointer is in code context."
   (save-match-data
-  (if (fboundp 'buffer-syntactic-context) ; XEmacs function.
-      (null (buffer-syntactic-context))
-    ;; Attempt to simulate buffer-syntactic-context
-    ;; I don't know how reliable this is.
-    (let* ((beg (save-excursion
-                  (beginning-of-line)
-                  (point)))
-           (list
-            (parse-partial-sexp beg (point))))
-      (and (null (nth 3 list))          ; inside string.
-	     (null (nth 4 list)))))))      ; inside comment
+    (if (fboundp 'buffer-syntactic-context) ; XEmacs function.
+        (null (buffer-syntactic-context))
+      ;; Attempt to simulate buffer-syntactic-context
+      ;; I don't know how reliable this is.
+      (let* ((beg (save-excursion
+                    (beginning-of-line)
+                    (point)))
+             (list
+              (parse-partial-sexp beg (point))))
+        (and (null (nth 3 list))          ; inside string.
+             (null (nth 4 list)))))))      ; inside comment
 
 (defun visual-basic-abbrev-expand-function (expand-fun)
   "Expansion of abbreviations.  EXPAND-FUN is called at the end of this function."
@@ -891,14 +891,14 @@ statifying CLOSE-P was visited before during this search."
 
 (defun visual-bascic-at-line-contination ()
   (and  (looking-at  visual-basic-looked-at-continuation-regexp)
-	(save-excursion
-	  (or (bolp)
-	      (progn (backward-char)
-		     (or 
-		      (looking-at "[^[:alnum:]_]")
-		      (and (looking-at "[[:digit:]]")
-			   (re-search-forward "[^[:digit:]]" nil t)
-			   (looking-at "[^[:alnum:]]"))))))))
+        (save-excursion
+          (or (bolp)
+              (progn (backward-char)
+                     (or
+                      (looking-at "[^[:alnum:]_]")
+                      (and (looking-at "[[:digit:]]")
+                           (re-search-forward "[^[:digit:]]" nil t)
+                           (looking-at "[^[:alnum:]]"))))))))
 
 (defun visual-basic-get-complete-tail-of-line ()
   "Return the tail of the current statement line, starting at
@@ -907,31 +907,31 @@ complete statement line, you have to call functions
 `visual-basic-find-original-statement' and then
 `beginning-of-line' before"
   (let* ((start-point (point))
-	 complete-line
-	 (line-beg start-point)
-	 line-end)
+         complete-line
+         (line-beg start-point)
+         line-end)
     (while (null line-end)
       (end-of-line)
       (setq line-end (point))
       (if (search-backward "_" line-beg t)
-	  (if (visual-bascic-at-line-contination)
-	      ;; folded line
-	      (progn
-		(setq line-end (1- (point))
-		      complete-line (cons
-				     (buffer-substring-no-properties
-				      line-beg line-end)
-				     complete-line)
-		      line-end nil)
-		(beginning-of-line 2)
-		(setq line-beg (point)))
-	    ;; _ found, but not a folded line (this is a syntax error)
-	    (setq complete-line
-		  (cons (buffer-substring-no-properties line-beg line-end) complete-line)))
-	;; not a folded line
-	(setq complete-line
-	      (cons (buffer-substring-no-properties line-beg line-end)
-		    complete-line))))
+          (if (visual-bascic-at-line-contination)
+              ;; folded line
+              (progn
+                (setq line-end (1- (point))
+                      complete-line (cons
+                                     (buffer-substring-no-properties
+                                      line-beg line-end)
+                                     complete-line)
+                      line-end nil)
+                (beginning-of-line 2)
+                (setq line-beg (point)))
+            ;; _ found, but not a folded line (this is a syntax error)
+            (setq complete-line
+                  (cons (buffer-substring-no-properties line-beg line-end) complete-line)))
+        ;; not a folded line
+        (setq complete-line
+              (cons (buffer-substring-no-properties line-beg line-end)
+                    complete-line))))
     (mapconcat 'identity (nreverse complete-line) " ")))
 
 (defun visual-basic-if-not-on-single-line ()
@@ -940,27 +940,27 @@ line, i.e. requires a matching End if. Note that a statement line may
 be folded over several code lines."
   (if (looking-at visual-basic-if-regexp)
       (save-excursion
-	(beginning-of-line)
-	(let (p1
-	      p2
-	      ;; 1st reconstruct complete line
-	      (complete-line (visual-basic-get-complete-tail-of-line)) )
+        (beginning-of-line)
+        (let (p1
+              p2
+              ;; 1st reconstruct complete line
+              (complete-line (visual-basic-get-complete-tail-of-line)) )
 
-	  ;; now complete line has been reconstructed, drop confusing elements
+          ;; now complete line has been reconstructed, drop confusing elements
 
-	  ;; remove any VB string from complete line, as strings may disrupt : and ' detection
-	  (while (and (setq p1 (string-match "\"" complete-line))
-		      (setq p2 (string-match "\"" complete-line (1+ p1))))
-	    (setq complete-line (concat (substring complete-line 0 p1)
-					(substring complete-line (1+ p2)))))
-	  ;; now drop tailing comment if any
-	  (when (setq p1 (string-match "'" complete-line))
-	    (setq complete-line (substring complete-line 0 (1- p1))))
-	  ;; now drop 1st concatenated instruction if any
-	  (when (setq p1 (string-match ":" complete-line))
-	    (setq complete-line (substring complete-line p1)))
-	  ;;
-	  (string-match "Then\\s-*$" complete-line))); end (save-excursion ...)
+          ;; remove any VB string from complete line, as strings may disrupt : and ' detection
+          (while (and (setq p1 (string-match "\"" complete-line))
+                      (setq p2 (string-match "\"" complete-line (1+ p1))))
+            (setq complete-line (concat (substring complete-line 0 p1)
+                                        (substring complete-line (1+ p2)))))
+          ;; now drop tailing comment if any
+          (when (setq p1 (string-match "'" complete-line))
+            (setq complete-line (substring complete-line 0 (1- p1))))
+          ;; now drop 1st concatenated instruction if any
+          (when (setq p1 (string-match ":" complete-line))
+            (setq complete-line (substring complete-line p1)))
+          ;;
+          (string-match "Then\\s-*$" complete-line))); end (save-excursion ...)
     ;; else, not a basic if
     nil))
 
@@ -1178,13 +1178,13 @@ In Abbrev mode, any abbrev before point will be expanded."
         (case-fold-search t))
     (save-excursion
       (save-restriction
-	(widen)
-	(goto-char (point-min))
-	(cond
-	 ((looking-at "^\\s-*Attribute\\s-+VB_Name\\s-+= ")
-	  (setq ret 'vba))
-	 ((looking-at "^\\s-*Version\\s-+[^ \t\n\r]+Class\\s-*$")
-	  (setq ret 'vba)))
+        (widen)
+        (goto-char (point-min))
+        (cond
+         ((looking-at "^\\s-*Attribute\\s-+VB_Name\\s-+= ")
+          (setq ret 'vba))
+         ((looking-at "^\\s-*Version\\s-+[^ \t\n\r]+Class\\s-*$")
+          (setq ret 'vba)))
         ))
     ret))
 
@@ -1195,86 +1195,86 @@ With' if the block is a `With ...', etc..."
   (let (end-statement end-indent)
     (save-excursion
       (save-match-data
-	(while
-	    (unless  (bobp)
-	      (visual-basic-previous-line-of-code)
-	      (visual-basic-find-original-statement)
-	      (cond
-	       ;; Cases where the current statement is a start-of-smthing statement
-	       ((looking-at visual-basic-defun-start-regexp)
-		(let ((smt (match-string 2)))
-		  (when (string-match "\\`Prop" smt)
-		    (setq smt "Property"))
-		  (setq end-statement (concat "End " smt)
-			end-indent 0))
-		nil)
-	       ((looking-at visual-basic-select-regexp)
-		(setq  end-statement "End Select"
-		       end-indent (current-indentation))
-		nil)
-	       ((looking-at visual-basic-with-regexp)
-		(setq  end-statement "End With"
-		       end-indent (current-indentation))
-		nil)
-	       ((looking-at visual-basic-case-regexp)
-		(setq  end-statement  "End Select"
-		       end-indent (max 0 (- (current-indentation) visual-basic-mode-indent)))
-		nil)
-	       ((looking-at visual-basic-begin-regexp)
-		(setq  end-statement "End"
-		       end-indent (current-indentation))
-		nil)
-	       ((or (visual-basic-if-not-on-single-line)
-		    (looking-at visual-basic-else-regexp))
-		(setq  end-statement "End If"
-		       end-indent (current-indentation))
-		nil)
+        (while
+            (unless  (bobp)
+              (visual-basic-previous-line-of-code)
+              (visual-basic-find-original-statement)
+              (cond
+               ;; Cases where the current statement is a start-of-smthing statement
+               ((looking-at visual-basic-defun-start-regexp)
+                (let ((smt (match-string 2)))
+                  (when (string-match "\\`Prop" smt)
+                    (setq smt "Property"))
+                  (setq end-statement (concat "End " smt)
+                        end-indent 0))
+                nil)
+               ((looking-at visual-basic-select-regexp)
+                (setq  end-statement "End Select"
+                       end-indent (current-indentation))
+                nil)
+               ((looking-at visual-basic-with-regexp)
+                (setq  end-statement "End With"
+                       end-indent (current-indentation))
+                nil)
+               ((looking-at visual-basic-case-regexp)
+                (setq  end-statement  "End Select"
+                       end-indent (max 0 (- (current-indentation) visual-basic-mode-indent)))
+                nil)
+               ((looking-at visual-basic-begin-regexp)
+                (setq  end-statement "End"
+                       end-indent (current-indentation))
+                nil)
+               ((or (visual-basic-if-not-on-single-line)
+                    (looking-at visual-basic-else-regexp))
+                (setq  end-statement "End If"
+                       end-indent (current-indentation))
+                nil)
 
-	       ((looking-at visual-basic-do-regexp)
-		(setq  end-statement "Loop"
-		       end-indent (current-indentation))
-		nil)
+               ((looking-at visual-basic-do-regexp)
+                (setq  end-statement "Loop"
+                       end-indent (current-indentation))
+                nil)
 
-	       ((looking-at visual-basic-while-regexp)
-		(setq  end-statement "Wend"
-		       end-indent (current-indentation))
-		nil)
+               ((looking-at visual-basic-while-regexp)
+                (setq  end-statement "Wend"
+                       end-indent (current-indentation))
+                nil)
 
-	       ((looking-at visual-basic-for-regexp)
-		(goto-char (match-end 0))
-		(setq  end-statement "Next"
-		       end-indent (current-indentation))
-		(let ((vb-idom (visual-basic-detect-idom)))
-		  (cond
-		   ;; for VBA add the variable name after Next.
-		   ((eq vb-idom 'vba)
-		    (when (looking-at "\\s-+\\(Each\\s-+\\|\\)\\([^ \t\n\r]+\\)")
-		      (setq end-statement (concat end-statement " " (match-string 2)))))))
-		nil)
-	       ;; Cases where the current statement is an end-of-smthing statement
-	       ((or (looking-at visual-basic-else-regexp)
-		    (looking-at visual-basic-endif-regexp))
-		(visual-basic-find-matching-if)
-		t)
-	       ((looking-at visual-basic-next-regexp) ; for/next
-		(visual-basic-find-matching-for)
-		t)
-	       ((looking-at visual-basic-loop-regexp) ; do/loop
-		(visual-basic-find-matching-do)
-		t)
-	       ((looking-at visual-basic-wend-regexp) ; while/wend
-		(visual-basic-find-matching-while)
-		t)
-	       ((looking-at visual-basic-end-with-regexp) ; with/end with
-		(visual-basic-find-matching-with)
-		t)
-	       ((looking-at visual-basic-select-end-regexp) ; select case/end select
-		(visual-basic-find-matching-select)
-		t)
+               ((looking-at visual-basic-for-regexp)
+                (goto-char (match-end 0))
+                (setq  end-statement "Next"
+                       end-indent (current-indentation))
+                (let ((vb-idom (visual-basic-detect-idom)))
+                  (cond
+                   ;; for VBA add the variable name after Next.
+                   ((eq vb-idom 'vba)
+                    (when (looking-at "\\s-+\\(Each\\s-+\\|\\)\\([^ \t\n\r]+\\)")
+                      (setq end-statement (concat end-statement " " (match-string 2)))))))
+                nil)
+               ;; Cases where the current statement is an end-of-smthing statement
+               ((or (looking-at visual-basic-else-regexp)
+                    (looking-at visual-basic-endif-regexp))
+                (visual-basic-find-matching-if)
+                t)
+               ((looking-at visual-basic-next-regexp) ; for/next
+                (visual-basic-find-matching-for)
+                t)
+               ((looking-at visual-basic-loop-regexp) ; do/loop
+                (visual-basic-find-matching-do)
+                t)
+               ((looking-at visual-basic-wend-regexp) ; while/wend
+                (visual-basic-find-matching-while)
+                t)
+               ((looking-at visual-basic-end-with-regexp) ; with/end with
+                (visual-basic-find-matching-with)
+                t)
+               ((looking-at visual-basic-select-end-regexp) ; select case/end select
+                (visual-basic-find-matching-select)
+                t)
 
 
-	       ;; default is to loop again back to previous line of code.
-	       (t t))))))
+               ;; default is to loop again back to previous line of code.
+               (t t))))))
     (when end-statement
       (insert end-statement)
       (visual-basic-indent-to-column end-indent))))
@@ -1349,116 +1349,116 @@ Interting an item means:
   ;; select-without-else
   ;; not-itemizable
   (let (item-case
-	item-ident
-	split-point
-	org-split-point
-	prefix
-	is-const
-	tentative-split-point
-	block-stack (cur-point (point)) previous-line-of-code)
+        item-ident
+        split-point
+        org-split-point
+        prefix
+        is-const
+        tentative-split-point
+        block-stack (cur-point (point)) previous-line-of-code)
     (save-excursion
       (save-match-data
-	(beginning-of-line)
-	(while
-	    (progn
-	      (visual-basic-find-original-statement)
-	      (cond
-	       ;; dim case
-	       ;;--------------------------------------------------------------
-	       ((and (null previous-line-of-code)
-		     (looking-at visual-basic-dim-regexp)
-		     (null (save-match-data (looking-at visual-basic-defun-start-regexp))))
-		(setq prefix (buffer-substring-no-properties
-			      (point)
-			      (goto-char (setq split-point (match-end 0)
-					       org-split-point split-point)))
-		      is-const (string-match "\\_<Const\\_>" prefix)
-		      item-case ':dim-split-after)
-		;; determine split-point, which is the point at which a new
-		;; Dim item is to be inserted. To that purpose the line is gone through
-		;; from beginning until cur-point is past
-		(while
+        (beginning-of-line)
+        (while
+            (progn
+              (visual-basic-find-original-statement)
+              (cond
+               ;; dim case
+               ;;--------------------------------------------------------------
+               ((and (null previous-line-of-code)
+                     (looking-at visual-basic-dim-regexp)
+                     (null (save-match-data (looking-at visual-basic-defun-start-regexp))))
+                (setq prefix (buffer-substring-no-properties
+                              (point)
+                              (goto-char (setq split-point (match-end 0)
+                                               org-split-point split-point)))
+                      is-const (string-match "\\_<Const\\_>" prefix)
+                      item-case ':dim-split-after)
+                ;; determine split-point, which is the point at which a new
+                ;; Dim item is to be inserted. To that purpose the line is gone through
+                ;; from beginning until cur-point is past
+                (while
                     (if
-			(looking-at "\\(\\s-*\\)\\(?:\\sw\\|\\s_\\)+\\s-*"); some symbol
-			(if (>  (setq tentative-split-point (match-end 0)) cur-point)
+                        (looking-at "\\(\\s-*\\)\\(?:\\sw\\|\\s_\\)+\\s-*"); some symbol
+                        (if (>  (setq tentative-split-point (match-end 0)) cur-point)
                             (progn
-			      (setq item-case (if (>= cur-point (match-end 1))
-						  ':dim-split-after
+                              (setq item-case (if (>= cur-point (match-end 1))
+                                                  ':dim-split-after
                                                 ':dim-split-before))
-			      nil;; stop loop
-			      )
-			  (goto-char tentative-split-point)
-			  (setq item-case ':dim-split-before)
-			  (let ((loop-again t))
-			    (while
-				(or
-				 ;; array variable
-				 (when (looking-at "\\(([^)\n]+)\\)\\s-*")
+                              nil;; stop loop
+                              )
+                          (goto-char tentative-split-point)
+                          (setq item-case ':dim-split-before)
+                          (let ((loop-again t))
+                            (while
+                                (or
+                                 ;; array variable
+                                 (when (looking-at "\\(([^)\n]+)\\)\\s-*")
                                    (if (< cur-point (match-end 1))
                                        (setq item-case ':dim-split-after
                                              loop-again nil)
                                      t))
-				 ;; continuation
-				 (and loop-again
-				      (visual-bascic-at-line-contination) ))
+                                 ;; continuation
+                                 (and loop-again
+                                      (visual-bascic-at-line-contination) ))
                               (goto-char (setq tentative-split-point (match-end 0))))
-			    (when loop-again
-			      (when (looking-at "As\\s-+\\(?:\\sw\\|\\s_\\)+\\s-*")
-				(setq item-case ':dim-split-after)
-				(goto-char (setq tentative-split-point (match-end 0))))
-			      (when (visual-bascic-at-line-contination)
-				(beginning-of-line 2))
-			      (if (looking-at ",")
-				  (goto-char (setq split-point (match-end 0)))
-				(setq split-point (point))
-				nil))))
-		      nil))
-		;; now make the split. This means that some comma may need to be deleted.
-		(goto-char split-point)
-		(looking-at "\\s-*")
-		(delete-region split-point (match-end 0))
-		(cond
-		 ((looking-back ",")
-		  (while
-		      (progn
-			(delete-region split-point (setq split-point (1- split-point)))
-			(looking-back "\\s-"))))
-		 ((= split-point org-split-point)
-		  (insert " ")
-		  (setq split-point (point))))
-		(insert "\n" prefix " ")
-		(setq cur-point (point))
-		nil)
+                            (when loop-again
+                              (when (looking-at "As\\s-+\\(?:\\sw\\|\\s_\\)+\\s-*")
+                                (setq item-case ':dim-split-after)
+                                (goto-char (setq tentative-split-point (match-end 0))))
+                              (when (visual-bascic-at-line-contination)
+                                (beginning-of-line 2))
+                              (if (looking-at ",")
+                                  (goto-char (setq split-point (match-end 0)))
+                                (setq split-point (point))
+                                nil))))
+                      nil))
+                ;; now make the split. This means that some comma may need to be deleted.
+                (goto-char split-point)
+                (looking-at "\\s-*")
+                (delete-region split-point (match-end 0))
+                (cond
+                 ((looking-back ",")
+                  (while
+                      (progn
+                        (delete-region split-point (setq split-point (1- split-point)))
+                        (looking-back "\\s-"))))
+                 ((= split-point org-split-point)
+                  (insert " ")
+                  (setq split-point (point))))
+                (insert "\n" prefix " ")
+                (setq cur-point (point))
+                nil)
 
-	       ;;  case of Case (in Select ... End Select)
-	       ;;----------------------------------------------------------------------
-	       ((looking-at visual-basic-case-regexp)
-		(if (looking-at visual-basic-case-else-regexp)
-		    ;; if within a Case Else statement, then insert
-		    ;; a Case just before with same indentation
-		    (let ((indent (current-indentation)))
-		      (beginning-of-line)
-		      (insert "Case ")
-		      (visual-basic-indent-to-column indent)
-		      (setq item-case ':select-with-else
-			    split-point (point))
-		      (insert ?\n))
-		  (setq item-case ':select-without-else))
-		nil; break loop
-		)
+               ;;  case of Case (in Select ... End Select)
+               ;;----------------------------------------------------------------------
+               ((looking-at visual-basic-case-regexp)
+                (if (looking-at visual-basic-case-else-regexp)
+                    ;; if within a Case Else statement, then insert
+                    ;; a Case just before with same indentation
+                    (let ((indent (current-indentation)))
+                      (beginning-of-line)
+                      (insert "Case ")
+                      (visual-basic-indent-to-column indent)
+                      (setq item-case ':select-with-else
+                            split-point (point))
+                      (insert ?\n))
+                  (setq item-case ':select-without-else))
+                nil; break loop
+                )
 
-	       ;; next
-	       ((looking-at visual-basic-next-regexp)
-		(push (list 'next) block-stack))
-	       ;; default
-	       ;;--------------------------------------------------------------
-	       (t (if (bobp)
-		      (setq item-case 'not-itemizable)))
-	       )
-	      (when (null item-case)
-		(visual-basic-previous-line-of-code)
-		(setq previous-line-of-code t))
-	      (null item-case)))))
+               ;; next
+               ((looking-at visual-basic-next-regexp)
+                (push (list 'next) block-stack))
+               ;; default
+               ;;--------------------------------------------------------------
+               (t (if (bobp)
+                      (setq item-case 'not-itemizable)))
+               )
+              (when (null item-case)
+                (visual-basic-previous-line-of-code)
+                (setq previous-line-of-code t))
+              (null item-case)))))
     (case item-case
       ((:dim-split-after)   (message "split after") (goto-char cur-point))
       ((:dim-split-before)  (message "split before") (goto-char split-point))
@@ -1467,50 +1467,50 @@ Interting an item means:
        ;; go forward until the End Select or next case is met in order to
        ;; to insert the new case at this position
        (let ((select-case-depth 0))
-	 (while
-	     (progn
-	       (visual-basic-next-line-of-code)
+         (while
+             (progn
+               (visual-basic-next-line-of-code)
                (cond
-		;; case was found, insert case and exit loop
-		((and (= 0 select-case-depth)
-		      (looking-at visual-basic-case-regexp))
-		 (let ((indent (current-indentation)))
-		   (beginning-of-line)
-		   (insert "Case ")
-		   (visual-basic-indent-to-column indent)
-		   (save-excursion (insert ?\n))
-		   nil))
-		((looking-at visual-basic-select-regexp)
-		 (setq select-case-depth (1+ select-case-depth))
-		 (if
-		     (re-search-forward (concat visual-basic-select-regexp
-						"\\|"
-						visual-basic-select-end-regexp)
-					nil nil)
-		     (progn
-		       (beginning-of-line)
-		       t ; loop again
-		       )
-		   (let ((l (line-number-at-pos)))
-		     (goto-char cur-point)
-		     (error "Select Case without matching end at line %d" l))))
-		((looking-at visual-basic-select-end-regexp)
-		 (setq select-case-depth (1- select-case-depth))
-		 (if (= select-case-depth -1)
-		     (let ((indent (current-indentation)))
-		       (insert  "Case ")
-		       (save-excursion (insert ?\n ))
-		       (visual-basic-indent-to-column
-		        (+ indent visual-basic-mode-indent))
-		       nil;; break loop
+                ;; case was found, insert case and exit loop
+                ((and (= 0 select-case-depth)
+                      (looking-at visual-basic-case-regexp))
+                 (let ((indent (current-indentation)))
+                   (beginning-of-line)
+                   (insert "Case ")
+                   (visual-basic-indent-to-column indent)
+                   (save-excursion (insert ?\n))
+                   nil))
+                ((looking-at visual-basic-select-regexp)
+                 (setq select-case-depth (1+ select-case-depth))
+                 (if
+                     (re-search-forward (concat visual-basic-select-regexp
+                                                "\\|"
+                                                visual-basic-select-end-regexp)
+                                        nil nil)
+                     (progn
+                       (beginning-of-line)
+                       t ; loop again
                        )
-		   t; loop again
+                   (let ((l (line-number-at-pos)))
+                     (goto-char cur-point)
+                     (error "Select Case without matching end at line %d" l))))
+                ((looking-at visual-basic-select-end-regexp)
+                 (setq select-case-depth (1- select-case-depth))
+                 (if (= select-case-depth -1)
+                     (let ((indent (current-indentation)))
+                       (insert  "Case ")
+                       (save-excursion (insert ?\n ))
+                       (visual-basic-indent-to-column
+                        (+ indent visual-basic-mode-indent))
+                       nil;; break loop
+                       )
+                   t; loop again
                    ))
-		((eobp)
-		 (goto-char cur-point)
-		 (error "Case without ending"))
-		;; otherwise loop again
-		(t t)))))) ; end of select-case-without-else
+                ((eobp)
+                 (goto-char cur-point)
+                 (error "Case without ending"))
+                ;; otherwise loop again
+                (t t)))))) ; end of select-case-without-else
       )))
 
 (defun visual-basic-propertize-attribute ()
@@ -1523,29 +1523,29 @@ the concerned attribute declartion"
     (save-match-data
       (beginning-of-line)
       (let (variable property type lettable pos type-prefix)
-	(if (looking-at "^\\s-*Private\\s-+\\(\\sw\\(?:\\sw\\|\\s_\\)*\\)\\s-+As\\s-+\\(\\sw\\(?:\\sw\\|\\s_\\)*\\)")
-	    (progn
-	      (setq variable (match-string 1)
-		    type (match-string 2)
-		    lettable (string-match visual-basic-lettable-type-regexp type))
-	      (if (string-match (concat "\\`"
-					visual-basic-variable-scope-prefix-re
-					"\\(" visual-basic-variable-type-prefix-re "\\)")
-				variable)
-		  (setq 
-		   type-prefix (match-string 1 variable)
-		   property (substring variable (match-end 0)))
-		(setq type-prefix ""
-		      property variable))
-	      (beginning-of-line 2)
-	      (insert
-	       "Property " (if lettable "Let" "Set") " " property "(" 
-	       (if lettable "ByVal " "")
-	       type-prefix "NewValue_IN As " type ")\n"
-	       "\t"  (if lettable "Let" "Set") " " variable " = " type-prefix "NewValue_IN\nEnd Property\n"
-	       "Property Get " property "() As " type "\n"
-	       "\t"  (if lettable "Let" "Set") " " property " = " variable "\nEnd Property\n"))
-	  (error "Not on a propertizable variable declaration."))))))
+        (if (looking-at "^\\s-*Private\\s-+\\(\\sw\\(?:\\sw\\|\\s_\\)*\\)\\s-+As\\s-+\\(\\sw\\(?:\\sw\\|\\s_\\)*\\)")
+            (progn
+              (setq variable (match-string 1)
+                    type (match-string 2)
+                    lettable (string-match visual-basic-lettable-type-regexp type))
+              (if (string-match (concat "\\`"
+                                        visual-basic-variable-scope-prefix-re
+                                        "\\(" visual-basic-variable-type-prefix-re "\\)")
+                                variable)
+                  (setq
+                   type-prefix (match-string 1 variable)
+                   property (substring variable (match-end 0)))
+                (setq type-prefix ""
+                      property variable))
+              (beginning-of-line 2)
+              (insert
+               "Property " (if lettable "Let" "Set") " " property "("
+               (if lettable "ByVal " "")
+               type-prefix "NewValue_IN As " type ")\n"
+               "\t"  (if lettable "Let" "Set") " " variable " = " type-prefix "NewValue_IN\nEnd Property\n"
+               "Property Get " property "() As " type "\n"
+               "\t"  (if lettable "Let" "Set") " " property " = " variable "\nEnd Property\n"))
+          (error "Not on a propertizable variable declaration."))))))
 
 
 ;;; Some experimental functions
@@ -1587,173 +1587,173 @@ This function is under construction"
   (interactive)
   (flet
       ((insert-space-at-point
-	()
-	(insert " "))
+        ()
+        (insert " "))
        ;; avoid to insert space inside a floating point number
        (check-plus-or-minus-not-preceded-by-space-p
-	()
-	(save-match-data
-	  (and
-	   (visual-basic-in-code-context-p)
-	   (null (looking-back "\\([0-9]\\.\\|[0-9]\\)[eE]")))))
+        ()
+        (save-match-data
+          (and
+           (visual-basic-in-code-context-p)
+           (null (looking-back "\\([0-9]\\.\\|[0-9]\\)[eE]")))))
        (check-plus-or-minus-not-followed-by-space-p
-	()
-	(save-match-data
-	  (and
-	   (visual-basic-in-code-context-p)
-	   (null  (looking-at "\\(\\sw\\|\\s_\\|\\s\(\\|[.0-9]\\)"))
-	   (null (looking-back "\\([0-9]\\.\\|[0-9]\\)[eE]\\|,\\s-*\\(\\|_\\s-*\\)\\|:=\\s-*")))));
+        ()
+        (save-match-data
+          (and
+           (visual-basic-in-code-context-p)
+           (null  (looking-at "\\(\\sw\\|\\s_\\|\\s\(\\|[.0-9]\\)"))
+           (null (looking-back "\\([0-9]\\.\\|[0-9]\\)[eE]\\|,\\s-*\\(\\|_\\s-*\\)\\|:=\\s-*")))));
        (check-comparison-sign-not-followed-by-space-p
-	()
-	(save-match-data
-	  (and
-	   (visual-basic-in-code-context-p)
-	   (let ((next-char (match-string 2))
-		 (str--1 (or (= (match-beginning 1) (point-min))
-			     (buffer-substring-no-properties (1- (match-beginning 1))
-							     (1+ (match-beginning 1))))))
-	     (null (or
-		    (and (stringp str--1)
-			 (string= str--1 ":="))
-		    (string-match "[<=>]" next-char ))) ))));
+        ()
+        (save-match-data
+          (and
+           (visual-basic-in-code-context-p)
+           (let ((next-char (match-string 2))
+                 (str--1 (or (= (match-beginning 1) (point-min))
+                             (buffer-substring-no-properties (1- (match-beginning 1))
+                                                             (1+ (match-beginning 1))))))
+             (null (or
+                    (and (stringp str--1)
+                         (string= str--1 ":="))
+                    (string-match "[<=>]" next-char ))) ))));
        (replace-by-&
-	()
-	(goto-char (1- (point)))
-	(let* ((p1 (point))
-	       (p2 (1+ p1)))
-	  (while (looking-back "\\s-")
-	    (goto-char (setq p1 (1- p2))))
-	  (goto-char p2)
-	  (when (looking-at "\\s-+")
-	    (setq p2 (match-end 0)))
-	  (delete-region p1 p2)
-	  (insert " & ")));
+        ()
+        (goto-char (1- (point)))
+        (let* ((p1 (point))
+               (p2 (1+ p1)))
+          (while (looking-back "\\s-")
+            (goto-char (setq p1 (1- p2))))
+          (goto-char p2)
+          (when (looking-at "\\s-+")
+            (setq p2 (match-end 0)))
+          (delete-region p1 p2)
+          (insert " & ")));
        (check-string-concatenation-by-+
-	()
-	(save-match-data
-	  (and
-	   (visual-basic-in-code-context-p)
-	   (or
-	    (looking-at "\\s-*\\(\\|_\n\\s-*\\)\"")
-	    (looking-back "\"\\(\\|\\s-*_\\s-*\n\\)\\s-*\\+")))));
+        ()
+        (save-match-data
+          (and
+           (visual-basic-in-code-context-p)
+           (or
+            (looking-at "\\s-*\\(\\|_\n\\s-*\\)\"")
+            (looking-back "\"\\(\\|\\s-*_\\s-*\n\\)\\s-*\\+")))));
        )
     (let (vb-other-buffers-list
-	  ;; list of found error styles
-	  ;; each element is a list (POSITION PROMPT ERROR-SOLVE-HANDLER)
-	  next-se-list
-	  next-se
-	  case-fold-search
-	  (hl-style-error (make-overlay 1 1)); to be moved
-	  (style-errors
-	   '(
-	     ;; each element is a vector
-	     ;;   0	 1	2	3	  4		      5		    6
-	     ;; [ REGEXP PROMPT GET-POS RE-EXP-NB ERROR-SOLVE-HANDLER ERROR-CONFIRM LEVEL]
-	     [ "\\(\\s\)\\|\\sw\\|\\s_\\)[-+]"
-	       "Plus or minus not preceded by space"
-	       match-end 1
-	       insert-space-at-point
-	       check-plus-or-minus-not-preceded-by-space-p
-	       0 ]
-	     [ "\\(\\s\)\\|\\sw\\|\\s_\\)[/\\*&]"
-	       "Operator not preceded by space"
-	       match-end 1
-	       insert-space-at-point
-	       visual-basic-in-code-context-p
-	       0 ]
-	     [ "[/\\*&]\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
-	       "Operator not followed by space"
-	       match-beginning 1
-	       insert-space-at-point
-	       visual-basic-in-code-context-p
-	       0 ]
-	     [ "[-+]\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
-	       "Plus or minus not followed by space"
-	       match-beginning 1
-	       insert-space-at-point
-	       check-plus-or-minus-not-followed-by-space-p
-	       0 ]
-	     [ "\\(\\s\)\\|\\sw\\|\\s_\\)\\(=\\|<\\|>\\)"
-	       "Comparison sign not preceded by space"
-	       match-end 1
-	       insert-space-at-point
-	       visual-basic-in-code-context-p
-	       0 ]
-	     [ "\\(=\\|<\\|>\\)\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
-	       "Comparison sign not followed by space"
-	       match-end 1
-	       insert-space-at-point
-	       check-comparison-sign-not-followed-by-space-p
-	       0 ]
-	     [ ",\\(\\sw\\|\\s_\\)"
-	       "Comma not followed by space"
-	       match-beginning 1
-	       insert-space-at-point
-	       visual-basic-in-code-context-p
-	       0 ]
-	     [ "\\+"
-	       "String should be concatenated with & rather than with +"
-	       match-end 0
-	       replace-by-&
-	       check-string-concatenation-by-+
-	       0 ]
-	     )); end of style error types
-	  )
-      (condition-case nil 
-	  (progn
-	    (overlay-put hl-style-error 'face hl-line-face)
-	    (overlay-put hl-style-error 'window (selected-window))
-	    (dolist (x (buffer-list))
-	      (if (and (save-excursion
-			 (set-buffer x)
-			 (derived-mode-p 'visual-basic-mode))
-		       (null (eq x (current-buffer))))
-		  (push x vb-other-buffers-list)))
-	    (save-excursion
-	      (save-restriction
-		(widen)
-		(goto-char (point-min))
-		(while
-		    (progn
-		      (setq next-se-list nil)
-		      (dolist (se style-errors)
-			(save-excursion
-			  (when
-			      (and
-			       (Propertyre-search-forward (aref se 0) nil t)
-			       (progn
-				 (goto-char  (funcall (aref se 2)
-						      (aref se 3)))
-				 (or (null (aref se 5))
-				     (funcall  (aref se 5))
-				     (let (found)
-				       (while (and
-					       (setq found (re-search-forward (aref se 0) nil t))
-					       (null (progn
-						       (goto-char  (funcall (aref se 2)
-									    (aref se 3)))
-						       (funcall  (aref se 5))))))
-				       found))))
-			    (push (list (point)
-					(match-beginning 0) 
-					(match-end 0)
-					(aref se 1)
-					(and (> (aref se 6) visual-basic-auto-check-style-level)
-					     (aref se 4)))
-				  next-se-list))))
-		      (when next-se-list
-			(setq next-se-list
-			      (sort next-se-list (lambda (x y) (< (car x) (car y))))
-			      next-se (pop next-se-list))
-			(goto-char (pop next-se))
-			(move-overlay hl-style-error (pop next-se) (pop next-se))
-			(when (y-or-n-p (concat (pop next-se)
-						", solve it ? "))
-			  (funcall (pop next-se)))
-			t; loop again
-			))))) )
-	;; error handlers
-	(delete-overlay hl-style-error))
+          ;; list of found error styles
+          ;; each element is a list (POSITION PROMPT ERROR-SOLVE-HANDLER)
+          next-se-list
+          next-se
+          case-fold-search
+          (hl-style-error (make-overlay 1 1)); to be moved
+          (style-errors
+           '(
+             ;; each element is a vector
+             ;;   0  1  2 3   4         5       6
+             ;; [ REGEXP PROMPT GET-POS RE-EXP-NB ERROR-SOLVE-HANDLER ERROR-CONFIRM LEVEL]
+             [ "\\(\\s\)\\|\\sw\\|\\s_\\)[-+]"
+               "Plus or minus not preceded by space"
+               match-end 1
+               insert-space-at-point
+               check-plus-or-minus-not-preceded-by-space-p
+               0 ]
+             [ "\\(\\s\)\\|\\sw\\|\\s_\\)[/\\*&]"
+               "Operator not preceded by space"
+               match-end 1
+               insert-space-at-point
+               visual-basic-in-code-context-p
+               0 ]
+             [ "[/\\*&]\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
+               "Operator not followed by space"
+               match-beginning 1
+               insert-space-at-point
+               visual-basic-in-code-context-p
+               0 ]
+             [ "[-+]\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
+               "Plus or minus not followed by space"
+               match-beginning 1
+               insert-space-at-point
+               check-plus-or-minus-not-followed-by-space-p
+               0 ]
+             [ "\\(\\s\)\\|\\sw\\|\\s_\\)\\(=\\|<\\|>\\)"
+               "Comparison sign not preceded by space"
+               match-end 1
+               insert-space-at-point
+               visual-basic-in-code-context-p
+               0 ]
+             [ "\\(=\\|<\\|>\\)\\(\\s\(\\|\\sw\\|\\s_\\|\\s.\\)"
+               "Comparison sign not followed by space"
+               match-end 1
+               insert-space-at-point
+               check-comparison-sign-not-followed-by-space-p
+               0 ]
+             [ ",\\(\\sw\\|\\s_\\)"
+               "Comma not followed by space"
+               match-beginning 1
+               insert-space-at-point
+               visual-basic-in-code-context-p
+               0 ]
+             [ "\\+"
+               "String should be concatenated with & rather than with +"
+               match-end 0
+               replace-by-&
+               check-string-concatenation-by-+
+               0 ]
+             )); end of style error types
+          )
+      (condition-case nil
+          (progn
+            (overlay-put hl-style-error 'face hl-line-face)
+            (overlay-put hl-style-error 'window (selected-window))
+            (dolist (x (buffer-list))
+              (if (and (save-excursion
+                         (set-buffer x)
+                         (derived-mode-p 'visual-basic-mode))
+                       (null (eq x (current-buffer))))
+                  (push x vb-other-buffers-list)))
+            (save-excursion
+              (save-restriction
+                (widen)
+                (goto-char (point-min))
+                (while
+                    (progn
+                      (setq next-se-list nil)
+                      (dolist (se style-errors)
+                        (save-excursion
+                          (when
+                              (and
+                               (Propertyre-search-forward (aref se 0) nil t)
+                               (progn
+                                 (goto-char  (funcall (aref se 2)
+                                                      (aref se 3)))
+                                 (or (null (aref se 5))
+                                     (funcall  (aref se 5))
+                                     (let (found)
+                                       (while (and
+                                               (setq found (re-search-forward (aref se 0) nil t))
+                                               (null (progn
+                                                       (goto-char  (funcall (aref se 2)
+                                                                            (aref se 3)))
+                                                       (funcall  (aref se 5))))))
+                                       found))))
+                            (push (list (point)
+                                        (match-beginning 0)
+                                        (match-end 0)
+                                        (aref se 1)
+                                        (and (> (aref se 6) visual-basic-auto-check-style-level)
+                                             (aref se 4)))
+                                  next-se-list))))
+                      (when next-se-list
+                        (setq next-se-list
+                              (sort next-se-list (lambda (x y) (< (car x) (car y))))
+                              next-se (pop next-se-list))
+                        (goto-char (pop next-se))
+                        (move-overlay hl-style-error (pop next-se) (pop next-se))
+                        (when (y-or-n-p (concat (pop next-se)
+                                                ", solve it ? "))
+                          (funcall (pop next-se)))
+                        t; loop again
+                        ))))) )
+        ;; error handlers
+        (delete-overlay hl-style-error))
       (delete-overlay hl-style-error)))
   (message "Done Visual Basic style check"))
 
@@ -1764,6 +1764,6 @@ This function is under construction"
 ;;; visual-basic-mode.el ends here
 
 
-;External Links
-;[http://visualbasic.freetutes.com/ Visual Basic tutorials]
-;[http://en.wikibooks.org/wiki/Visual_Basic/Coding_Standards]
+                                        ;External Links
+                                        ;[http://visualbasic.freetutes.com/ Visual Basic tutorials]
+                                        ;[http://en.wikibooks.org/wiki/Visual_Basic/Coding_Standards]

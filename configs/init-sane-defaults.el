@@ -75,20 +75,20 @@
   (defvar --temporary-directory (concat user-emacs-directory "temps"))
   (if (not (file-exists-p --temporary-directory))
       (make-directory --temporary-directory))
-	  
+
   (setq temporary-file-directory (concat user-emacs-directory "temps/")
-      backup-directory-alist `((".*" . ,temporary-file-directory))
-      save-place-file (expand-file-name "places" temporary-file-directory)
-	  savehist-file (expand-file-name "history" temporary-file-directory)
-      recentf-save-file (expand-file-name "recentf" temporary-file-directory)
-	  tramp-save-file (expand-file-name "tramp" temporary-file-directory)
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
+        backup-directory-alist `((".*" . ,temporary-file-directory))
+        save-place-file (expand-file-name "places" temporary-file-directory)
+        savehist-file (expand-file-name "history" temporary-file-directory)
+        recentf-save-file (expand-file-name "recentf" temporary-file-directory)
+        tramp-save-file (expand-file-name "tramp" temporary-file-directory)
+        auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
 
 ;; Write backup files to own directory
 (progn
   (setq backup-directory-alist
         `(("." . ,(expand-file-name
-                   (concat user-emacs-directory "backups")))))	  
+                   (concat user-emacs-directory "backups")))))
   ;; Make backups of files, even when they're in version control
   (setq vc-make-backup-files t)
   ;; Stop emacs's backup changing the file's creation date of the original file
@@ -181,12 +181,12 @@
   (eval `(defadvice ,command (after indent-region activate)
            (and (not current-prefix-arg)
                 (member major-mode '(emacs-lisp-mode lisp-mode
-                                                     clojure-mode    scheme-mode
-                                                     haskell-mode    ruby-mode
-                                                     rspec-mode      python-mode
-                                                     c-mode          c++-mode
-                                                     objc-mode       latex-mode
-                                                     plain-tex-mode))
+                                     clojure-mode    scheme-mode
+                                     haskell-mode    ruby-mode
+                                     rspec-mode      python-mode
+                                     c-mode          c++-mode
+                                     objc-mode       latex-mode
+                                     plain-tex-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

@@ -9,8 +9,8 @@
 ;; Version: 1.10   (27 Aug 1999)
 ;; Maintainer: Pat Thoyts <pat@zsplat.freeserve.co.uk>
 ;; Keywords: languages
-;; 
-;; 
+;;
+;;
 ;; ----------------------------------------------------------------------
 ;;
 ;; Copyright (C) 1998 Pat Thoyts <pat@zsplat.freeserve.co.uk>
@@ -26,7 +26,7 @@
 ;; for more details.
 ;;
 ;; You should have received a copy of the GNU General Public License along
-;; with this program; see the file `Copying'.  If not, write to the Free 
+;; with this program; see the file `Copying'.  If not, write to the Free
 ;; Software Foundation, 675 Mass Ave, Cambridge, MA 02139, USA.
 ;;
 ;; ----------------------------------------------------------------------
@@ -36,7 +36,7 @@
 ;;
 ;;   Provides a major mode that understands the syntax of UniBasic program
 ;;   files. This is a basic style language used to program the UniData
-;;   relational database. unibasic-mode provides text coloration using 
+;;   relational database. unibasic-mode provides text coloration using
 ;;   font-lock mode and understands how to indent the source code.
 ;;
 ;;; INSTALLATION
@@ -57,7 +57,7 @@
 ;;   following to your init file:
 ;;
 ;;   (autoload 'unibasic-mode "unibasic-mode" "Unibasic mode." t)
-;;     (setq auto-mode-alist 
+;;     (setq auto-mode-alist
 ;;       (append '(("\\.ub$" . unibasic-mode)) auto-mode-alist))
 ;;
 ;;   _OR_
@@ -79,9 +79,9 @@
 ;;; REVISON 1.20
 ;;  ------------
 ;;
-;;  Norman Bauer: I found this on the gmane mailing list. After 10 years the code still 
-;;  worked flawlessly. Byte-compile file warned of obsolete "string-to-int" function which 
-;;  I changed to "string-to-number". I hope this file serves someother UniBASIC programmer   
+;;  Norman Bauer: I found this on the gmane mailing list. After 10 years the code still
+;;  worked flawlessly. Byte-compile file warned of obsolete "string-to-int" function which
+;;  I changed to "string-to-number". I hope this file serves someother UniBASIC programmer
 ;;  as well as it has serverd me.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -123,12 +123,12 @@ expressions.")
          (string-match "^[0-9]+" emacs-version))
     (setq emacs-major-version
           (string-to-number (substring emacs-version ;; NVB- Changed string-to-int to string-to-number
-                                    (match-beginning 0) (match-end 0)))))
+                                       (match-beginning 0) (match-end 0)))))
 (if (and (not (boundp 'emacs-minor-version))
          (string-match "^[0-9]+\\.\\([0-9]+\\)" emacs-version))
     (setq emacs-minor-version
           (string-to-number (substring emacs-version ;; NVB- Changed string-to-int to string-to-number
-                                    (match-beginning 1) (match-end 1)))))
+                                       (match-beginning 1) (match-end 1)))))
 (defun unibasic-emacs-version-or-newer (major minor)
   (or (> emacs-major-version major)
       (and (= emacs-major-version major)
@@ -138,7 +138,7 @@ expressions.")
 (unless (and (featurep 'custom) (fboundp 'defcustom))
   (defmacro defgroup (&rest args) nil)
   (defmacro defface (&rest args) nil)
-  (defmacro defcustom (var value doc &rest args) 
+  (defmacro defcustom (var value doc &rest args)
     "For versions without `custom', use defvar.
 The args are (name default-value description &optional .....)"
     (defvar var value doc)))
@@ -292,9 +292,9 @@ in you source code.")
   ;; make the ';' key electric.
   (let ((ekey (char-to-string unibasic-separator-char)))
     (define-key unibasic-mode-map ekey     'unibasic-electric-separator))
-  ;(define-key unibasic-mode-map "!"        'unibasic-electric-star)
-  ;(define-key unibasic-mode-map "*"        'unibasic-electric-star)
-  ;(define-key unibasic-mode-map ":"        'unibasic-electric-colon)
+                                        ;(define-key unibasic-mode-map "!"        'unibasic-electric-star)
+                                        ;(define-key unibasic-mode-map "*"        'unibasic-electric-star)
+                                        ;(define-key unibasic-mode-map ":"        'unibasic-electric-colon)
   (define-key unibasic-mode-map "\t"       'unibasic-electric-tab)
   (define-key unibasic-mode-map "\r"       'unibasic-electric-newline)
   (define-key unibasic-mode-map "\M-\r"    'unibasic-continued-newline)
@@ -368,7 +368,7 @@ in you source code.")
 
 This is a major mode that understands the syntax of UniBasic program
 files. This is a basic style language used to program the UniData
-relational database. `unibasic-mode' provides text coloration using 
+relational database. `unibasic-mode' provides text coloration using
 \\[font-lock-mode] and understands how to indent the source code.
 Starting `unibasic-mode' runs `unibasic-mode-hook'.
 
@@ -483,7 +483,7 @@ POS is an integer or buffer pointer."
   (if (equal unibasic-emacs-type 'xemacs)
       (disable-timeout arg)
     (cancel-timer arg)))
-        
+
 (defun unibasic-add-timer (timeout func)
   "Call the Emacs or XEmacs function to set an idle timer.
 TIMEOUT is the number of idle seconds to wait and FUNC is the function."
@@ -524,7 +524,7 @@ Used mainly by `unibasic-indent-line'."
 (defun unibasic-looking-at-line (regexp &optional line)
   "Look for a regular expression REGEXP which starts a unibasic syntactic
 line. i.e: follows a label, or ; or opens a new line."
-  (unibasic-looking-at 
+  (unibasic-looking-at
    (concat "\\(" unibasic-label-regexp "\\|"
            "^\\|.*;\\)[ \t]*\\(" regexp "\\)" ) line))
 
@@ -539,12 +539,12 @@ is entered."
 (defun unibasic-skip-space-backward ()
   "Skip back over whitespace from point and return the next non
 white-space character on this line."
-  (save-excursion 
+  (save-excursion
     (backward-char)
     (let ((p (progn
-               (skip-syntax-backward 
+               (skip-syntax-backward
                 " "
-                (save-excursion (beginning-of-line) (point)))  
+                (save-excursion (beginning-of-line) (point)))
                (point)) ))
       (char-before p))))
 
@@ -615,7 +615,7 @@ Bound to \\[unibasic-continued-newline]"
       (insert "  "))
     (insert-char unibasic-separator-char 1)
     (insert comment-start)))
-  
+
 (defun unibasic-pre-abbrev-expand-hook ()
   "Hook for capitalising keywords using abbrev-mode but only if we are
 in the coding part of the buffer. Set with `unibasic-capitalize-keywords'"
@@ -782,7 +782,7 @@ to `unibasic-initial-indent' plus `unibasic-default-indent' as needed."
                               (unibasic-get-bol 0) t))
         (setq thiscol (+ thiscol unibasic-default-indent)))
     (if (and (unibasic-looking-at-line "\\<FOR\\>" line)
-             (not (unibasic-looking-at-line 
+             (not (unibasic-looking-at-line
                    "\\<FOR[ \t].*;[ \t]*NEXT" line)))
         (setq thiscol (+ thiscol unibasic-default-indent)))
     (if (and (unibasic-looking-at-line "\\<LOOP\\>" line)
@@ -845,7 +845,7 @@ and checking for the presence of `unibasic-label-regexp' or
       (delete-horizontal-space)
       (indent-to col)
       (if unibasic-use-magic-labels
-	  (unibasic-magic-labels (unibasic-get-bol) (unibasic-get-eol))) ))))
+          (unibasic-magic-labels (unibasic-get-bol) (unibasic-get-eol))) ))))
 
 (defconst unibasic-fume-function-name-regexp
   "^[ \t]*\\(\\([0-9]+:?\\)\\|\\([a-zA-Z][a-zA-Z0-9_$\\.]*:\\)\\)"
@@ -883,17 +883,17 @@ of the file."
           (narrow-to-region start end))
         (goto-char (point-min))
         (remove-text-properties (point-min) (point-max) '(mouse-face nil))
-        (while (re-search-forward 
+        (while (re-search-forward
                 "GO\\(SUB\\|TO\\)?[ \t]*\\([^ \t\n\r,;]+\\)$?"
-;;                "GO\\(SUB\\|TO\\)?\\w+\\([^;]+\\)\\(;\\|$\\)"
-;; would use (match-string 0) and then more stuff.
+                ;;                "GO\\(SUB\\|TO\\)?\\w+\\([^;]+\\)\\(;\\|$\\)"
+                ;; would use (match-string 0) and then more stuff.
                 (point-max) t)
           (let ((m (match-data))
                 (s 4))
             (while (elt m s)
               (add-text-properties (elt m s) (elt m (1+ s))
                                    '( mouse-face highlight
-                                      rear-nonsticky (mouse-face)))
+                                                 rear-nonsticky (mouse-face)))
               (setq s (+ 2 s)))))
         (set-buffer-modified-p bmp)
         (setq inhibit-read-only iro
@@ -917,9 +917,9 @@ position."
     (let ((alist nil))
       (while (re-search-forward unibasic-label-regexp nil t)
         (forward-sexp)
-        (setq alist 
-              (append alist 
-                      (list (cons (buffer-substring 
+        (setq alist
+              (append alist
+                      (list (cons (buffer-substring
                                    (match-beginning 1)
                                    (match-end 1))
                                   (match-beginning 1))))) )
@@ -946,21 +946,21 @@ find-file-hooks."
   "Handle mouse click. If over a label, jump to the label definition."
   (interactive "e")
   (let ((y (save-excursion
-	     (set-buffer (window-buffer (unibasic-event-window event)))
-	     (get-char-property (unibasic-event-point event) 'mouse-face))))
+             (set-buffer (window-buffer (unibasic-event-window event)))
+             (get-char-property (unibasic-event-point event) 'mouse-face))))
     (set-buffer (window-buffer (unibasic-event-window event)))
     (select-window (unibasic-event-window event))
     (goto-char (unibasic-event-point event))
     (if (not y)
-	nil
+        nil
       (if (get-char-property (point) 'mouse-face)
-	  (let* ((pre (previous-single-property-change (point) 'mouse-face))
-		 (pos (next-single-property-change (point) 'mouse-face))
+          (let* ((pre (previous-single-property-change (point) 'mouse-face))
+                 (pos (next-single-property-change (point) 'mouse-face))
                  (pre (if pre pre (point)))
                  (pos (if pos pos (point)))
-		 (txt (buffer-substring-no-properties pre pos))
+                 (txt (buffer-substring-no-properties pre pos))
                  (mark (unibasic-label-position txt)))
-	    (if mark 
+            (if mark
                 (goto-char mark)
               (message "Failed to match label %s" txt) ))))))
 
@@ -983,8 +983,8 @@ Bound to \\[unibasic-insert-emacs-tag]"
   (interactive)
   (goto-char (point-max))
   (if (not (save-excursion
-             (re-search-backward "End:[ \t]*$" 
-                                 (save-excursion 
+             (re-search-backward "End:[ \t]*$"
+                                 (save-excursion
                                    (beginning-of-line -5) (point))
                                  t)))
       (insert "\n*\n* Local variables:\n* mode: unibasic\n* End:\n")))
@@ -1043,7 +1043,7 @@ auto-capitalization. If you add commands to this list you must re-make
 
 (defvar unibasic-keyword-regexp
   (eval-when-compile
-    (concat "\\(^\\|[; \t]\\)\\(" 
+    (concat "\\(^\\|[; \t]\\)\\("
             (make-regexp unibasic-keyword-words)
             "\\)\\([; \t]\\|$\\)")))
 
@@ -1083,8 +1083,8 @@ auto-capitalization. If you add commands to this list you must re-make
        "@DAY" "@DICT" "@FORMAT" "@GID" "@HEADER" "@ID" "@LEVEL" "@LOGNAME"
        "@LPTRHIGH" "@LPTRWIDE" "@MONTH" "@PARASENTENCE" "@PATH" "@RECORD"
        "@RECUR0" "@RECUR1" "@RECUR2" "@RECUR3" "@RECUR4" "@SENTENCE"
-       "@SYS.BELL" "@SYSTEM.RETURN.CODE" "@TIME" "@TTY" "@TUPLE" "@UID" 
-       "@UDTNO" "@USER0" "@USER1" "@USER2" "@USER3" "@USER4" "@USERNO" 
+       "@SYS.BELL" "@SYSTEM.RETURN.CODE" "@TIME" "@TTY" "@TUPLE" "@UID"
+       "@UDTNO" "@USER0" "@USER1" "@USER2" "@USER3" "@USER4" "@USERNO"
        "@USER.RETURN.CODE" "@USER.TYPE" "@WHO" "@YEAR" )
     "A list of special variables defined in unibasic."))
 
@@ -1103,7 +1103,7 @@ character and not as an operator.")
 (defvar unibasic-font-lock-keywords
   (let ((clist
          (if (not unibasic-font-lock-syntactify)
-             (list (cons "\\(^\\|;\\)[ \t]*\\(\\*\\|!.*\\)$" 
+             (list (cons "\\(^\\|;\\)[ \t]*\\(\\*\\|!.*\\)$"
                          '(2 font-lock-comment-face)))))
         (mlist
          (list

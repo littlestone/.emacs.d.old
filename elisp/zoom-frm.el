@@ -186,16 +186,16 @@
   "Zoom a frame or buffer."
   :group 'frames :group 'Frame-Commands ; Defined in `frame-cmds.el'.
   :link `(url-link :tag "Send Bug Report"
-          ,(concat "mailto:" "drew.adams" "@" "oracle" ".com?subject=\
+                   ,(concat "mailto:" "drew.adams" "@" "oracle" ".com?subject=\
 zoom-frm.el bug: \
 &body=Describe bug here, starting with `emacs -q'.  \
 Don't forget to mention your Emacs and library versions."))
   :link '(url-link :tag "Other Libraries by Drew"
-          "http://www.emacswiki.org/cgi-bin/wiki/DrewsElispLibraries")
+                   "http://www.emacswiki.org/cgi-bin/wiki/DrewsElispLibraries")
   :link '(url-link :tag "Download"
-          "http://www.emacswiki.org/cgi-bin/wiki/zoom-frm.el")
+                   "http://www.emacswiki.org/cgi-bin/wiki/zoom-frm.el")
   :link '(url-link :tag "Description"
-          "http://www.emacswiki.org/cgi-bin/wiki/SetFonts#ChangingFontSize")
+                   "http://www.emacswiki.org/cgi-bin/wiki/SetFonts#ChangingFontSize")
   :link '(emacs-commentary-link :tag "Commentary" "zoom-frm"))
 
 ;;;###autoload

@@ -1,6 +1,0 @@
-;; -*- emacs-lisp -*- <14/06/20 11:07:56 c:/GNU/home/.emacs.d/tramp>
-;; Tramp connection history.  Don't change this file.
-;; You can delete it, forcing Tramp to reapply the checks.
-
-((["ftp" "juntan" "10.1.1.1" nil nil]
-  ("started" t)))

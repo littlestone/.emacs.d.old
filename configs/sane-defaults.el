@@ -15,8 +15,8 @@
         save-place-file (expand-file-name "places" temporary-file-directory)
         savehist-file (expand-file-name "history" temporary-file-directory)
         recentf-save-file (expand-file-name "recentf" temporary-file-directory)
-        tramp-save-file (expand-file-name "tramp" temporary-file-directory)
-    auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
+        tramp-persistency-file-name (expand-file-name "tramp" temporary-file-directory)
+        auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
         auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
 
 ;; Write backup files to own directory
@@ -40,6 +40,14 @@
 
 ;; Answering just 'y' or 'n' will do
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; UTF-8 please
+(setq locale-coding-system 'utf-8-unix) ; pretty
+(set-terminal-coding-system 'utf-8-unix) ; pretty
+(set-keyboard-coding-system 'utf-8-unix) ; pretty
+(set-selection-coding-system 'utf-8-unix) ; please
+(set-buffer-file-coding-system 'utf-8-unix) ; please
+(prefer-coding-system 'utf-8-unix) ; pretty
 
 ;; Interactively do things
 (ido-mode t)
@@ -180,12 +188,12 @@
   (eval `(defadvice ,command (after indent-region activate)
            (and (not current-prefix-arg)
                 (member major-mode '(emacs-lisp-mode lisp-mode
-                                                     clojure-mode    scheme-mode
-                                                     haskell-mode    ruby-mode
-                                                     rspec-mode      python-mode
-                                                     c-mode          c++-mode
-                                                     objc-mode       latex-mode
-                                                     plain-tex-mode))
+                                     clojure-mode    scheme-mode
+                                     haskell-mode    ruby-mode
+                                     rspec-mode      python-mode
+                                     c-mode          c++-mode
+                                     objc-mode       latex-mode
+                                     plain-tex-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 

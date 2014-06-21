@@ -8,7 +8,6 @@
  '(cua-mode t nil (cua-base))
  '(fci-rule-color "#404040")
  '(fill-column 80)
- '(org-agenda-files (quote ("~/Dropbox/org/newgtd.org" "~/Dropbox/org/organizer.org")))
  '(show-paren-mode t)
  '(tabbar-separator (quote (0.5)))
  '(tool-bar-mode nil))

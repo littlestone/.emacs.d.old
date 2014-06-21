@@ -8,11 +8,11 @@
 (require 'cygwin-mount)
 (cygwin-mount-activate)
 
-;; Replace DOS shell with Cygwin Bash Shell 
+;; Replace DOS shell with Cygwin Bash Shell
 (add-hook 'comint-output-filter-functions
-    'shell-strip-ctrl-m nil t)
+          'shell-strip-ctrl-m nil t)
 (add-hook 'comint-output-filter-functions
-    'comint-watch-for-password-prompt nil t)
+          'comint-watch-for-password-prompt nil t)
 (setq explicit-shell-file-name "bash.exe")
 ;; For subprocesses invoked via the shell
 ;; (e.g., "shell -c command")

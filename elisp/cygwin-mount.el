@@ -221,8 +221,8 @@ determined at activation-time of cygwin-mount \(see
   "*The directory where the cygwin binaries reside.
 If nil then the cygwin-binary-directory must be into the PATH."
   :group 'cygwin-mount
-  :type '(radio	(const :tag "Cygwin is into PATH" :value nil)
-		(directory :tag "Cygwin-Binary-Dir" :value "")))
+  :type '(radio (const :tag "Cygwin is into PATH" :value nil)
+                (directory :tag "Cygwin-Binary-Dir" :value "")))
 
 (defcustom cygwin-mount-parsing-regexp t
   "*Rexexp used to parse the output of the mount program.
@@ -245,10 +245,10 @@ Available values are:
   :initialize 'custom-initialize-default
   :type `(radio (const :tag "Automatic" :value t)
                 (const :tag "Cygwin <= 1.1.8"
-		       :value ,cygwin-mount<=1.1.8-mount-regexp)
-		(const :tag "Cygwin >= 1.3.1"
-		       :value ,cygwin-mount>=1.3.1-mount-regexp)
-		(regexp :tag "Custom" :value "")))
+                       :value ,cygwin-mount<=1.1.8-mount-regexp)
+                (const :tag "Cygwin >= 1.3.1"
+                       :value ,cygwin-mount>=1.3.1-mount-regexp)
+                (regexp :tag "Custom" :value "")))
 
 
 (defcustom cygwin-mount-build-mount-table-asynch nil
@@ -272,7 +272,7 @@ e.g.  \(\"D:\\\\programs\\\\cygwin\\\\bin\" . \"/usr/bin/\") or
                        (cygwin-mount-build-table-internal)
                      (setq cygwin-mount-table--internal value))))
   :initialize 'custom-initialize-default
-  :type '(radio	(const :tag "Automatic"
+  :type '(radio (const :tag "Automatic"
                        :value t)
                 (repeat :tag "Custom mounts"
                         (cons (directory :tag "Mounted device")
@@ -288,23 +288,23 @@ e.g.  \(\"D:\\\\programs\\\\cygwin\\\\bin\" . \"/usr/bin/\") or
   "Search for COMMAND in `exec-path' and return the absolute file name.
 Return nil if COMMAND is not found anywhere in `exec-path'."
   (let ((list exec-path)
-	file)
+        file)
     (while list
       (setq list
-	    (if (and (setq file (expand-file-name command (car list)))
-		     (let ((suffixes cygwin-mount-executable-binary-suffixes)
-			   candidate)
-		       (while suffixes
-			 (setq candidate (concat file (car suffixes)))
-			 (if (and (file-executable-p candidate)
-				  (not (file-directory-p candidate)))
-			     (setq suffixes nil)
-			   (setq suffixes (cdr suffixes))
-			   (setq candidate nil)))
-		       (setq file candidate)))
-		nil
-	      (setq file nil)
-	      (cdr list))))
+            (if (and (setq file (expand-file-name command (car list)))
+                     (let ((suffixes cygwin-mount-executable-binary-suffixes)
+                           candidate)
+                       (while suffixes
+                         (setq candidate (concat file (car suffixes)))
+                         (if (and (file-executable-p candidate)
+                                  (not (file-directory-p candidate)))
+                             (setq suffixes nil)
+                           (setq suffixes (cdr suffixes))
+                           (setq candidate nil)))
+                       (setq file candidate)))
+                nil
+              (setq file nil)
+              (cdr list))))
     file))
 
 ;; functions
@@ -350,8 +350,8 @@ Currently there is only a distiction between cygwin versions
 <= and >= 1.3.1."
   (let ((version (cygwin-mount-get-cygwin-version)))
     (if (not (string< (cygwin-mount-get-cygwin-version) "1.3.1"))
-      cygwin-mount>=1.3.1-mount-regexp
-    cygwin-mount<=1.1.8-mount-regexp)))
+        cygwin-mount>=1.3.1-mount-regexp
+      cygwin-mount<=1.1.8-mount-regexp)))
 
 (defun cygwin-mount-get-cygdrive-prefix ()
   "Return prefix used for the \"/cygdrive/X/\" style of cygwin.
@@ -359,8 +359,8 @@ This is done by calling \"mount --show-cygdrive-prefixes\".
 The result is either \"/\" or \"/<string>/\"."
   (let ((buf (get-buffer-create " *cygdrive*"))
         (fullname (cygwin-mount-get-full-progname cygwin-mount-program))
-	(arg (if (string-match "^1\\.3" (cygwin-mount-get-cygwin-version))
-		 "--show-cygdrive-prefix" "--show-cygdrive-prefixes")))
+        (arg (if (string-match "^1\\.3" (cygwin-mount-get-cygwin-version))
+                 "--show-cygdrive-prefix" "--show-cygdrive-prefixes")))
     (if (null fullname)
         (error "Cannot find the program '%s', please check 'cygwin-mount-cygwin-bin-directory'!" cygwin-mount-program)
       (save-excursion
@@ -380,7 +380,7 @@ The result is either \"/\" or \"/<string>/\"."
                     (if (string= cygdrive-prefix "/")
                         cygdrive-prefix
                       (concat cygdrive-prefix "/")))
-              "/cygdrive/"))
+                "/cygdrive/"))
           (kill-buffer buf))))))
 
 (defun cygwin-mount-parse-mount ()
@@ -417,13 +417,13 @@ Precondition of this function is current buffer must be the buffer named
 (defun cygwin-mount-sentinel (proc msg)
   "Process sentinel for PROC with MSG."
   (if (or (eq (process-status proc) 'exit)
-	  (eq (process-status proc) 'signal))
+          (eq (process-status proc) 'signal))
       (let ((buf (get-buffer-create cygwin-mount-buffername)))
-	(save-excursion
-	  (set-buffer buf)
+        (save-excursion
+          (set-buffer buf)
           (setq cygwin-mount-table--internal (cygwin-mount-parse-mount)))
-	(kill-buffer buf)
-	(message "Build of mount table completed"))))
+        (kill-buffer buf)
+        (message "Build of mount table completed"))))
 
 (defun cygwin-mount-build-table-internal ()
   "Determine cygwin mount points.
@@ -551,10 +551,10 @@ NOTE: \"/cygdrive/\" is only an example for the cygdrive-prefix \(see
   (cygwin-mount-run-real-handler
    operation
    (cons (cygwin-mount-convert-file-name name)
-	 (if (stringp (car args))
- 	     (cons (cygwin-mount-convert-file-name (car args))
-		   (cdr args))
-	   args))))
+         (if (stringp (car args))
+             (cons (cygwin-mount-convert-file-name (car args))
+                   (cdr args))
+           args))))
 
 ;;; ange-ftp
 (if (locate-library "ange-ftp")
@@ -562,7 +562,7 @@ NOTE: \"/cygdrive/\" is only an example for the cygdrive-prefix \(see
 
 ;;; save the original function definition of ange-ftp-run-real-handler
 (defconst cygwin-mount-original-ange-ftp-handler
-  (if (featurep 'ange-ftp) 
+  (if (featurep 'ange-ftp)
       (symbol-function 'ange-ftp-run-real-handler)
     nil))
 
@@ -634,7 +634,7 @@ NOTE: \"/cygdrive/\" is only an example for the cygdrive-prefix \(see
            'cygwin-mount-map-drive)
       ;; rebind ange-ftp-run-real-handler to our version
       (if (featurep 'ange-ftp)
-	  (fset 'ange-ftp-run-real-handler 'cygwin-mount-ange-ftp-run-real-handler))
+          (fset 'ange-ftp-run-real-handler 'cygwin-mount-ange-ftp-run-real-handler))
 
       (setq cygwin-mount-activated t))))
 
@@ -665,9 +665,9 @@ NOTE: \"/cygdrive/\" is only an example for the cygdrive-prefix \(see
       (put 'expand-file-name 'cygwin-mount-name nil)
       (put 'substitute-in-file-name 'cygwin-mount-map-drive nil)
       (put 'expand-file-name 'cygwin-mount-map-drive nil)
-      ;; rebind ange-ftp-run-real-handler to it´s original definition.
+      ;; rebind ange-ftp-run-real-handler to itÂ´s original definition.
       (if (featurep 'ange-ftp)
-	  (fset 'ange-ftp-run-real-handler cygwin-mount-original-ange-ftp-handler))
+          (fset 'ange-ftp-run-real-handler cygwin-mount-original-ange-ftp-handler))
       (setq cygwin-mount-activated nil))))
 
 (provide 'cygwin-mount)

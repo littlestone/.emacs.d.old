@@ -1092,9 +1092,9 @@ that if there is ht's overlay at at the top then return 'default"
 
       (mapcar #'(lambda (overlay)
 
-                 (when (highlight-tail-overlay-get overlay 'highlight-tail)
+                  (when (highlight-tail-overlay-get overlay 'highlight-tail)
 
-                   (setq highlight-tail-overlay overlay)))
+                    (setq highlight-tail-overlay overlay)))
 
               overlays-at-start-point)
 
@@ -1932,17 +1932,17 @@ Run it, when you've made changes to some highlight-tail-mode variables."
 
     (mapcar #'(lambda (elem)
 
-               (if (<= (cdr elem) previous-elem-value)
+                (if (<= (cdr elem) previous-elem-value)
 
-                   (apply httmp-signal-error-function
+                    (apply httmp-signal-error-function
 
-                          elem
+                           elem
 
-                          (list
+                           (list
 
-                           "Value should be greater than previous element."))
+                            "Value should be greater than previous element."))
 
-                 (setq previous-elem-value (cdr elem))))
+                  (setq previous-elem-value (cdr elem))))
 
             highlight-tail-colors)
 
@@ -1974,21 +1974,21 @@ Run it, when you've made changes to some highlight-tail-mode variables."
 
           #'(lambda (elem)
 
-             (let ((color-name (car elem)))
+              (let ((color-name (car elem)))
 
-               (if (highlight-tail-color-in-hex-format color-name)
+                (if (highlight-tail-color-in-hex-format color-name)
 
-                   ;; does not need to be on system list
+                    ;; does not need to be on system list
 
-                   t
+                    t
 
-                 ;; try to get from system list
+                  ;; try to get from system list
 
-                 (if (featurep 'xemacs)
+                  (if (featurep 'xemacs)
 
-                     (color-rgb-components (make-color-specifier color-name))
+                      (color-rgb-components (make-color-specifier color-name))
 
-                   (color-values color-name))))) highlight-tail-colors))
+                    (color-values color-name))))) highlight-tail-colors))
 
     (error "Some color doesn't exist"))
 
@@ -2046,7 +2046,7 @@ Run it, when you've made changes to some highlight-tail-mode variables."
 
     (setq percents-vector (mapcar #'(lambda (elem)
 
-                                     (cdr elem))
+                                      (cdr elem))
 
                                   highlight-tail-colors-with-100))
 

@@ -1,3 +1,7 @@
+;;; ============
+;;; + Org Mode +
+;;; ============
+
 (add-to-list 'load-path "~/.emacs.d/elisp/remember-2.0")
 (require 'remember-autoloads)
 (setq org-remember-templates

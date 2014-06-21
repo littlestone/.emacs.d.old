@@ -347,7 +347,7 @@
      ((,class (:inherit font-lock-comment-face))))
    `(org-archived ((,class (:foreground ,zenburn-fg :weight bold))))
    `(org-checkbox ((,class (:background ,zenburn-bg+2 :foreground "white"
-                                   :box (:line-width 1 :style released-button)))))
+                                        :box (:line-width 1 :style released-button)))))
    `(org-date ((,class (:foreground ,zenburn-blue :underline t))))
    `(org-deadline-announce ((,class (:foreground ,zenburn-red-1))))
    `(org-done ((,class (:bold t :weight bold :foreground ,zenburn-green+3))))
@@ -449,14 +449,14 @@
    `(wl-highlight-message-unimportant-header-contents ((,class (:foreground ,zenburn-fg))))
    `(wl-highlight-summary-answered-face ((,class (:foreground ,zenburn-blue))))
    `(wl-highlight-summary-disposed-face ((,class (:foreground ,zenburn-fg
-                                                         :slant italic))))
+                                                              :slant italic))))
    `(wl-highlight-summary-new-face ((,class (:foreground ,zenburn-blue))))
    `(wl-highlight-summary-normal-face ((,class (:foreground ,zenburn-fg))))
    `(wl-highlight-summary-thread-top-face ((,class (:foreground ,zenburn-yellow))))
    `(wl-highlight-thread-indent-face ((,class (:foreground ,zenburn-magenta))))
    `(wl-highlight-summary-refiled-face ((,class (:foreground ,zenburn-fg))))
    `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
-   
+
    ;; which-func-mode
    `(which-func ((,class (:foreground ,zenburn-green+1))))))
 
