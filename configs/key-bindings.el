@@ -25,9 +25,6 @@
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
 
-;; Use C-x C-m to do M-x per Steve Yegge's advice
-(global-set-key (kbd "C-x C-m") 'smex)
-
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-'") 'er/expand-region)
 
