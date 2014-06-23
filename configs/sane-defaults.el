@@ -5,6 +5,7 @@
 ;; All roads lead to $HOME
 (setq default-directory "~/")
 
+
 ;; Write temporary files to own directory
 (progn
   (defvar --temporary-directory (concat user-emacs-directory "temps"))
@@ -15,6 +16,7 @@
         save-place-file (expand-file-name "places" temporary-file-directory)
         savehist-file (expand-file-name "history" temporary-file-directory)
         recentf-save-file (expand-file-name "recentf" temporary-file-directory)
+        abbrev-file-name (expand-file-name "abbrev_defs" temporary-file-directory)
         tramp-persistency-file-name (expand-file-name "tramp" temporary-file-directory)
         auto-save-list-file-prefix "~/.emacs.d/temps/auto-save-list/.saves-"
         auto-save-file-name-transforms `((".*" ,temporary-file-directory t))))
@@ -34,6 +36,16 @@
 ;; Save a list of recent files visited. (open recent file with C-x f)
 (recentf-mode 1)
 (setq recentf-max-saved-items 50) ; just 20 is too recent
+
+;; Automatically save and restore sessions
+(setq desktop-dirname             temporary-file-directory
+      desktop-base-file-name      "emacs.desktop"
+      desktop-base-lock-name      "emacs.desktop.lock"
+      desktop-path                (list desktop-dirname)
+      desktop-save                t
+      desktop-files-not-to-save   "^$" ;reload tramp paths
+      desktop-load-locked-desktop nil)
+(desktop-save-mode 1)
 
 ;; Buffer full file name as title
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
