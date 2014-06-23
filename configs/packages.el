@@ -3,7 +3,7 @@
 ;;; =====================================
 
 ;; IPEX Proxy
-(when t
+(when (eq system-type "windows-nt")
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
           ("http" . "isa1ids.ipex.network:8080")
