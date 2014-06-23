@@ -81,6 +81,7 @@
        tabbar                   ; Display a tab bar in the header line
        undo-tree                ; Treat undo history as a tree
        w3m                      ; an Emacs interface to w3m
+       web-mode                 ; major mode for editing html templates
        )))
 
   (condition-case nil
