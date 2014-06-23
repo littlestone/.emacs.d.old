@@ -3,7 +3,7 @@
 ;;; =====================================
 
 ;; IPEX Proxy
-(when nil
+(when t
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
           ("http" . "isa1ids.ipex.network:8080")
@@ -61,7 +61,9 @@
        ido-ubiquitous           ; Use ido (nearly) everywhere
        iy-go-to-char            ; Go to next CHAR which is similar to "f" and "t" in vim
        js2-mode                 ; Improved JavaScript editing mode
-       json                     ; Major mode for editing JSON files.
+       json                     ; JavaScript Object Notation parser / generator
+       json-mode                ; Major mode for editing JSON files.
+       json-reformat            ; Reformatting tool for JSON
        key-chord                ; map pairs of simultaneously pressed keys to commands
        magit                    ; Control Git from Emacs
        markdown-mode            ; Emacs Major mode for Markdown-formatted text files
