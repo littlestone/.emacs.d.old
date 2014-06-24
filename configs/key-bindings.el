@@ -10,6 +10,12 @@
       w32-rwindow-modifier 'super ; Right Windows key
       w32-apps-modifier 'hyper) ; Menu key
 
+;; Quickly jump to other window
+(global-set-key (kbd "M-o") 'other-window)
+
+;; Kill current buffer without any prompting whatsoever
+(global-set-key (kbd "C-x C-k") 'kill-this-buffer)
+
 ;; I don't need to kill emacs that easily
 ;; the mnemonic is C-x REALLY QUIT
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
@@ -137,7 +143,7 @@
 (global-set-key (kbd "C-x M-p") 'find-or-create-file-at-point-other-window)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c M-r") 'revert-this-buffer)
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
@@ -312,8 +318,8 @@
 ;; Open the current file or dired marked files in external app
 (global-set-key (kbd "<C-f5>") 'ergoemacs-open-in-external-app)
 
-;; Toggle highlight-tail-mode
-(global-set-key (kbd "<f8>") 'highlight-tail-mode)
+;; Magit
+(global-set-key (kbd "<f8>") 'magit-status)
 
 ;; Toggle whitespace-mode
 (global-set-key (kbd "<f9>") 'whitespace-mode)
