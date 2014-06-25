@@ -96,7 +96,7 @@
   "k" 'kill-this-buffer
   "l" 'linum-mode
   "m" 'browse-url-at-point
-  "o" 'other-windw
+  "o" 'other-window
   "q" 'read-only-mode
   "r" 'revert-this-buffer
   "sf" 'suspend-frame
