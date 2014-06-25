@@ -5,7 +5,6 @@
 ;; All roads lead to $HOME
 (setq default-directory "~/")
 
-
 ;; Write temporary files to own directory
 (progn
   (defvar --temporary-directory (concat user-emacs-directory "temps"))

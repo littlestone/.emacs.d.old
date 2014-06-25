@@ -286,3 +286,43 @@ Including indent-buffer, which should not be called automatically on save."
                         ;; `thing-at-point' find HTML color codes.
                         (modify-syntax-entry ?# "w")
                         (thing-at-point 'word))))
+
+;; Get IP addresses of system
+(defun get-ip-addresses ()
+  "Returns the current system IPv4 addresses as a list of
+strings"
+  (let* ((start 0)
+;  (match-positions ())
+   (ip-re  "[1-9][0-9]?[0-9]?\.[1-9][0-9]?[0-9]?\.[1-9][0-9]?[0-9]?\.[1-9][0-9]?[0-9]?")
+   ;; The rest of these variables try to make this platform agnostic.
+   ;; Add more on to the cond statements if you need
+   (ipconfig (cond ((eq system-type 'windows-nt)
+        "ipconfig")
+       ((eq system-type 'gnu/linux)
+        "/sbin/ifconfig")
+       (t (error "Don't know how to get-ip-address for %s"
+           system-type))))
+   (line-re (cond ((eq system-type 'windows-nt)
+       "IPv4 Address.*")
+      ((eq system-type 'gnu/linux)
+       (concat "inet addr:" ip-re))
+      (t (error "Don't know how regex out ip line for %s"
+          system-type))))
+   ;; I lied, not all of the rest of the variables are to make it
+   ;; platform agnostic.  This is where we grab the output
+   (output (shell-command-to-string ipconfig)))
+
+    ;; The inner loop is a bit funky since I can't seem to get it to behave
+    ;; exactly like Common Lisp
+    (loop for pos in
+    (loop named inner
+    with match-positions = ()
+    do (let ((ret (string-match line-re output start)))
+         (if ret
+       (setq start (1+ ret))
+           (return-from inner match-positions))
+         (setq match-positions
+         (append match-positions (list ret)))))
+    collect (progn
+        (string-match ip-re output pos)
+        (match-string 0 output)))))

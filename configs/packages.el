@@ -2,17 +2,6 @@
 ;;; + Set up Emacs Lisp Package Archive +
 ;;; =====================================
 
-;; IPEX Proxy
-(when t
-  (setq url-proxy-services
-        '(("no_proxy" . "^\\(localhost\\|10.*\\)")
-          ("http" . "isa1ids.ipex.network:8080")
-          ("https" . "isa1ids.ipex.network:8080")))
-  (setq url-http-proxy-basic-auth-storage
-        (list (list "isa1ids.ipex.network:8080"
-                    (cons "Input your LDAP UID !"
-                          (base64-encode-string "LOGIN:PASSWORD"))))))
-
 ;; Emacs package repository
 (when (>= emacs-major-version 24)
   (require 'package)

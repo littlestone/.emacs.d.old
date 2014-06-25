@@ -26,11 +26,15 @@
 (setq custom-file (concat user-emacs-directory "configs/custom.el"))
 (load custom-file)
 
+;; Common lisp library
+(require 'cl)
+
 ;;;
 ;;;============================================================================
 ;;;
 
 ;; Emacs configurations
+(require 'ipex)
 (require 'appearance)
 (require 'sane-defaults)
 (require 'mode-mappings)
