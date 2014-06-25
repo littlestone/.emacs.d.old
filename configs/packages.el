@@ -53,14 +53,9 @@
        dired-single                        ; Reuse the current dired buffer to visit another directory
        epl                                 ; Emacs Package Library
        evil                                ; extensible vi layer
-       evil-args                           ; Motions and text objects for delimited arguments in Evil.
-       evil-exchange                       ; Exchange text more easily within Evil
-       evil-indent-textobject              ; evil textobjects based on indentation
        evil-leader                         ; let there be <leader>
        evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
-       evil-nerd-commenter                 ; Commnet/uncomment lines efficiently. Like Nerd Commenter in Vim
        evil-numbers                        ; increment/decrement numbers like in vim
-       evil-surround                       ; emulate surround.vim from Vim
        evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column

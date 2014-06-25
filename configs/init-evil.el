@@ -3,22 +3,14 @@
 ;;; ====================================
 
 (require 'evil)
-(require 'evil-args)
 (require 'evil-leader)
 (require 'evil-matchit)
 (require 'evil-numbers)
-(require 'evil-exchange)
-(require 'evil-surround)
 (require 'evil-visualstar)
-(require 'evil-nerd-commenter)
-(require 'evil-indent-textobject)
 
 (evil-mode 1)
-(evil-exchange-install)
-(evilnc-default-hotkeys)
 (global-evil-leader-mode 1)
 (global-evil-matchit-mode 1)
-(global-evil-surround-mode 1)
 
 ;; Clear insert state bindings.
 (setcdr evil-insert-state-map nil)
@@ -89,21 +81,22 @@
 (add-hook 'evil-insert-state-exit-hook 'highlight-tail-mode)
 
 ;; Evil leader key bindings
-(evil-leader/set-leader "<SPC>")
+(evil-leader/set-leader ",")
 (evil-leader/set-key
   "+" 'evil-numbers/inc-at-pt
   "-" 'evil-numbers/dec-at-pt
   "a" 'ace-jump-char-mode
   "b" 'bury-buffer
-  "e" 'recentf-open-files
+  "e" 'ido-find-file
   "f" 'rgrep
+  "g" 'google
   "h" 'helm-mini
   "i" 'ibuffer
   "j" 'dired-jump
   "k" 'kill-this-buffer
   "l" 'linum-mode
   "m" 'browse-url-at-point
-  "o" 'delete-other-windows
+  "o" 'other-windw
   "q" 'read-only-mode
   "r" 'revert-this-buffer
   "t" 'my-toggle-fullscreen
