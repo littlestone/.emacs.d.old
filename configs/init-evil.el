@@ -99,6 +99,7 @@
   "o" 'other-windw
   "q" 'read-only-mode
   "r" 'revert-this-buffer
+  "sf" 'suspend-frame
   "t" 'my-toggle-fullscreen
   "u" 'undo-tree-visualize
   "w" 'save-buffer
