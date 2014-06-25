@@ -3,21 +3,22 @@
 ;;; ====================================
 
 (require 'evil)
+(require 'evil-args)
 (require 'evil-leader)
 (require 'evil-matchit)
 (require 'evil-numbers)
-(require 'evil-paredit)
+(require 'evil-exchange)
+(require 'evil-surround)
 (require 'evil-visualstar)
 (require 'evil-nerd-commenter)
 (require 'evil-indent-textobject)
 
 (evil-mode 1)
+(evil-exchange-install)
+(evilnc-default-hotkeys)
 (global-evil-leader-mode 1)
 (global-evil-matchit-mode 1)
-(evilnc-default-hotkeys)
-
-;; Helps not to screw up the paredit setup when using evil-mode
-(add-hook 'emacs-lisp-mode-hook 'evil-paredit-mode)
+(global-evil-surround-mode 1)
 
 ;; Clear insert state bindings.
 (setcdr evil-insert-state-map nil)
@@ -57,6 +58,7 @@
 ;; Set the initial evil state that certain major modes will be in.
 (evil-set-initial-state 'dired-mode 'normal)
 (evil-set-initial-state 'ibuffer-mode 'normal)
+(evil-set-initial-state 'fundamental-mode 'normal)
 (evil-set-initial-state 'package-menu-mode 'emacs)
 (evil-set-initial-state 'browse-kill-ring-mode 'emacs)
 (evil-set-initial-state 'recentf-dialog-mode 'emacs)
@@ -77,7 +79,7 @@
             (lambda ()
               (let ((color (cond ((minibufferp) default-color)
                                  ((evil-insert-state-p) '("#000000" . "#4169E1"))
-                 ((buffer-modified-p) '("#000000" . "#FFA500"))
+                                 ((buffer-modified-p) '("#000000" . "#8470FF"))
                                  (t default-color))))
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
@@ -85,5 +87,30 @@
 ;; Turn on/off highlight tail mode when entering/exiting evil insert state
 (add-hook 'evil-insert-state-entry-hook 'highlight-tail-mode)
 (add-hook 'evil-insert-state-exit-hook 'highlight-tail-mode)
+
+;; Evil leader key bindings
+(evil-leader/set-leader "<SPC>")
+(evil-leader/set-key
+  "+" 'evil-numbers/inc-at-pt
+  "-" 'evil-numbers/dec-at-pt
+  "a" 'ace-jump-char-mode
+  "b" 'bury-buffer
+  "e" 'recentf-open-files
+  "f" 'rgrep
+  "h" 'helm-mini
+  "i" 'ibuffer
+  "j" 'dired-jump
+  "k" 'kill-this-buffer
+  "l" 'linum-mode
+  "m" 'browse-url-at-point
+  "o" 'delete-other-windows
+  "q" 'read-only-mode
+  "r" 'revert-this-buffer
+  "t" 'my-toggle-fullscreen
+  "u" 'undo-tree-visualize
+  "w" 'save-buffer
+  "x" 'ergoemacs-open-in-external-app
+  "z" 'ergoemacs-compact-uncompact-block
+  "TAB" 'eme-goto-scratch)
 
 (provide 'init-evil)
