@@ -318,8 +318,8 @@
 ;; Open the current file or dired marked files in external app
 (global-set-key (kbd "<C-f5>") 'ergoemacs-open-in-external-app)
 
-;; Magit
-(global-set-key (kbd "<f8>") 'magit-status)
+;; Toggle hightlight-tail-mode
+(global-set-key (kbd "<f8>") 'highlight-tail-mode)
 
 ;; Toggle whitespace-mode
 (global-set-key (kbd "<f9>") 'whitespace-mode)

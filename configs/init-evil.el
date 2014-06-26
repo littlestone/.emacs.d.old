@@ -88,10 +88,6 @@
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
 
-;; Turn on/off highlight tail mode when entering/exiting evil insert state
-(add-hook 'evil-insert-state-entry-hook 'highlight-tail-mode)
-(add-hook 'evil-insert-state-exit-hook 'highlight-tail-mode)
-
 ;; Evil leader key bindings
 (evil-leader/set-leader ",")
 (evil-leader/set-key
