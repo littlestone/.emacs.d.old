@@ -27,7 +27,7 @@
                ac-source-semantic
                ac-source-yasnippet))
 
-(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode
+(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode haml-mode ielm-mode
                                     sass-mode yaml-mode csv-mode espresso-mode haskell-mode
                                     html-mode nxml-mode sh-mode smarty-mode clojure-mode
                                     lisp-mode textile-mode markdown-mode tuareg-mode))
@@ -38,7 +38,19 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
-;;;;Key triggers
+;; Enable auto-complete in IELM
+(defun ielm-auto-complete ()
+  "Enables `auto-complete' support in \\[ielm]."
+  (setq ac-sources '(ac-source-functions
+                     ac-source-variables
+                     ac-source-features
+                     ac-source-symbols
+                     ac-source-words-in-same-mode-buffers))
+  (add-to-list 'ac-modes 'inferior-emacs-lisp-mode)
+  (auto-complete-mode 1))
+(add-hook 'ielm-mode-hook 'ielm-auto-complete)
+
+;; Key triggers
 (define-key ac-completing-map (kbd "C-M-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
 (define-key ac-completing-map "\t" 'ac-complete)
