@@ -14,6 +14,13 @@
 
 ;; Clear insert state bindings.
 (setcdr evil-insert-state-map nil)
+(define-key evil-insert-state-map
+  (read-kbd-macro evil-toggle-key) 'evil-emacs-state)
+
+;; I want the Emacs keybinding to work in Evil
+(define-key evil-normal-state-map "\C-r" 'isearch-backward-regexp)
+(define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
+(define-key evil-motion-state-map "\C-e" 'evil-end-of-line)
 
 ;; Don't wait for any other keys after escape is pressed.
 (setq evil-esc-delay 0)
@@ -25,6 +32,9 @@
 
 ;; Set evil-shift-width to 2 space
 (setq evil-shift-width 2)
+
+;; Use Vim visual selection style, i.e. treatment of character under point
+(setq evil-want-visual-char-semi-exclusive t)
 
 ;; Make sure escape gets back to normal state and quits things.
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
