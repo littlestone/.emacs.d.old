@@ -9,6 +9,9 @@
             (set-fill-column 80)
             (auto-fill-mode 1)))
 
+;; Diable it
+(magit-auto-revert-mode -1)
+
 ;; Add all git related command path, exec-path is important for Magit, setenv is used by eshell
 (if (eq system-type 'windows-nt)
     (progn
