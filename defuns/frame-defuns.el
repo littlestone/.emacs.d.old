@@ -78,6 +78,4 @@
          (this-buffer (window-buffer this))
          (other-buffer (window-buffer other)))
     (set-window-buffer other this-buffer)
-    (set-window-buffer this other-buffer)
-    )
-  )
+    (set-window-buffer this other-buffer)))

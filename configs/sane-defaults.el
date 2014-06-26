@@ -33,7 +33,7 @@
 (setq-default save-place t)
 
 ;; Save a list of recent files visited. (open recent file with C-x f)
-(recentf-mode 1)
+(recentf-mode +1)
 (setq recentf-max-saved-items 50) ; just 20 is too recent
 
 ;; Automatically save and restore sessions
@@ -90,14 +90,15 @@
           (lambda (c) (when (eq 'org-mode major-mode) 'no-indent)))
 
 ;; Enable electric-pair-mode and make it work on more brackets
-(electric-pair-mode 1)
-(setq electric-pair-pairs '(
-                            (?\" . ?\")
-                            (?\{ . ?\})
-                            ) )
+(electric-pair-mode +1)
+(setq electric-pair-pairs '((?\" . ?\")
+                            (?\{ . ?\})))
+
+;; Enable electric-indent mode
+(electric-indent-mode +1)
 
 ;; Show active region
-(transient-mark-mode 1)
+(transient-mark-mode +1)
 (make-variable-buffer-local 'transient-mark-mode)
 (put 'transient-mark-mode 'permanent-local t)
 (setq-default transient-mark-mode t)
