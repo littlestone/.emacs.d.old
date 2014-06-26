@@ -7,7 +7,7 @@
 ;; To enable it in all programming-related emacs modes
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
-;;To enable it only in certain modes, add lines like the following:
+;; To enable it only in certain modes, add lines like the following:
 (add-hook 'ielm-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
@@ -38,8 +38,7 @@
 (require 'cl-lib)
 
 (defvar my-paren-dual-colors
-  '("yellow" "green")
-  )
+  '("yellow" "green"))
 
 (cl-loop
  for index from 1 to rainbow-delimiters-max-face-count
