@@ -6,7 +6,7 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(fci-rule-color "#404040")
+ '(fci-rule-color "#303030")
  '(fill-column 80)
  '(show-paren-mode t)
  '(tabbar-separator (quote (0.5)))
