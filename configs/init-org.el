@@ -2,17 +2,6 @@
 ;;; + Org Mode +
 ;;; ============
 
-(add-to-list 'load-path "~/.emacs.d/elisp/remember-2.0")
-(require 'remember-autoloads)
-(setq org-remember-templates
-      '(("Tasks" ?t "* TODO %?\n  %i\n  %a" "~/Dropbox/org/organizer.org")
-        ("Appointments" ?a "* Appointment: %?\n%^T\n%i\n  %a" "~/Dropbox/org/organizer.org")))
-(setq remember-annotation-functions '(org-remember-annotation))
-(setq remember-handler-functions '(org-remember-handler))
-(eval-after-load 'remember
-  '(add-hook 'remember-mode-hook 'org-remember-apply-template))
-(global-set-key (kbd "C-c r") 'remember)
-
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -33,6 +22,23 @@
               ("HOLD" :foreground "orange" :weight bold)
               ("CANCELLED" :foreground "RoyalBlue" :weight bold))))
 
-(setq org-agenda-files (list "~/Dropbox/org/organizer.org"))
+(setq org-agenda-files (quote ("~/Dropbox/org/todo.org"))
+      org-default-notes-file "~/Dropbox/org/notes.org"
+      org-agenda-ndays 7
+      org-deadline-warning-days 14
+      org-reverse-note-order t)
+
+;;; ============================================================================
+
+(add-to-list 'load-path "~/.emacs.d/elisp/remember-2.0")
+(require 'remember-autoloads)
+(setq org-remember-templates
+      (quote ((116 "* TODO %?\n  %u" "~/todo.org" "Tasks")
+              (110 "* %u %?" "~/notes.org" "Notes"))))
+(setq remember-annotation-functions '(org-remember-annotation))
+(setq remember-handler-functions '(org-remember-handler))
+(eval-after-load 'remember
+  '(add-hook 'remember-mode-hook 'org-remember-apply-template))
+(global-set-key (kbd "C-c r") 'remember)
 
 (provide 'init-org)
