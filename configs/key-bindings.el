@@ -60,13 +60,12 @@
 ;; Indentation help
 (global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
-;; Use shell-like backspace C-h, rebind help to F1
-(define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "<f1>") 'help-command)
-(global-set-key (kbd "M-h") 'kill-region-or-backward-word)
+;; Use shell-like backspace and rebind to M-h
+(global-set-key (kbd "M-h") 'backward-delete-char-untabify)
+(global-set-key (kbd "C-M-h") 'kill-region-or-backward-word)
 
 ;; Help should search more than just commands
-(global-set-key (kbd "<f1> a") 'apropos)
+(global-set-key (kbd "C-h a") 'apropos)
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
@@ -309,8 +308,8 @@
 ;;;==========================================================================
 ;;;
 
-;; Google search
-(global-set-key (kbd "<f2>") 'google)
+;; w3m text web browser
+(global-set-key (kbd "<f1>") 'w3m-gohome)
 
 ;; Smarter compile
 (global-set-key (kbd "<f5>") 'smarter-compile)
