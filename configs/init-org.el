@@ -33,11 +33,6 @@
               ("HOLD" :foreground "orange" :weight bold)
               ("CANCELLED" :foreground "RoyalBlue" :weight bold))))
 
-(setq org-agenda-files (list "~/Dropbox/org/book.org"
-                             "~/Dropbox/org/home.org"
-                             "~/Dropbox/org/reminder.org"
-                             "~/Dropbox/org/school.org"
-                             "~/Dropbox/org/trading.org"
-                             "~/Dropbox/org/work.org"))
+(setq org-agenda-files (list "~/Dropbox/org/organizer.org"))
 
 (provide 'init-org)
