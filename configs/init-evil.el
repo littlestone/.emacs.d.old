@@ -93,7 +93,7 @@
 (evil-leader/set-key
   "+" 'evil-numbers/inc-at-pt
   "-" 'evil-numbers/dec-at-pt
-  "a" 'ace-jump-char-mode
+  "a" 'ace-jump-mode
   "b" 'bury-buffer
   "e" 'ido-find-file
   "f" 'rgrep
