@@ -7,6 +7,8 @@
 (require 'evil-matchit)
 (require 'evil-numbers)
 (require 'evil-visualstar)
+(require 'evil-nerd-commenter)
+(require 'evil-indent-textobject)
 
 (evil-mode 1)
 (global-evil-leader-mode 1)
@@ -93,11 +95,11 @@
 (evil-leader/set-key
   "+" 'evil-numbers/inc-at-pt
   "-" 'evil-numbers/dec-at-pt
-  "a" 'ace-jump-mode
+  "a" 'ascii-display
   "b" 'bury-buffer
   "e" 'ido-find-file
   "f" 'rgrep
-  "g" 'google
+  "g" 'ace-jump-mode
   "h" 'helm-mini
   "i" 'ibuffer
   "j" 'dired-jump

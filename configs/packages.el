@@ -29,9 +29,11 @@
        ac-nrepl                            ; auto-complete sources for Clojure using nrepl completions
        ac-slime                            ; An auto-complete source using slime completions
        ace-jump-mode                       ; a quick cursor location minor mode for emacs
+       ascii                               ; ASCII code display.
        auto-complete                       ; Auto Completion for GNU Emacs
        browse-kill-ring                    ; interactively insert items from kill-ring
        buffer-move                         ; Swap buffers without typing C-x b on each window
+       chm-view                            ; View CHM file.
        cider                               ; Clojure Intergrated Development Environment and REPL
        cl-lib                              ; Properly prefixed CL functions and macros
        cl-lib-highlight                    ; full cl-lib font-lock highlighting
@@ -42,8 +44,10 @@
        dired-single                        ; Reuse the current dired buffer to visit another directory
        epl                                 ; Emacs Package Library
        evil                                ; extensible vi layer
+       evil-indent-textobject              ; evil textobjects based on indentation
        evil-leader                         ; let there be <leader>
        evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
+       evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
        evil-numbers                        ; increment/decrement numbers like in vim
        evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
@@ -51,13 +55,15 @@
        fold-this                           ; Just fold this region please
        git-commit-mode                     ; Major mode for editing git commit messages
        git-rebase-mode                     ; Major mode for editing git rebase files
-       helm                                ; Emacs incremental and narrowing framework
+       goto-chg                            ; goto last change
+       helm                                ; Helm is an Emacs incremental and narrowing framework
        ido-ubiquitous                      ; Use ido (nearly) everywhere
        iy-go-to-char                       ; Go to next CHAR which is similar to "f" and "t" in vim
        js2-mode                            ; Improved JavaScript editing mode
        json                                ; JavaScript Object Notation parser / generator
        json-mode                           ; Major mode for editing JSON files.
        json-reformat                       ; Reformatting tool for JSON
+       json-snatcher                       ; Grabs the path to JSON values in a JSON file
        key-chord                           ; map pairs of simultaneously pressed keys to commands
        magit                               ; Control Git from Emacs
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
