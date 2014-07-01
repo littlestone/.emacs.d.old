@@ -98,7 +98,7 @@
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 
 ;; Make eshell more convenient
-(global-set-key (kbd "C-z") 'eshell)
+(global-set-key (kbd "C-S-z") 'eshell)
 
 ;; Delete active frame
 (global-set-key (kbd "C-x M-z") 'delete-frame)
