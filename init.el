@@ -48,6 +48,7 @@
 (require 'init-cider)
 (require 'init-magit)
 (require 'init-isearch)
+(require 'init-paredit)
 (require 'init-auto-complete)
 (require 'init-ace-jump-mode)
 (require 'init-rainbow-delimiters)

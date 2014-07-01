@@ -62,6 +62,7 @@
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
        move-text                           ; Move current line or region with M-up or M-down.
        multiple-cursors                    ; Multiple cursors for Emacs
+       paredit                             ; minor mode for editing parentheses
        pkg-info                            ; Information about packages
        popup                               ; Visual Popup User Interface
        rainbow-delimiters                  ; Highlight nested parens, brackets, braces a different color at each depth
