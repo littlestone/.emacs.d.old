@@ -97,9 +97,11 @@
 ;; Use M-w for copy-line if no active region
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 
-;; Make eshell more convenient, and suspend-frame less
+;; Make eshell more convenient
 (global-set-key (kbd "C-z") 'eshell)
-(global-set-key (kbd "C-x M-z") 'suspend-frame)
+
+;; Delete active frame
+(global-set-key (kbd "C-x M-z") 'delete-frame)
 
 ;; Zap to char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
