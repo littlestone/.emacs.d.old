@@ -43,13 +43,6 @@
        dash-functional                     ; Collection of useful combinators for Emacs List
        dired-single                        ; Reuse the current dired buffer to visit another directory
        epl                                 ; Emacs Package Library
-       evil                                ; extensible vi layer
-       evil-indent-textobject              ; evil textobjects based on indentation
-       evil-leader                         ; let there be <leader>
-       evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
-       evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
-       evil-numbers                        ; increment/decrement numbers like in vim
-       evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column
        fold-this                           ; Just fold this region please

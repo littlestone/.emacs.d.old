@@ -43,7 +43,6 @@
 (require 'init-erc)
 (require 'init-w3m)
 (require 'init-org)
-(require 'init-evil)
 (require 'init-dired)
 (require 'init-slime)
 (require 'init-cider)

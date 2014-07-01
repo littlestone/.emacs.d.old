@@ -102,7 +102,7 @@
 ;; Use M-w for copy-line if no active region
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 
-;; Make shell more convenient, and suspend-frame less
+;; Make eshell more convenient, and suspend-frame less
 (global-set-key (kbd "C-z") 'eshell)
 (global-set-key (kbd "C-x M-z") 'suspend-frame)
 
@@ -142,6 +142,7 @@
 (global-set-key (kbd "C-x M-p") 'find-or-create-file-at-point-other-window)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c y") 'bury-buffer)
+(global-set-key (kbd "C-c k") 'kill-this-buffer)
 (global-set-key (kbd "C-c M-r") 'revert-this-buffer)
 (global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -150,9 +151,6 @@
 (fset 'quick-switch-buffer [?\C-x ?b return])
 (global-set-key (kbd "s-b") 'quick-switch-buffer)
 (global-set-key (kbd "s-y") 'bury-buffer)
-
-;; Revert without any fuss
-(global-set-key (kbd "C-c r") (lambda () (interactive) (revert-buffer t t)))
 
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
@@ -243,9 +241,9 @@
 (global-set-key (kbd "C-x M") 'mu4e-up-to-date-status)
 
 ;; Clever newlines
-(global-set-key (kbd "C-o") 'open-line-and-indent)
-(global-set-key (kbd "<C-return>") 'open-line-below)
-(global-set-key (kbd "<C-S-return>") 'open-line-above)
+(global-set-key (kbd "C-o") 'open-line-below)
+(global-set-key (kbd "C-S-O") 'open-line-above)
+(global-set-key (kbd "<C-S-return>") 'open-line-and-indent)
 (global-set-key (kbd "<M-return>") 'new-line-dwim)
 
 ;; Duplicate region
