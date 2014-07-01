@@ -16,6 +16,9 @@
 ;; Kill current buffer without any prompting whatsoever
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
 
+;; ASCII
+(global-set-key (kbd "C-c C-a") 'ascii-display)
+
 ;; I don't need to kill emacs that easily
 ;; the mnemonic is C-x REALLY QUIT
 (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
@@ -33,9 +36,6 @@
 
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-'") 'er/expand-region)
-
-;; New rectangle mark mode in Emacs 24.4
-(global-set-key (kbd "C-@") 'rectangle-mark-mode)
 
 ;; Expand region
 (global-set-key (kbd "C-=") 'er/expand-region)
