@@ -10,11 +10,10 @@
 (setq ac-comphist-file (concat temporary-file-directory "ac-comphist.dat"))
 
 (global-auto-complete-mode t)
-(setq ac-auto-show-menu nil)
+(setq ac-auto-show-menu t)
+(setq ac-use-quick-help nil)
 (setq ac-dwim t)
 (setq ac-use-menu-map t)
-(setq ac-quick-help-delay 1)
-(setq ac-quick-help-height 60)
 (setq ac-disable-inline t)
 (setq ac-show-menu-immediately-on-auto-complete t)
 (setq ac-auto-start 2)

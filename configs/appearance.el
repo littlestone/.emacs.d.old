@@ -38,7 +38,7 @@
 ;; Windows下Emacs中文字体设置
 (if (eq system-type 'gnu/linux)
     (set-default-font "Consolas-13")
-  (set-default-font "Consolas-12"))
+  (set-default-font "Consolas-11"))
 (set-fontset-font "fontset-default" 'gb18030 '("Microsoft YaHei" . "unicode-bmp")) ; 中文使用微软雅黑字体
 
 (provide 'appearance)
