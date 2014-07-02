@@ -141,7 +141,6 @@
 (global-set-key (kbd "C-c y") 'bury-buffer)
 (global-set-key (kbd "C-c k") 'kill-this-buffer)
 (global-set-key (kbd "C-c M-r") 'revert-this-buffer)
-(global-set-key (kbd "M-`") 'file-cache-minibuffer-complete)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; toggle two most recent buffers
@@ -188,10 +187,6 @@
 
 ;; Navigation bindings
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
-(global-set-key (kbd "<home>") 'move-beginning-of-line)
-(global-set-key (kbd "<end>") 'move-end-of-line)
-(global-set-key (kbd "<C-home>") 'beginning-of-buffer)
-(global-set-key (kbd "<C-end>") 'end-of-buffer)
 (global-set-key (kbd "M-p") 'backward-paragraph)
 (global-set-key (kbd "M-n") 'forward-paragraph)
 
@@ -297,12 +292,12 @@
 ;; Find files by name and display results in dired
 (global-set-key (kbd "M-s f") 'find-name-dired)
 
+;; w3m text web browser
+(global-set-key (kbd "C-c w") 'w3m-gohome)
+
 ;;;
 ;;;==========================================================================
 ;;;
-
-;; w3m text web browser
-(global-set-key (kbd "<f1>") 'w3m-gohome)
 
 ;; Smarter compile
 (global-set-key (kbd "<f5>") 'smarter-compile)
