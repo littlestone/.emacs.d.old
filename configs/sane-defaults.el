@@ -27,7 +27,9 @@
 
 ;; Make backups of files, even when they're in version control
 (setq vc-make-backup-files t)
-(setq backup-by-copying t) ; stop emacs's backup changing the file's creation date of the original file
+
+;; stop emacs's backup changing the file's creation date of the original file
+(setq backup-by-copying t)
 
 ;; Save place in files between sessions
 (setq-default save-place t)
