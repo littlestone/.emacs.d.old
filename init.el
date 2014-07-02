@@ -51,7 +51,6 @@
 (require 'init-paredit)
 (require 'init-auto-complete)
 (require 'init-ace-jump-mode)
-(require 'init-rainbow-delimiters)
 
 ;; Emacs - Cygwin Customization
 (if (eq system-type 'windows-nt)
