@@ -38,16 +38,6 @@
 (recentf-mode +1)
 (setq recentf-max-saved-items 50) ; just 20 is too recent
 
-;; Automatically save and restore sessions
-(setq desktop-dirname             temporary-file-directory
-      desktop-base-file-name      "emacs.desktop"
-      desktop-base-lock-name      "emacs.desktop.lock"
-      desktop-path                (list desktop-dirname)
-      desktop-save                t
-      desktop-files-not-to-save   "^$" ;reload tramp paths
-      desktop-load-locked-desktop nil)
-(desktop-save-mode 1)
-
 ;; Buffer full file name as title
 (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
