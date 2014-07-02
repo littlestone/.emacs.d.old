@@ -10,15 +10,6 @@
       w32-rwindow-modifier 'super ; Right Windows key
       w32-apps-modifier 'hyper) ; Menu key
 
-;; Quickly jump to other window
-(global-set-key (kbd "M-o") 'other-window)
-
-;; Kill current buffer without any prompting whatsoever
-(global-set-key (kbd "C-x C-k") 'kill-this-buffer)
-
-;; ASCII
-(global-set-key (kbd "C-c C-a") 'ascii-display)
-
 ;; Completion that uses many different methods to find options.
 (global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
 (global-set-key (kbd "C-:") 'hippie-expand-lines)
@@ -143,10 +134,9 @@
 (global-set-key (kbd "C-c M-r") 'revert-this-buffer)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; toggle two most recent buffers
+;; Toggle two most recent buffers
 (fset 'quick-switch-buffer [?\C-x ?b return])
-(global-set-key (kbd "s-b") 'quick-switch-buffer)
-(global-set-key (kbd "s-y") 'bury-buffer)
+(global-set-key (kbd "C-c C-b") 'quick-switch-buffer)
 
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
@@ -291,6 +281,9 @@
 
 ;; Find files by name and display results in dired
 (global-set-key (kbd "M-s f") 'find-name-dired)
+
+;; ASCII at point
+(global-set-key (kbd "C-c C-a") 'ascii-display)
 
 ;; w3m text web browser
 (global-set-key (kbd "C-c w") 'w3m-gohome)

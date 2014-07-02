@@ -4,11 +4,14 @@
 
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c b") 'org-switchb)
-(global-set-key (kbd "C-c l") 'org-store-link)
 (setq org-agenda-include-diary t)
 (setq org-log-done t)
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (define-key org-mode-map (kbd "C-c a") 'org-agenda)
+            (define-key org-mode-map (kbd "C-c b") 'org-switchb)
+            (define-key org-mode-map (kbd "C-c l") 'org-store-link)))
 
 (setq org-todo-keywords
       (quote ((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")
