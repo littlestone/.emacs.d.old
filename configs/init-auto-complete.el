@@ -10,7 +10,7 @@
 (setq ac-comphist-file (concat temporary-file-directory "ac-comphist.dat"))
 
 (global-auto-complete-mode t)
-(setq ac-auto-show-menu t)
+(setq ac-auto-show-menu nil)
 (setq ac-dwim t)
 (setq ac-use-menu-map t)
 (setq ac-quick-help-delay 1)
@@ -55,7 +55,7 @@
 (define-key ac-completing-map (kbd "C-M-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-M-p") 'ac-previous)
 (define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map (kbd "M-RET") 'ac-help)
+(define-key ac-completing-map (kbd "<M-return>") 'ac-help)
 (define-key ac-completing-map "\r" 'nil)
 
 (provide 'init-auto-complete)
