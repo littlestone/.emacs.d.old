@@ -43,15 +43,17 @@
 (global-set-key (kbd "C-c C-n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
-;; Indentation help
-(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
-
-;; Use shell-like backspace and rebind to M-h
+;; Use shell-like backspace C-h, rebind help to F1
+(define-key key-translation-map [?\C-h] [?\C-?])
+(global-set-key (kbd "<f1>") 'help-command)
 (global-set-key (kbd "M-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-M-h") 'kill-region-or-backward-word)
 
 ;; Help should search more than just commands
-(global-set-key (kbd "C-h a") 'apropos)
+(global-set-key (kbd "<f1> a") 'apropos)
+
+;; Indentation help
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; Transpose stuff with M-t
 (global-unset-key (kbd "M-t")) ;; which used to be transpose-words
@@ -166,8 +168,8 @@
 (global-set-key (kbd "<M-S-down>") 'shrink-window)
 
 ;; Zoom frame font size
-(global-set-key [C-S-wheel-up]    'zoom-in)
-(global-set-key [C-S-wheel-down]  'zoom-out)
+(global-set-key [C-S-wheel-up] 'zoom-in)
+(global-set-key [C-S-wheel-down] 'zoom-out)
 
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
