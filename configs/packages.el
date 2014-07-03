@@ -33,6 +33,7 @@
        auto-complete                       ; Auto Completion for GNU Emacs
        browse-kill-ring                    ; interactively insert items from kill-ring
        buffer-move                         ; Swap buffers without typing C-x b on each window
+       change-inner                        ; Change contents based on semantic units
        chm-view                            ; View CHM file.
        cider                               ; Clojure Intergrated Development Environment and REPL
        cl-lib                              ; Properly prefixed CL functions and macros
@@ -46,6 +47,8 @@
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column
        fold-this                           ; Just fold this region please
+       frame-cmds                          ; Frame and window commands (interactive functions).
+       frame-fns                           ; Non-interactive frame and window functions.
        git-commit-mode                     ; Major mode for editing git commit messages
        git-rebase-mode                     ; Major mode for editing git rebase files
        goto-chg                            ; goto last change
@@ -75,6 +78,7 @@
        undo-tree                           ; Treat undo history as a tree
        w3m                                 ; an Emacs interface to w3m
        web-mode                            ; major mode for editing html templates
+       zoom-frm                            ; Commands to zoom frame font size.
        )))
 
   (condition-case nil
