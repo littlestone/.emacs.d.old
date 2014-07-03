@@ -63,6 +63,7 @@
        key-chord                           ; map pairs of simultaneously pressed keys to commands
        magit                               ; Control Git from Emacs
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
+       mouse-slider-mode                   ; scale numbers dragged under the mouse
        move-text                           ; Move current line or region with M-up or M-down.
        multiple-cursors                    ; Multiple cursors for Emacs
        paredit                             ; minor mode for editing parentheses
@@ -71,6 +72,8 @@
        rainbow-delimiters                  ; Highlight nested parens, brackets, braces a different color at each depth
        rainbow-mode                        ; Colorize color names in buffers
        s                                   ; The long lost Emacs string manipulation library
+       simple-httpd                        ; pure elisp HTTP server
+       skewer-mode                         ; Skewer support for live LESS stylesheet updates
        slime                               ; Superior Lisp Interaction Mode for Emacs
        smarter-compile                     ; an interface to `compile
        smex                                ; M-x interface with Ido-style fuzzing matching

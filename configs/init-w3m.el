@@ -11,7 +11,7 @@
 (setq w3m-cookie-accept-bad-cookies t)
 (setq w3m-home-page "https://www.google.ca")
 (setq w3m-default-display-inline-images t)
-(setq browse-url-browser-function 'w3m-browse-url)
+;;(setq browse-url-browser-function 'w3m-browse-url) ; uncomment to use w3m as default browser
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 
 (provide 'init-w3m)

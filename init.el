@@ -48,6 +48,7 @@
 (require 'init-cider)
 (require 'init-magit)
 (require 'init-hippie)
+(require 'init-skewer)
 (require 'init-isearch)
 (require 'init-paredit)
 (require 'init-auto-complete)
