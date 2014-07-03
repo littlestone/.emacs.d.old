@@ -18,9 +18,9 @@
 (unless (server-running-p) (server-start))
 
 ;; Set up load path
-(add-to-list 'load-path (concat user-emacs-directory "elisp"))
 (add-to-list 'load-path (concat user-emacs-directory "defuns"))
 (add-to-list 'load-path (concat user-emacs-directory "configs"))
+(add-to-list 'load-path (concat user-emacs-directory "site-lisp"))
 
 ;; Emacs's customization
 (setq custom-file (concat user-emacs-directory "configs/custom.el"))

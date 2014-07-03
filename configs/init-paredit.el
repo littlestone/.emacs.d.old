@@ -38,11 +38,11 @@
 (define-key paredit-mode-map (kbd "M-)") 'paredit-wrap-round-from-behind)
 (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
 (define-key paredit-mode-map (kbd "M-]") 'paredit-wrap-square-from-behind)
-(define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
-(define-key paredit-mode-map (kbd "M-}") 'paredit-wrap-curly-from-behind)
+(define-key paredit-mode-map (kbd "C-M-{") 'paredit-wrap-curly)
+(define-key paredit-mode-map (kbd "C-M-}") 'paredit-wrap-curly-from-behind)
 
 (define-key paredit-mode-map (kbd "C-w") 'paredit-kill-region-or-backward-word)
-(define-key paredit-mode-map (kbd "M-C-<backspace>") 'backward-kill-sexp)
+(define-key paredit-mode-map (kbd "C-M-<backspace>") 'backward-kill-sexp)
 
 ;; don't hijack \ please
 (define-key paredit-mode-map (kbd "\\") nil)
