@@ -15,6 +15,7 @@
 ;; Add all git related command path, exec-path is important for Magit, setenv is used by eshell
 (if (eq system-type 'windows-nt)
     (progn
+      (setenv "GIT_ASKPASS" "git-gui--askpass") ; fixmagit push hung on windows
       (setq exec-path (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin"))
       (setenv "PATH" (concat "C:\\Program Files (x86)\\Git\\bin;" (getenv "PATH")))))
 
