@@ -77,12 +77,9 @@
     ad-do-it))
 (ad-activate 'grep-compute-defaults)
 
-;; Enable electric-indent mode
-(electric-indent-mode +1)
-
-;; Disabling electric indenting in org-mode
-(add-hook 'electric-indent-functions
-          (lambda (c) (when (eq 'org-mode major-mode) 'no-indent)))
+;; Auto-indent new lines
+(add-hook 'prog-mode-hook '(lambda ()
+                             (local-set-key (kbd "RET") 'newline-and-indent)))
 
 ;; Enable electric-pair-mode and make it work on more brackets
 (electric-pair-mode +1)
@@ -97,7 +94,7 @@
 
 ;; CUA rectangle support
 (setq cua-enable-cua-keys nil)
-(setq cua-toggle-set-mark nil) ;; original set-mark behavior, i.e. no transient-mark-mode
+(setq cua-toggle-set-mark nil) ; original set-mark behavior, i.e. no transient-mark-mode
 (cua-mode)
 
 ;; Enable the echo area to display information about a function or variable in the text where point is.
