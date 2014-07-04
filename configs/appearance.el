@@ -18,6 +18,9 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'default-black t)
 
+;; Set cursor type to bar
+(setq-default cursor-type 'bar)
+
 ;; Set cursor color to white
 (set-cursor-color "#ffffff")
 
