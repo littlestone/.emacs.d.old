@@ -129,11 +129,13 @@
 (setq user-mail-address "razorsniper@gmail.com")
 
 ;; 不用 TAB 字符来indent, 这会引起很多奇怪的错误。编辑 Makefile 的时候也不用担心，因为 makefile-mode 会把 TAB 键设置成真正的 TAB 字符，并且加亮显示的
-(setq-default indent-tabs-mode nil
-              c-basic-offset 4
-              tab-width 4)
-(setq default-tab-width 2)
-(setq tab-stop-list (number-sequence 2 200 2))
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq tab-stop-list (number-sequence 4 120 4))
+(setq indent-line-function 'insert-tab)
+(setq c-default-style "linux")
+(setq c-basic-offset 4)
+(c-set-offset 'comment-intro 0)
 
 ;; 设置 sentence-end 可以识别中文标点。不用在 fill 时在句号后插入两个空格
 (setq sentence-end "\\([。！？]\\|……\\|[.?!][]\"')}]*\\($\\|[ \t]\\)\\)[ \t\n]*")
@@ -192,12 +194,12 @@
   (eval `(defadvice ,command (after indent-region activate)
            (and (not current-prefix-arg)
                 (member major-mode '(emacs-lisp-mode lisp-mode
-                                     clojure-mode    scheme-mode
-                                     haskell-mode    ruby-mode
-                                     rspec-mode      python-mode
-                                     c-mode          c++-mode
-                                     objc-mode       latex-mode
-                                     plain-tex-mode))
+                                                     clojure-mode    scheme-mode
+                                                     haskell-mode    ruby-mode
+                                                     rspec-mode      python-mode
+                                                     c-mode          c++-mode
+                                                     objc-mode       latex-mode
+                                                     plain-tex-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
