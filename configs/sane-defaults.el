@@ -77,7 +77,10 @@
     ad-do-it))
 (ad-activate 'grep-compute-defaults)
 
-;; Disabling electric indenting in Emacs modes
+;; Enable electric-indent mode
+(electric-indent-mode +1)
+
+;; Disabling electric indenting in org-mode
 (add-hook 'electric-indent-functions
           (lambda (c) (when (eq 'org-mode major-mode) 'no-indent)))
 
@@ -85,9 +88,6 @@
 (electric-pair-mode +1)
 (setq electric-pair-pairs '((?\" . ?\")
                             (?\{ . ?\})))
-
-;; Enable electric-indent mode
-(electric-indent-mode +1)
 
 ;; Show active region
 (transient-mark-mode +1)
