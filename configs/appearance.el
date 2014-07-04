@@ -21,8 +21,8 @@
 ;; Set cursor type to bar
 (setq-default cursor-type 'bar)
 
-;; Set cursor color to white
-(set-cursor-color "#ffffff")
+;; Set cursor color to green
+(set-cursor-color "#00ff00")
 
 ;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)
