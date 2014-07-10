@@ -70,5 +70,5 @@
   (when (file-regular-p file)
     (load file)))
 
-;; Emacs session save/restore
-(require 'session)
+;; Emacs session save/restore (need to be put at the end of the .init or .emacs file)
+(require 'init-session)

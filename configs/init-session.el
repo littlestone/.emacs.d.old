@@ -1,7 +1,11 @@
 ;;; =======================================================================
 ;;; + Remember all opened files with splitted windows and their positions +
-;;; + Prerequisite packages: session, windows, revive, recentf            +
 ;;; =======================================================================
+
+(require 'session)
+(require 'revive)
+(require 'windows)
+(require 'recentf)
 
 ;; Restores various variables (e.g., input histories) from your last session
 (add-hook 'after-init-hook 'session-initialize)
@@ -17,3 +21,5 @@
 
 ;; -- set up window saving !! Place at end of .emacs file
 (win:startup-with-window)
+
+(provide 'init-session)
