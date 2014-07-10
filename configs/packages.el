@@ -71,7 +71,9 @@
        popup                               ; Visual Popup User Interface
        rainbow-delimiters                  ; Highlight nested parens, brackets, braces a different color at each depth
        rainbow-mode                        ; Colorize color names in buffers
+       revive                              ; Resume Emacs
        s                                   ; The long lost Emacs string manipulation library
+       session                             ; use variables, registers and buffer places across sessions
        simple-httpd                        ; pure elisp HTTP server
        skewer-mode                         ; Skewer support for live LESS stylesheet updates
        slime                               ; Superior Lisp Interaction Mode for Emacs

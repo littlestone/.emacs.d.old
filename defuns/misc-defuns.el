@@ -326,3 +326,11 @@ strings"
     collect (progn
         (string-match ip-re output pos)
         (match-string 0 output)))))
+
+;; Clearing EShell Buffer
+(defun eshell-clear ()
+  "Clear the *eshell* buffer."
+  (interactive)
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (message "erase eshell buffer")))
