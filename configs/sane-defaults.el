@@ -11,6 +11,10 @@
   (if (not (file-exists-p --temporary-directory))
       (make-directory --temporary-directory))
 
+  ;; Local session.
+  (unless (daemonp)
+    (custom-set-variables '(session-save-file (expand-file-name "session" temporary-file-directory))))
+
   (setq temporary-file-directory (concat user-emacs-directory "temps/")
         save-place-file (expand-file-name "places" temporary-file-directory)
         savehist-file (expand-file-name "history" temporary-file-directory)
