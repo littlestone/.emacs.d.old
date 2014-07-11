@@ -163,10 +163,10 @@
 (global-set-key (kbd "<M-right>") 'buf-move-right)
 
 ;; Resize window easily
-(global-set-key (kbd "<M-S-left>") 'enlarge-window-horizontally)
-(global-set-key (kbd "<M-S-right>") 'shrink-window-horizontally)
-(global-set-key (kbd "<M-S-up>") 'enlarge-window)
-(global-set-key (kbd "<M-S-down>") 'shrink-window)
+(global-set-key (kbd "<M-S-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<M-S-right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "<M-S-up>") 'shrink-window)
+(global-set-key (kbd "<M-S-down>") 'enlarge-window)
 
 ;; Zoom frame font size
 (global-set-key [C-S-wheel-up] 'zoom-in)
