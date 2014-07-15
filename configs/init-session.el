@@ -11,7 +11,7 @@
 (add-hook 'after-init-hook 'session-initialize)
 
 ;; -- load the saved windows automatically on boot
-(add-hook 'window-setup-hook 'resume-windows)
+;(add-hook 'window-setup-hook 'resume-windows)
 
 ;; -- save place in file
 (setq-default save-place t)

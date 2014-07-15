@@ -87,7 +87,7 @@
            ;;       R"delimiter(The String Data" )delimiter"
            ;;       R"delimiter((a-z))delimiter" is equivalent to "(a-z)"
            ("\\(\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(\\)" 1 font-lock-keyword-face t) ; start delimiter
-           (   "\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(\\(.*?\\))[^\\s-\\\\()]\\{0,16\\}\"" 1 font-lock-string-face t)  ; actual string
+           (   "\\<\\([uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(.*?)[^\\s-\\\\()]\\{0,16\\}\"\\)\\>" 1 font-lock-string-face t)  ; actual string
            (   "\\<[uU8]*R\"[^\\s-\\\\()]\\{0,16\\}(.*?\\()[^\\s-\\\\()]\\{0,16\\}\"\\)" 1 font-lock-keyword-face t) ; end delimiter
 
            ;; user-defined types (rather project-specific)

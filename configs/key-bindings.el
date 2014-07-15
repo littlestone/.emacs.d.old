@@ -255,6 +255,10 @@
 (global-set-key (kbd "C-+") 'change-number-at-point)
 (global-set-key (kbd "C--") 'subtract-number-at-point)
 
+;; Increase number at point (or other change based on prefix arg)
+(global-set-key (kbd "C-+") 'change-number-at-point)
+(global-set-key (kbd "C--") 'subtract-number-at-point)
+
 ;; Browse visualized undo tree
 (global-set-key (kbd "C-x u") 'undo-tree-visualize)
 
