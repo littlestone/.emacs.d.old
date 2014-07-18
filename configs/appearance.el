@@ -16,7 +16,9 @@
 ;; Default color theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'default-black t)
+(if (eq system-type 'gnu/linux)
+    (load-theme 'default-black t)
+  (load-theme 'tomorrow-night-bright t))
 
 ;; Set cursor color to white
 (set-cursor-color "#ffffff")
