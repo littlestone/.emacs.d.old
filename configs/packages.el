@@ -50,6 +50,7 @@
        evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
        evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
        evil-numbers                        ; increment/decrement numbers like in vim
+	   evil-paredit                        ; Paredit support for evil keybindings
        evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column

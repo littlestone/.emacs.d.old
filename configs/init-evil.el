@@ -67,6 +67,7 @@
 (evil-set-initial-state 'cider-repl-mode 'normal)
 (evil-set-initial-state 'slime-repl-mode 'normal)
 (evil-set-initial-state 'inferior-emacs-lisp-mode 'normal)
+(evil-set-initial-state 'undo-tree-visualizer-mode 'emacs)
 (evil-set-initial-state 'package-menu-mode 'emacs)
 (evil-set-initial-state 'browse-kill-ring-mode 'emacs)
 (evil-set-initial-state 'recentf-dialog-mode 'emacs)
