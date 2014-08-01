@@ -85,11 +85,6 @@
 (add-hook 'prog-mode-hook '(lambda ()
                              (local-set-key (kbd "RET") 'newline-and-indent)))
 
-;; Enable electric-pair-mode and make it work on more brackets
-(electric-pair-mode +1)
-(setq electric-pair-pairs '((?\" . ?\")
-                            (?\{ . ?\})))
-
 ;; Show active region
 (transient-mark-mode +1)
 (make-variable-buffer-local 'transient-mark-mode)
