@@ -26,6 +26,7 @@
   (defun init--install-packages ()
     (packages-install
      '(
+       4clojure                            ; Open and evaluate 4clojure.com questions
        ac-nrepl                            ; auto-complete sources for Clojure using nrepl completions
        ac-slime                            ; An auto-complete source using slime completions
        ace-jump-mode                       ; a quick cursor location minor mode for emacs
@@ -50,7 +51,7 @@
        evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
        evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
        evil-numbers                        ; increment/decrement numbers like in vim
-	   evil-paredit                        ; Paredit support for evil keybindings
+       evil-paredit                        ; Paredit support for evil keybindings
        evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column
