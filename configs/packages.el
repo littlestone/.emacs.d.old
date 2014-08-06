@@ -32,6 +32,7 @@
        ace-jump-mode                       ; a quick cursor location minor mode for emacs
        ascii                               ; ASCII code display.
        auto-complete                       ; Auto Completion for GNU Emacs
+       autopair                            ; Automagically pair braces and quotes like TextMate
        browse-kill-ring                    ; interactively insert items from kill-ring
        buffer-move                         ; Swap buffers without typing C-x b on each window
        change-inner                        ; Change contents based on semantic units
@@ -118,6 +119,10 @@
 
 ;; Multiple cursor list file location
 (setq mc/list-file (concat temporary-file-directory ".mc-lists.el"))
+
+;; Enable autopair in all buffers
+(require 'autopair)
+(autopair-global-mode)
 
 ;; Display a tab bar in the header line
 (require 'tabbar-tweak)
