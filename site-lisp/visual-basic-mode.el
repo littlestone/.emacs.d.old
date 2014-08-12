@@ -1585,7 +1585,7 @@ corrections under the control of user.
 
 This function is under construction"
   (interactive)
-  (flet
+  (cl-flet
       ((insert-space-at-point
         ()
         (insert " "))
