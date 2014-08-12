@@ -85,8 +85,8 @@
   (add-hook 'post-command-hook
             (lambda ()
               (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-insert-state-p) '("#000000" . "#4169E1"))
-                                 ((buffer-modified-p) '("#000000" . "#8470FF"))
+                                 ((evil-insert-state-p) '("#000000" . "#8470FF"))
+                                 ((buffer-modified-p) '("#000000" . "#4169E1"))
                                  (t default-color))))
                 (set-face-background 'mode-line (car color))
                 (set-face-foreground 'mode-line (cdr color))))))
