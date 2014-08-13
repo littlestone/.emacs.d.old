@@ -80,16 +80,16 @@
 (evil-set-initial-state 'magit-status-mode 'emacs)
 
 ;; Change mode-line color by evil state
-(lexical-let ((default-color (cons (face-background 'mode-line)
-                                   (face-foreground 'mode-line))))
-  (add-hook 'post-command-hook
-            (lambda ()
-              (let ((color (cond ((minibufferp) default-color)
-                                 ((evil-insert-state-p) '("#000000" . "#8470FF"))
-                                 ((buffer-modified-p) '("#000000" . "#4169E1"))
-                                 (t default-color))))
-                (set-face-background 'mode-line (car color))
-                (set-face-foreground 'mode-line (cdr color))))))
+;; (lexical-let ((default-color (cons (face-background 'mode-line)
+;;                                    (face-foreground 'mode-line))))
+;;   (add-hook 'post-command-hook
+;;             (lambda ()
+;;               (let ((color (cond ((minibufferp) default-color)
+;;                                  ((evil-insert-state-p) '("#000000" . "#8470FF"))
+;;                                  ((buffer-modified-p) '("#000000" . "#4169E1"))
+;;                                  (t default-color))))
+;;                 (set-face-background 'mode-line (car color))
+;;                 (set-face-foreground 'mode-line (cdr color))))))
 
 ;; Evil leader key bindings
 (evil-leader/set-leader ",")
