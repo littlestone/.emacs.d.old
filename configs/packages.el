@@ -137,4 +137,8 @@
 ;; An interface to `compile
 (require 'smarter-compile)
 
+;; GNU Go
+(require 'gnugo-xpms)
+(require 'gnugo)
+
 (provide 'packages)
