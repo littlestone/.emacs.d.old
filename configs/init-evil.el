@@ -106,8 +106,10 @@
   "j" 'dired-jump
   "k" 'kill-this-buffer
   "l" 'linum-mode
-  "m" 'browse-url-at-point
+  "m" 'magit-status
+  "n" 'create-scratch-buffer
   "o" 'other-window
+  "p" 'list-packages
   "q" 'read-only-mode
   "r" 'revert-this-buffer
   "sf" 'suspend-frame
