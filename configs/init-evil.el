@@ -98,6 +98,7 @@
   "-" 'evil-numbers/dec-at-pt
   "a" 'ascii-display
   "b" 'bury-buffer
+  "c" 'comment-or-uncomment-region
   "e" 'ido-find-file
   "f" 'rgrep
   "g" 'ace-jump-mode

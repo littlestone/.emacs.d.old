@@ -57,8 +57,8 @@
 (require 'init-rainbow-delimiters)
 
 ;; Emacs - Cygwin Customization
-(if (eq system-type 'windows-nt)
-  (require 'init-cygwin))
+;; (if (eq system-type 'windows-nt)
+;;   (require 'init-cygwin))
 
 ;; Third Party Functions (load all files in site-lisp-dir)
 (setq site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
