@@ -1198,7 +1198,7 @@ to enable full functionality."
       (setcdr now (cons group (cdr now)))
       ;; disabled permanently -- too wrong
       (when nil
-        (flet ((populate (group)
+        (cl-flet ((populate (group)
                          (let ((color (caar group)))
                            (dolist (stone (cdr group))
                              (gnugo-query "play %s %s" color stone)))))
