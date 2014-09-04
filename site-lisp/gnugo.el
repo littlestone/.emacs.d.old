@@ -1418,7 +1418,7 @@ Also, add the `:RE' SGF property to the root node of the game tree."
                    (y-or-n-p "Game still in play. Stop play now? ")))
     (error "Sorry, game still in play"))
   (unless (gnugo-get :game-over)
-    (flet ((pass (userp)
+    (cl-flet ((pass (userp)
                  (message "Playing PASS for %s ..."
                           (gnugo-get (if userp :user-color :gnugo-color)))
                  (sit-for 1)
@@ -1882,7 +1882,7 @@ starting a new one.  See `gnugo-board-mode' documentation for more info."
         (info "(gnugo)GTP command reference")
         (when sel (setq sel (intern (car sel))))
         (let (buffer-read-only pad cur spec output found)
-          (flet ((note (s) (insert pad "[NOTE: gnugo.el " s ".]\n")))
+          (cl-flet ((note (s) (insert pad "[NOTE: gnugo.el " s ".]\n")))
             (goto-char (point-min))
             (save-excursion
               (while (re-search-forward "^ *[*] \\([a-zA-Z_]+\\)\\(:.*\\)*\n"

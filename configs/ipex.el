@@ -5,7 +5,7 @@
 (load-file "~/.emacs.d/defuns/misc-defuns.el")
 
 ;; Proxy & FTP
-(when (string-equal (car (last(get-ip-addresses))) "10.1.150.90") ; wireless
+(when (string-equal (car (last(get-ip-addresses))) "10.1.155.18") ; wireless
   (setq url-proxy-services
         '(("no_proxy" . "^\\(localhost\\|10.*\\)")
           ("http" . "isa1ids.ipex.network:8080")
