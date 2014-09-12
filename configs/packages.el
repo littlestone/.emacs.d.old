@@ -52,6 +52,7 @@
        evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
        evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
        evil-numbers                        ; increment/decrement numbers like in vim
+       evil-org                            ; evil keybindings for org-mode
        evil-paredit                        ; Paredit support for evil keybindings
        evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
@@ -64,6 +65,7 @@
        goto-chg                            ; goto last change
        helm                                ; Helm is an Emacs incremental and narrowing framework
        ido-ubiquitous                      ; Use ido (nearly) everywhere
+       indent-guide                        ; show vertical lines to guide indentation
        iy-go-to-char                       ; Go to next CHAR which is similar to "f" and "t" in vim
        js2-mode                            ; Improved JavaScript editing mode
        json                                ; JavaScript Object Notation parser / generator
@@ -127,6 +129,9 @@
 ;; Display a tab bar in the header line
 (require 'tabbar-tweak)
 (tabbar-mode 1)
+
+;; Show vertical lines to guide indentation
+(require 'indent-guide)
 
 ;; Make zooming affect frame instead of buffers
 (require 'zoom-frm)
