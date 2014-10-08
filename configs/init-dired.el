@@ -5,6 +5,9 @@
 (require 'dired)
 (require 'dired-x) ; default key bindings C-x C-j (M-x dired-jump)
 
+;; Auto hide details in Dired mode
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
+
 ;; Move files between split panes
 (setq dired-dwim-target t)
 

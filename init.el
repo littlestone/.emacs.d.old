@@ -41,9 +41,7 @@
 (require 'key-bindings)
 (require 'packages)
 (require 'init-erc)
-;(require 'init-w3m)
 (require 'init-org)
-;(require 'init-evil)
 (require 'init-dired)
 (require 'init-slime)
 (require 'init-cider)
@@ -56,10 +54,6 @@
 (require 'init-ace-jump-mode)
 (require 'init-rainbow-delimiters)
 
-;; Emacs - Cygwin Customization
-;; (if (eq system-type 'windows-nt)
-;;   (require 'init-cygwin))
-
 ;; Third Party Functions (load all files in site-lisp-dir)
 (setq site-lisp-dir (expand-file-name "site-lisp" user-emacs-directory))
 (dolist (file (directory-files site-lisp-dir t "\\w+"))
@@ -71,6 +65,3 @@
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
     (load file)))
-
-;; Emacs session save/restore (need to be put at the end of the .init or .emacs file)
-(require 'init-session)

@@ -46,15 +46,6 @@
        dash-functional                     ; Collection of useful combinators for Emacs List
        dired-single                        ; Reuse the current dired buffer to visit another directory
        epl                                 ; Emacs Package Library
-       evil                                ; extensible vi layer
-       evil-indent-textobject              ; evil textobjects based on indentation
-       evil-leader                         ; let there be <leader>
-       evil-matchit                        ; Vim matchit ported into Emacs (requires EVIL)
-       evil-nerd-commenter                 ; Comment/uncomment lines efficiently. Like Nerd Commenter in Vim
-       evil-numbers                        ; increment/decrement numbers like in vim
-       evil-org                            ; evil keybindings for org-mode
-       evil-paredit                        ; Paredit support for evil keybindings
-       evil-visualstar                     ; Starts a * or # search from visual selection
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column
        fold-this                           ; Just fold this region please
@@ -83,9 +74,7 @@
        popup                               ; Visual Popup User Interface
        rainbow-delimiters                  ; Highlight nested parens, brackets, braces a different color at each depth
        rainbow-mode                        ; Colorize color names in buffers
-       revive                              ; Resume Emacs
        s                                   ; The long lost Emacs string manipulation library
-       session                             ; use variables, registers and buffer places across sessions
        simple-httpd                        ; pure elisp HTTP server
        skewer-mode                         ; Skewer support for live LESS stylesheet updates
        slime                               ; Superior Lisp Interaction Mode for Emacs
@@ -93,7 +82,6 @@
        smex                                ; M-x interface with Ido-style fuzzing matching
        tabbar                              ; Display a tab bar in the header line
        undo-tree                           ; Treat undo history as a tree
-       w3m                                 ; an Emacs interface to w3m
        web-mode                            ; major mode for editing html templates
        zoom-frm                            ; Commands to zoom frame font size.
        )))
