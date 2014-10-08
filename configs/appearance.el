@@ -3,7 +3,7 @@
 ;;;===================================
 
 ;; Initialize frame size
-(setq initial-frame-alist '((top . 0) (left . 0) (width . 82) (height . 42)))
+(setq initial-frame-alist '((top . 5) (left . 0) (width . 82) (height . 42)))
 
 (setq visible-bell t
       font-lock-maximum-decoration t
