@@ -41,7 +41,7 @@
 (require 'key-bindings)
 (require 'packages)
 (require 'init-erc)
-(require 'init-w3m)
+;(require 'init-w3m)
 (require 'init-org)
 ;(require 'init-evil)
 (require 'init-dired)

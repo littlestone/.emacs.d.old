@@ -288,9 +288,6 @@
 ;; ASCII at point
 (global-set-key (kbd "C-c C-a") 'ascii-display)
 
-;; w3m text web browser
-(global-set-key (kbd "C-c w") 'w3m-gohome)
-
 ;;;
 ;;;==========================================================================
 ;;;
@@ -312,9 +309,6 @@
 
 ;; Turn on the menu bar for exploring new modes
 (global-set-key (kbd "C-<f10>") 'menu-bar-mode)
-
-;; Toggle full screen
-(global-set-key (kbd "<f11>") 'my-toggle-fullscreen)
 
 ;; Toggle window split (vertical or horizontical)
 (global-set-key (kbd "<C-f11>") 'toggle-window-split)

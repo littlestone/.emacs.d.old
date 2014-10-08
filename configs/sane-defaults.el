@@ -118,6 +118,7 @@
       auto-revert-verbose nil                 ; but be quiet about it.
       shift-select-mode nil                   ; real emacs knights don't use shift to mark things.
       eval-expression-print-length nil        ; do not truncate messages in the echo area
+	  global-prettify-symbols-mode 1          ; display “lambda” as “λ”
       )
 
 ;; 设置有用的个人信息，这在很多地方有用
