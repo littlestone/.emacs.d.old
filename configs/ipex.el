@@ -15,7 +15,7 @@
                      (cons "Input your LDAP UID !"
                            (base64-encode-string "juntan:000999"))))) ; "LOGIN:PASSWORD" for prompt
   (setq ange-ftp-default-account "juntan"
-      ange-ftp-default-password "555000"
+      ange-ftp-default-password "010101"
       ange-ftp-default-user "juntan"
       ange-ftp-disable-netrc-security-check nil))
 

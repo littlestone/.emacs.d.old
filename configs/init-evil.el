@@ -8,7 +8,7 @@
 (require 'evil-matchit)
 (require 'evil-numbers)
 (require 'evil-visualstar)
-(require 'evil-nerd-commenter)
+;(require 'evil-nerd-commenter)
 (require 'evil-indent-textobject)
 
 (evil-mode 1)
