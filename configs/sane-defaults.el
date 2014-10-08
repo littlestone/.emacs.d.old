@@ -91,15 +91,13 @@
 (put 'transient-mark-mode 'permanent-local t)
 (setq-default transient-mark-mode t)
 
-;; CUA rectangle support
-(setq cua-enable-cua-keys nil)
-(setq cua-toggle-set-mark nil) ; original set-mark behavior, i.e. no transient-mark-mode
-(cua-mode)
-
 ;; Enable the echo area to display information about a function or variable in the text where point is.
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'ielm-mode-hook 'turn-on-eldoc-mode)
+
+;; Enable pretty symbols for all programming modes
+(add-hook 'prog-mode-hook 'prettify-symbols-mode)
 
 ;; Sane defaults
 (setq delete-by-moving-to-trash t             ; move deleted file to Recycle Bin
@@ -118,8 +116,7 @@
       auto-revert-verbose nil                 ; but be quiet about it.
       shift-select-mode nil                   ; real emacs knights don't use shift to mark things.
       eval-expression-print-length nil        ; do not truncate messages in the echo area
-	  global-prettify-symbols-mode 1          ; display “lambda” as “λ”
-	  desktop-save-mode 1                     ; save/restore opened files and windows config, 0 for off
+      desktop-save-mode 1                     ; save/restore opened files and windows config, 0 for off
       )
 
 ;; 设置有用的个人信息，这在很多地方有用
