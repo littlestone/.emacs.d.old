@@ -91,6 +91,11 @@
 (put 'transient-mark-mode 'permanent-local t)
 (setq-default transient-mark-mode t)
 
+;; CUA rectangle support
+(setq cua-enable-cua-keys nil)
+(setq cua-toggle-set-mark nil) ;; original set-mark behavior, i.e. no transient-mark-mode
+(cua-mode)
+
 ;; Enable the echo area to display information about a function or variable in the text where point is.
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
