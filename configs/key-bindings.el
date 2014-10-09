@@ -43,12 +43,6 @@
 (global-set-key (kbd "C-c C-n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
-;; Use shell-like backspace C-h, rebind help to F1
-(define-key key-translation-map [?\C-h] [?\C-?])
-(global-set-key (kbd "<f1>") 'help-command)
-(global-set-key (kbd "M-h") 'backward-delete-char-untabify)
-(global-set-key (kbd "C-M-h") 'kill-region-or-backward-word)
-
 ;; Help should search more than just commands
 (global-set-key (kbd "<f1> a") 'apropos)
 
@@ -83,9 +77,10 @@
 (global-set-key (kbd "C-c C-d") 'duplicate-current-line-or-region)
 
 ;; Killing text
-(global-set-key (kbd "C-S-k") 'kill-and-retry-line)
+(global-set-key (kbd "C-M-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-c C-w") 'kill-to-beginning-of-line)
+(global-set-key (kbd "C-S-k") 'kill-and-retry-line)
 
 ;; Use M-w for copy-line if no active region
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
