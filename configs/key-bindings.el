@@ -291,7 +291,7 @@
 (global-set-key (kbd "<f5>") 'smarter-compile)
 
 ;; Open the current file or dired marked files in external app
-(global-set-key (kbd "<C-f5>") 'ergoemacs-open-in-external-app)
+(global-set-key (kbd "<f6>") 'ergoemacs-open-in-external-app)
 
 ;; Toggle hightlight-tail-mode
 (global-set-key (kbd "<f8>") 'highlight-tail-mode)
