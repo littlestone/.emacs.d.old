@@ -10,15 +10,15 @@
       w32-rwindow-modifier 'super ; Right Windows key
       w32-apps-modifier 'hyper) ; Menu key
 
-;; Completion that uses many different methods to find options.
-(global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
-(global-set-key (kbd "C-:") 'hippie-expand-lines)
-(global-set-key (kbd "C-,") 'completion-at-point)
-
 ;; Smart M-x
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
+
+;; Completion that uses many different methods to find options.
+(global-set-key (kbd "C-.") 'hippie-expand-no-case-fold)
+(global-set-key (kbd "C-:") 'hippie-expand-lines)
+(global-set-key (kbd "C-,") 'completion-at-point)
 
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-'") 'er/expand-region)
@@ -40,7 +40,6 @@
 
 ;; Perform general cleanup.
 (global-set-key (kbd "C-c n") 'cleanup-buffer)
-(global-set-key (kbd "C-c C-n") 'cleanup-buffer)
 (global-set-key (kbd "C-c C-<return>") 'delete-blank-lines)
 
 ;; Help should search more than just commands
@@ -132,6 +131,12 @@
 (fset 'quick-switch-buffer [?\C-x ?b return])
 (global-set-key (kbd "C-c C-b") 'quick-switch-buffer)
 
+;; Quickly switch to scratch buffer
+(global-set-key (kbd "C-c <tab>") 'eme-goto-scratch)
+
+;; Create scratch buffer
+(global-set-key (kbd "C-c b") 'create-scratch-buffer)
+
 ;; Edit file with sudo
 (global-set-key (kbd "M-s e") 'sudo-edit)
 
@@ -199,9 +204,6 @@
 
 ;; Eval buffer
 (global-set-key (kbd "C-c M-e") 'eval-buffer)
-
-;; Create scratch buffer
-(global-set-key (kbd "C-c b") 'create-scratch-buffer)
 
 ;; Move windows, even in org-mode
 (global-set-key (kbd "<s-right>") 'windmove-right)
@@ -292,6 +294,9 @@
 
 ;; Open the current file or dired marked files in external app
 (global-set-key (kbd "<f6>") 'ergoemacs-open-in-external-app)
+
+;; Toggle linum-mode
+(global-set-key (kbd "<f7>") 'linum-mode)
 
 ;; Toggle hightlight-tail-mode
 (global-set-key (kbd "<f8>") 'highlight-tail-mode)

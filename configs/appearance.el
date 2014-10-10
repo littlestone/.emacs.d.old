@@ -5,21 +5,19 @@
 ;; Initialize frame size
 (setq initial-frame-alist '((top . 5) (left . 0) (width . 82) (height . 42)))
 
+;; Don't defer screen updates when performing operations
+(setq redisplay-dont-pause t)
+
+;; Default treaks
 (setq visible-bell t
       font-lock-maximum-decoration t
       color-theme-is-global t
       truncate-partial-width-windows nil)
 
-;; Don't defer screen updates when performing operations
-(setq redisplay-dont-pause t)
-
 ;; Default color theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'tomorrow-night-bright t)
-
-;; Set cursor color to white
-(set-cursor-color "#ffffff")
+(load-theme 'ample t)
 
 ;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)
