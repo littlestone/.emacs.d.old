@@ -285,6 +285,9 @@
 ;; ASCII at point
 (global-set-key (kbd "C-c C-a") 'ascii-display)
 
+;; List packages
+(global-set-key (kbd "C-c p") 'package-list-packages)
+
 ;;;
 ;;;==========================================================================
 ;;;
