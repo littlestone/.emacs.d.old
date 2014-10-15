@@ -23,9 +23,6 @@
 ;; Expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-'") 'er/expand-region)
 
-;; Expand region
-(global-set-key (kbd "C-=") 'er/expand-region)
-
 ;; Providing a variety of completions and expansions
 (global-set-key (kbd "M-/") 'hippie-expand)
 
@@ -75,30 +72,27 @@
 (global-set-key (kbd "C-c C-n") 'open-line-below)
 (global-set-key (kbd "C-c C-d") 'duplicate-current-line-or-region)
 
+;; Copy the whole lines
+(global-set-key (kbd "C-c C-c") 'copy-whole-lines)
+
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
+
 ;; Killing text
 (global-set-key (kbd "C-M-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-c C-w") 'kill-to-beginning-of-line)
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
 
-;; Use M-w for copy-line if no active region
-(global-set-key (kbd "M-w") 'save-region-or-current-line)
-
-;; Delete active frame
-(global-set-key (kbd "C-x M-z") 'delete-frame)
-
 ;; Zap to char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
 (global-set-key (kbd "s-z") (lambda (char) (interactive "cZap up to char backwards: ") (zap-up-to-char -1 char)))
-
 (global-set-key (kbd "M-Z") (lambda (char) (interactive "cZap to char: ") (zap-to-char 1 char)))
 (global-set-key (kbd "s-Z") (lambda (char) (interactive "cZap to char backwards: ") (zap-to-char -1 char)))
 
 ;; Go to next CHAR which is similar to "f" and "t" in vim
-(global-set-key (kbd "C-c f") 'iy-go-to-char)
-(global-set-key (kbd "C-c F") 'iy-go-to-char-backward)
-(global-set-key (kbd "C-c ;") 'iy-go-to-or-up-to-continue)
-(global-set-key (kbd "C-c ,") 'iy-go-to-or-up-to-continue-backward)
+(global-set-key (kbd "C-c f") 'jump-char-forward)
+(global-set-key (kbd "C-c F") 'jump-char-backward)
 
 ;; Emulation of the vi % command
 (global-set-key (kbd "%") 'goto-match-paren)
@@ -106,15 +100,18 @@
 ;; vim's ci and co commands
 (global-set-key (kbd "M-I") 'change-inner)
 (global-set-key (kbd "M-O") 'change-outer)
-
 (global-set-key (kbd "s-i") 'copy-inner)
 (global-set-key (kbd "s-o") 'copy-outer)
 
-;; Create new frame
-(define-key global-map (kbd "C-x C-n") 'make-frame-command)
+;; Move more quickly
+(global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-S-p") (lambda () (interactive) (ignore-errors (previous-line 5))))
+(global-set-key (kbd "C-S-f") (lambda () (interactive) (ignore-errors (forward-char 5))))
+(global-set-key (kbd "C-S-b") (lambda () (interactive) (ignore-errors (backward-char 5))))
 
-;; Jump to a definition in the current file. (This is awesome)
-(global-set-key (kbd "C-x C-i") 'ido-imenu)
+;; Comment/uncomment block
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
 
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
@@ -146,6 +143,15 @@
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
 
+;; Create new frame
+(define-key global-map (kbd "C-x C-n") 'make-frame-command)
+
+;; Delete active frame
+(global-set-key (kbd "C-x M-z") 'delete-frame)
+
+;; Jump to a definition in the current file. (This is awesome)
+(global-set-key (kbd "C-x C-i") 'ido-imenu)
+
 ;; Window switching
 (windmove-default-keybindings) ;; Shift+direction
 (global-set-key (kbd "C-x -") 'toggle-window-split)
@@ -163,6 +169,12 @@
 (global-set-key (kbd "<M-S-right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "<M-S-up>") 'shrink-window)
 (global-set-key (kbd "<M-S-down>") 'enlarge-window)
+
+;; Move windows, even in org-mode
+(global-set-key (kbd "<s-right>") 'windmove-right)
+(global-set-key (kbd "<s-left>") 'windmove-left)
+(global-set-key (kbd "<s-up>") 'windmove-up)
+(global-set-key (kbd "<s-down>") 'windmove-down)
 
 ;; Zoom frame font size
 (global-set-key [C-S-wheel-up] 'zoom-in)
@@ -183,33 +195,14 @@
 (global-set-key (kbd "C-x g") 'webjump)
 (global-set-key (kbd "C-x M-g") 'browse-url-at-point)
 
-;; Completion at point
-(global-set-key (kbd "C-<tab>") 'completion-at-point)
-
 ;; Use regex searches by default.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
 (global-set-key (kbd "C-r") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
-;; Move more quickly
-(global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
-(global-set-key (kbd "C-S-p") (lambda () (interactive) (ignore-errors (previous-line 5))))
-(global-set-key (kbd "C-S-f") (lambda () (interactive) (ignore-errors (forward-char 5))))
-(global-set-key (kbd "C-S-b") (lambda () (interactive) (ignore-errors (backward-char 5))))
-
-;; Comment/uncomment block
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
-
 ;; Eval buffer
 (global-set-key (kbd "C-c M-e") 'eval-buffer)
-
-;; Move windows, even in org-mode
-(global-set-key (kbd "<s-right>") 'windmove-right)
-(global-set-key (kbd "<s-left>") 'windmove-left)
-(global-set-key (kbd "<s-up>") 'windmove-up)
-(global-set-key (kbd "<s-down>") 'windmove-down)
 
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status)
@@ -217,13 +210,6 @@
 
 ;; Mu4e
 (global-set-key (kbd "C-x M") 'mu4e-up-to-date-status)
-
-;; Clever newlines
-(global-set-key (kbd "C-o") 'open-line-below)
-(global-set-key (kbd "C-S-O") 'open-line-above)
-
-;; Duplicate region
-(global-set-key (kbd "C-c d") 'duplicate-current-line-or-region)
 
 ;; Line movement
 (global-set-key (kbd "<C-S-down>") 'move-text-down)
