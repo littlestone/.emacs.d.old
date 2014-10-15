@@ -57,13 +57,11 @@
        helm                                ; Helm is an Emacs incremental and narrowing framework
        ido-ubiquitous                      ; Use ido (nearly) everywhere
        indent-guide                        ; show vertical lines to guide indentation
-       iy-go-to-char                       ; Go to next CHAR which is similar to "f" and "t" in vim
        js2-mode                            ; Improved JavaScript editing mode
        json                                ; JavaScript Object Notation parser / generator
        json-mode                           ; Major mode for editing JSON files.
        json-reformat                       ; Reformatting tool for JSON
        json-snatcher                       ; Grabs the path to JSON values in a JSON file
-       key-chord                           ; map pairs of simultaneously pressed keys to commands
        magit                               ; Control Git from Emacs
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
        mouse-slider-mode                   ; scale numbers dragged under the mouse

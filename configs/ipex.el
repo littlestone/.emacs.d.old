@@ -2,6 +2,7 @@
 ;;; + IPEX Working Environment Setup +
 ;;; ==================================
 
+(load-file "~/.emacs.d/site-lisp/dash.el")
 (load-file "~/.emacs.d/defuns/misc-defuns.el")
 
 ;; Proxy & FTP
