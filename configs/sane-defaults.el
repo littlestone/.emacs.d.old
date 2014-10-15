@@ -122,6 +122,7 @@
       shift-select-mode nil                   ; real emacs knights don't use shift to mark things.
       eval-expression-print-length nil        ; do not truncate messages in the echo area
       desktop-save-mode 1                     ; save/restore opened files and windows config, 0 for off
+      load-prefer-newer t                     ; never accidentally using outdated compiled files
       )
 
 ;; 设置有用的个人信息，这在很多地方有用
