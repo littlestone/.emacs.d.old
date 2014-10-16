@@ -62,6 +62,7 @@
        json-mode                           ; Major mode for editing JSON files.
        json-reformat                       ; Reformatting tool for JSON
        json-snatcher                       ; Grabs the path to JSON values in a JSON file
+       jump-char                           ; navigation by char
        magit                               ; Control Git from Emacs
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
        mouse-slider-mode                   ; scale numbers dragged under the mouse
