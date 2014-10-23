@@ -55,3 +55,8 @@
          (other-buffer (window-buffer other)))
     (set-window-buffer other this-buffer)
     (set-window-buffer this other-buffer)))
+
+(defun other-window-backward (&optional n)
+  "Select Nth previous window."
+  (interactive "P")
+  (other-window (prefix-numeric-value n)))

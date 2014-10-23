@@ -52,7 +52,6 @@
 (setq locale-coding-system 'utf-8-unix) ; pretty
 (set-terminal-coding-system 'utf-8-unix) ; pretty
 (set-keyboard-coding-system 'utf-8-unix) ; pretty
-(set-selection-coding-system 'utf-8-unix) ; please
 (set-buffer-file-coding-system 'utf-8-unix) ; please
 (prefer-coding-system 'utf-8-unix) ; pretty
 

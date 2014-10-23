@@ -83,6 +83,9 @@
 (global-set-key (kbd "C-w") 'kill-region-or-backward-word)
 (global-set-key (kbd "C-c C-w") 'kill-to-beginning-of-line)
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
+(global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
+(global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
+(global-set-key [remap kill-line] (bol-with-prefix kill-line))
 
 ;; Zap to char
 (global-set-key (kbd "M-z") 'zap-up-to-char)
@@ -116,8 +119,6 @@
 ;; File finding
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 (global-set-key (kbd "C-x f") 'recentf-open-files)
-(global-set-key (kbd "C-x C-p") 'find-or-create-file-at-point)
-(global-set-key (kbd "C-x M-p") 'find-or-create-file-at-point-other-window)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-c y") 'bury-buffer)
 (global-set-key (kbd "C-c k") 'kill-this-buffer)
@@ -143,8 +144,9 @@
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
 
-;; Create new frame
-(define-key global-map (kbd "C-x C-n") 'make-frame-command)
+;; Quick window navigation
+(define-key global-map (kbd "C-x C-n") 'other-window)
+(define-key global-map (kbd "C-x C-p") 'other-window-backward)
 
 ;; Delete active frame
 (global-set-key (kbd "C-x M-z") 'delete-frame)
