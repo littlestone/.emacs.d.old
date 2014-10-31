@@ -37,10 +37,10 @@
 (require 'appearance)
 (require 'sane-defaults)
 (require 'mode-mappings)
-;(require 'ipex)	
 (require 'packages)
 (require 'init-erc)
 (require 'init-org)
+(require 'init-evil)
 (require 'init-dired)
 (require 'init-slime)
 (require 'init-cider)
@@ -65,4 +65,4 @@
   (when (file-regular-p file)
     (load file)))
 
-(require 'key-bindings)	
+(require 'key-bindings)

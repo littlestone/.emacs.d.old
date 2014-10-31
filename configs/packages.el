@@ -46,6 +46,7 @@
        dash-functional                     ; Collection of useful combinators for Emacs List
        dired-single                        ; Reuse the current dired buffer to visit another directory
        epl                                 ; Emacs Package Library
+       evil                                ; Extensible Vi layer for Emacs.
        expand-region                       ; Increase selected region by semantic units
        fill-column-indicator               ; Graphically indicate the fill column
        fold-this                           ; Just fold this region please
@@ -63,6 +64,7 @@
        json-reformat                       ; Reformatting tool for JSON
        json-snatcher                       ; Grabs the path to JSON values in a JSON file
        jump-char                           ; navigation by char
+       key-chord                           ; map pairs of simultaneously pressed keys to commands
        magit                               ; Control Git from Emacs
        markdown-mode                       ; Emacs Major mode for Markdown-formatted text files
        mouse-slider-mode                   ; scale numbers dragged under the mouse

@@ -79,9 +79,10 @@
 (global-set-key (kbd "M-w") 'save-region-or-current-line)
 
 ;; Killing text
-(global-set-key (kbd "C-M-h") 'backward-delete-char-untabify)
-(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
-(global-set-key (kbd "C-c C-w") 'kill-to-beginning-of-line)
+(keyboard-translate ?\C-h ?\C-?)
+(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
+(global-set-key (kbd "C-M-h") 'kill-region-or-backward-word)
+(global-set-key (kbd "C-w") 'kill-to-beginning-of-line)
 (global-set-key (kbd "C-S-k") 'kill-and-retry-line)
 (global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
 (global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
