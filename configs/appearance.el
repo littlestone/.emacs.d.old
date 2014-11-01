@@ -17,7 +17,7 @@
 ;; Default color theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
-(load-theme 'ample t)
+(load-theme 'tomorrow-night-bright t)
 
 ;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)

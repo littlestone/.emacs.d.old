@@ -43,23 +43,4 @@
 (setq evil-visual-state-cursor 'hollow)
 (setq evil-replace-state-cursor 'hbar)
 
-;; Set the initial evil state that certain major modes will be in.
-(evil-set-initial-state 'org-mode 'normal)
-(evil-set-initial-state 'dired-mode 'normal)
-(evil-set-initial-state 'ibuffer-mode 'normal)
-(evil-set-initial-state 'fundamental-mode 'normal)
-(evil-set-initial-state 'cider-repl-mode 'normal)
-(evil-set-initial-state 'slime-repl-mode 'normal)
-(evil-set-initial-state 'inferior-emacs-lisp-mode 'normal)
-(evil-set-initial-state 'package-menu-mode 'emacs)
-(evil-set-initial-state 'browse-kill-ring-mode 'emacs)
-(evil-set-initial-state 'recentf-dialog-mode 'emacs)
-(evil-set-initial-state 'magit-log-edit-mode 'emacs)
-(evil-set-initial-state 'eshell-mode 'emacs)
-(evil-set-initial-state 'sldb-mode 'emacs)
-(evil-set-initial-state 'grep-mode 'emacs)
-(evil-set-initial-state 'magit-mode 'emacs)
-(evil-set-initial-state 'git-commit-mode 'emacs)
-(evil-set-initial-state 'magit-status-mode 'emacs)
-
 (provide 'init-evil)
