@@ -10,7 +10,7 @@
 
   (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                            ("marmalade" . "http://marmalade-repo.org/packages/")
-                           ("melpa" . "http://melpa.milkbox.net/packages/")
+                           ("melpa" . "http://melpa.org/packages/")
                            ("tromey" . "http://tromey.com/elpa/")))
 
   (when (not package-archive-contents)
@@ -56,6 +56,7 @@
        git-rebase-mode                     ; Major mode for editing git rebase files
        goto-chg                            ; goto last change
        helm                                ; Helm is an Emacs incremental and narrowing framework
+       hlinum                              ; Extension for linum.el to highlight current line number
        ido-ubiquitous                      ; Use ido (nearly) everywhere
        indent-guide                        ; show vertical lines to guide indentation
        js2-mode                            ; Improved JavaScript editing mode
