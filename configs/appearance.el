@@ -24,7 +24,7 @@
 
 ;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#212121")
+(set-face-background 'hl-line "#0D0D0D")
 
 ;; Make whitespace-mode use just basic coloring
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
@@ -37,7 +37,7 @@
         ))
 
 ;; Windows下Emacs中文字体设置
-(if (eq system-type 'gnu/linux)
+(if (string-equal system-type "gnu/linux")
     (set-default-font "Consolas-12")
   (set-default-font "Consolas-10"))
 (set-fontset-font "fontset-default" 'gb18030 '("Microsoft YaHei" . "unicode-bmp")) ; 中文使用微软雅黑字体

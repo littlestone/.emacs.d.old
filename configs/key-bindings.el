@@ -183,6 +183,9 @@
 (global-set-key [C-S-wheel-up] 'zoom-in)
 (global-set-key [C-S-wheel-down] 'zoom-out)
 
+;; Suspend frame
+(global-set-key (kbd "C-c C-z") 'suspend-frame)
+
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
@@ -290,8 +293,11 @@
 ;; Toggle linum-mode
 (global-set-key (kbd "<f7>") 'linum-mode)
 
+;; Toggle line wrap
+(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+
 ;; Toggle hightlight-tail-mode
-(global-set-key (kbd "<f8>") 'highlight-tail-mode)
+(global-set-key (kbd "<C-f8>") 'highlight-tail-mode)
 
 ;; Toggle whitespace-mode
 (global-set-key (kbd "<f9>") 'whitespace-mode)
