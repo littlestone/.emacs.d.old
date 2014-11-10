@@ -24,7 +24,7 @@
 
 ;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#0D0D0D")
+(set-face-background 'hl-line "#212121")
 
 ;; Make whitespace-mode use just basic coloring
 (setq whitespace-style (quote (spaces tabs newline space-mark tab-mark newline-mark)))
