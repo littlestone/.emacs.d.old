@@ -76,7 +76,8 @@
                                             (abbreviate-file-name (buffer-file-name))
                                           "%b"))))
 
-;; use tomorrow-night-bright as the default theme
+;; use zenburn as the default theme
+;(load-theme prelude-theme t)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'tomorrow-night-bright t)
