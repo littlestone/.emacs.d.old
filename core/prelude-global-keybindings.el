@@ -32,6 +32,19 @@
 
 ;;; Code:
 
+;; Make PC keyboard's Win key or other to type Super or Hyper, for emacs running on Windows.
+(setq w32-pass-lwindow-to-system nil
+      w32-pass-rwindow-to-system nil
+      w32-pass-apps-to-system nil
+      w32-lwindow-modifier 'super ; Left Windows key
+      w32-rwindow-modifier 'super ; Right Windows key
+      w32-apps-modifier 'hyper) ; Menu key
+
+;; Smart M-x
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
+
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
@@ -104,7 +117,7 @@
   (global-set-key (kbd "<f11>") 'prelude-fullscreen))
 
 ;; toggle menu-bar visibility
-(global-set-key (kbd "<f12>") 'menu-bar-mode)
+(global-set-key (kbd "<C-f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
 

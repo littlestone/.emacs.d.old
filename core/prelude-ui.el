@@ -39,7 +39,11 @@
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
 
+;; disable menu bar
 (menu-bar-mode -1)
+
+;; disable scroll bar
+(scroll-bar-mode -1)
 
 ;; the blinking cursor is nothing, but an annoyance
 (blink-cursor-mode -1)
@@ -72,8 +76,10 @@
                                             (abbreviate-file-name (buffer-file-name))
                                           "%b"))))
 
-;; use zenburn as the default theme
-(load-theme prelude-theme t)
+;; use tomorrow-night-bright as the default theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'load-path "~/.emacs.d/themes")
+(load-theme 'tomorrow-night-bright t)
 
 (provide 'prelude-ui)
 ;;; prelude-ui.el ends here
