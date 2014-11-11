@@ -68,6 +68,7 @@
     projectile
     magit
     move-text
+    multiple-cursors
     operate-on-number
     rainbow-mode
     smartparens

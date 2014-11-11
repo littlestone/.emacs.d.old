@@ -41,9 +41,20 @@
       w32-apps-modifier 'hyper) ; Menu key
 
 ;; Smart M-x
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-c M-x") 'execute-extended-command) ; This is your old M-x.
+
+;; Multiple curors
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C-c C-S-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-c C-S-a") 'mc/edit-beginnings-of-lines)
+
+;; Killing text
+(global-set-key [remap kill-line] (bol-with-prefix kill-line))
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -120,7 +131,7 @@
 (global-set-key (kbd "<C-f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
-
+(global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (global-set-key (kbd "C-c j") 'ace-jump-mode)

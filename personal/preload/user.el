@@ -5,6 +5,9 @@
 ;; All roads lead to $HOME
 (setq default-directory "~/")
 
+;; Show keystrokes in progress.
+(setq echo-keystrokes 0.1)
+
 ;; UTF-8 please
 (setq locale-coding-system 'utf-8-unix) ; pretty
 (set-terminal-coding-system 'utf-8-unix) ; pretty
