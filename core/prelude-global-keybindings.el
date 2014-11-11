@@ -131,6 +131,7 @@
 (global-set-key (kbd "<C-f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x f") 'recentf-open-files)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -139,6 +140,21 @@
 (global-set-key (kbd "C-c J") 'ace-jump-buffer)
 (global-set-key (kbd "s->") 'ace-jump-buffer)
 (global-set-key (kbd "s-w") 'ace-window)
+
+;; Smarter compile
+(global-set-key (kbd "<f5>") 'smarter-compile)
+
+;; Open the current file or dired marked files in external app
+(global-set-key (kbd "<f6>") 'ergoemacs-open-in-external-app)
+
+;; Toggle linum-mode
+(global-set-key (kbd "<f7>") 'linum-mode)
+
+;; Toggle line wrap
+(global-set-key (kbd "<f8>") 'toggle-truncate-lines)
+
+;; Toggle whitespace-mode
+(global-set-key (kbd "<f9>") 'whitespace-mode)
 
 (provide 'prelude-global-keybindings)
 
