@@ -132,6 +132,7 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-x f") 'recentf-open-files)
+(global-set-key (kbd "C-c C-p") 'package-list-packages)
 (global-set-key (kbd "C-c h") 'helm-mini)
 (global-set-key (kbd "C-=") 'er/expand-region)
 

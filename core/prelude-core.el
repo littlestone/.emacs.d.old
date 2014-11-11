@@ -398,7 +398,7 @@ Doesn't mess with special buffers."
     "Press <C-Backspace> to kill a line backwards."
     "Press <C-S-Backspace> or <s-k> to kill the whole line."
     "Press <f11> to toggle fullscreen mode."
-    "Press <f12> to toggle the menu bar."
+    "Press <C-f10> to toggle the menu bar."
     "Explore the Tools->Prelude menu to find out about some of Prelude extensions to Emacs."
     "Access the official Emacs manual by pressing <C-h r>."
     "Visit the EmacsWiki at http://emacswiki.org to find out even more about Emacs."))
