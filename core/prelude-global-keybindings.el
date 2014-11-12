@@ -56,6 +56,9 @@
 ;; Killing text
 (global-set-key [remap kill-line] (bol-with-prefix kill-line))
 
+;; Copy the whole lines
+(global-set-key (kbd "C-c C-c") 'copy-whole-lines)
+
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
 
