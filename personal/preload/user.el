@@ -1,4 +1,6 @@
-;; Run Emacs in server mode to speed up subsequent startups of Emacs significantly
+;;; user.el --- Prelude's personal configuration entry point.
+
+;; Run Emacs in server mode to speed up subsequent startups of Emacs significantl
 (load "server")
 (unless (server-running-p) (server-start))
 
