@@ -82,6 +82,7 @@
 
 ;; Comment/uncomment block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
 
 ;; Copy the whole lines
 (global-set-key (kbd "C-c C-c") 'copy-whole-lines)
