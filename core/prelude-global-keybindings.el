@@ -41,8 +41,8 @@
       w32-apps-modifier 'hyper) ; Menu key
 
 ;; Smart M-x
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-c M-x") 'execute-extended-command) ; This is your old M-x.
+(global-set-key (kbd "C-c M-x") 'smex)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
 
 ;; Multiple curors
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
@@ -53,11 +53,61 @@
 (global-set-key (kbd "C-c C-S-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c C-S-a") 'mc/edit-beginnings-of-lines)
 
-;; Killing text
-(global-set-key [remap kill-line] (bol-with-prefix kill-line))
+;; Open above / below / in between
+(global-set-key (kbd "C-c C-p") 'open-line-above)
+(global-set-key (kbd "C-c C-n") 'open-line-below)
+(global-set-key (kbd "C-c C-d") 'duplicate-current-line-or-region)
 
 ;; Copy the whole lines
 (global-set-key (kbd "C-c C-c") 'copy-whole-lines)
+
+;; Killing text
+(global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
+(global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
+(global-set-key [remap kill-line] (bol-with-prefix kill-line))
+(global-set-key (kbd "C-k") (bol-with-prefix kill-line))
+
+;; Killing buffer
+(global-set-key (kbd "C-c k") 'kill-this-buffer)
+
+;; Reverting buffer
+(global-set-key (kbd "C-x M-r") 'revert-this-buffer)
+
+;; Move more quickly
+(global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-S-p") (lambda () (interactive) (ignore-errors (previous-line 5))))
+(global-set-key (kbd "C-S-f") (lambda () (interactive) (ignore-errors (forward-char 5))))
+(global-set-key (kbd "C-S-b") (lambda () (interactive) (ignore-errors (backward-char 5))))
+
+;; Comment/uncomment block
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+
+;; Quickly switch to scratch buffer
+(global-set-key (kbd "C-c <tab>") 'eme-goto-scratch)
+
+;; Create scratch buffer
+(global-set-key (kbd "C-c b") 'create-scratch-buffer)
+
+;; Copy file path to kill ring
+(global-set-key (kbd "C-x M-w") 'copy-current-file-path)
+
+;; Quick window navigation
+(define-key global-map (kbd "C-x C-n") 'other-window)
+(define-key global-map (kbd "C-x C-p") 'other-window-backward)
+
+;; Window switching
+(global-set-key (kbd "C-x -") 'toggle-window-split)
+(global-set-key (kbd "C-x C--") 'rotate-windows)
+(global-set-key (kbd "C-x 3") 'split-window-right-and-move-there-dammit)
+
+;; Move buffer in multiple windows easily
+(global-set-key (kbd "<M-up>") 'buf-move-up)
+(global-set-key (kbd "<M-down>") 'buf-move-down)
+(global-set-key (kbd "<M-left>") 'buf-move-left)
+(global-set-key (kbd "<M-right>") 'buf-move-right)
+
+;; Emulation of the vi % command
+(global-set-key (kbd "%") 'goto-match-paren)
 
 ;; Align your code in a pretty way.
 (global-set-key (kbd "C-x \\") 'align-regexp)
@@ -134,9 +184,7 @@
 (global-set-key (kbd "<C-f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x f") 'recentf-open-files)
-(global-set-key (kbd "C-c C-p") 'package-list-packages)
-(global-set-key (kbd "C-c h") 'helm-mini)
+
 (global-set-key (kbd "C-=") 'er/expand-region)
 
 (global-set-key (kbd "C-c j") 'ace-jump-mode)

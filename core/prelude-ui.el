@@ -81,9 +81,12 @@
 (add-to-list 'load-path "~/.emacs.d/themes")
 (load-theme 'tomorrow-night-bright t)
 
-;; Highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
+;; highlight the current line; set a custom face, so we can recognize from the normal marking (selection)
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#1C1C1C")
+
+;; disable whitespace-mode 
+(setq prelude-whitespace nil)
 
 (provide 'prelude-ui)
 ;;; prelude-ui.el ends here

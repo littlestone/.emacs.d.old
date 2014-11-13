@@ -48,6 +48,7 @@
     ack-and-a-half
     anzu
     browse-kill-ring
+    buffer-move
     csharp-mode
     dash
     discover-my-major
