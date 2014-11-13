@@ -68,10 +68,16 @@
 (global-set-key (kbd "C-k") (bol-with-prefix kill-line))
 
 ;; Killing buffer
-(global-set-key (kbd "C-c k") 'kill-this-buffer)
+(global-set-key (kbd "C-c C-k") 'kill-this-buffer)
 
 ;; Reverting buffer
 (global-set-key (kbd "C-x M-r") 'revert-this-buffer)
+
+;; Quickly switch to scratch buffer
+(global-set-key (kbd "C-c <tab>") 'eme-goto-scratch)
+
+;; Create scratch buffer
+(global-set-key (kbd "C-c b") 'create-scratch-buffer)
 
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
@@ -82,11 +88,6 @@
 ;; Comment/uncomment block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 
-;; Quickly switch to scratch buffer
-(global-set-key (kbd "C-c <tab>") 'eme-goto-scratch)
-
-;; Create scratch buffer
-(global-set-key (kbd "C-c b") 'create-scratch-buffer)
 
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-x M-w") 'copy-current-file-path)
@@ -126,7 +127,7 @@
 
 ;; Start proced in a similar manner to dired
 (unless (eq system-type 'darwin)
-    (global-set-key (kbd "C-x p") 'proced))
+  (global-set-key (kbd "C-x p") 'proced))
 
 ;; Start eshell or switch to it if it's active.
 (global-set-key (kbd "C-x m") 'eshell)
