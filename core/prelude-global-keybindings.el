@@ -207,6 +207,9 @@
 ;; Toggle whitespace-mode
 (global-set-key (kbd "<f9>") 'whitespace-mode)
 
+;; Clean up buffer
+(global-set-key (kbd "<C-f9>") 'cleanup-buffer)
+
 (provide 'prelude-global-keybindings)
 
 ;;; prelude-global-keybindings.el ends here
