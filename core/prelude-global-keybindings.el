@@ -40,6 +40,9 @@
       w32-rwindow-modifier 'super ; Right Windows key
       w32-apps-modifier 'hyper) ; Menu key
 
+;; Package list
+(global-set-key (kbd "C-c C-p") 'package-list-packages)
+
 ;; Smart M-x
 (global-set-key (kbd "C-c M-x") 'smex)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command) ; This is your old M-x.
@@ -53,14 +56,6 @@
 (global-set-key (kbd "C-c C-S-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c C-S-a") 'mc/edit-beginnings-of-lines)
 
-;; Open above / below / in between
-(global-set-key (kbd "C-c C-p") 'open-line-above)
-(global-set-key (kbd "C-c C-n") 'open-line-below)
-(global-set-key (kbd "C-c C-d") 'duplicate-current-line-or-region)
-
-;; Copy the whole lines
-(global-set-key (kbd "C-c C-c") 'copy-whole-lines)
-
 ;; Killing text
 (global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
 (global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
@@ -71,13 +66,13 @@
 (global-set-key (kbd "C-c C-k") 'kill-this-buffer)
 
 ;; Reverting buffer
-(global-set-key (kbd "C-x M-r") 'revert-this-buffer)
+(global-set-key (kbd "C-c M-r") 'revert-this-buffer)
 
 ;; Quickly switch to scratch buffer
-(global-set-key (kbd "C-c <tab>") 'eme-goto-scratch)
+(global-set-key (kbd "C-c <tab>") 'prelude-goto-scratch)
 
 ;; Create scratch buffer
-(global-set-key (kbd "C-c b") 'create-scratch-buffer)
+(global-set-key (kbd "C-c b") 'prelude-create-scratch-buffer)
 
 ;; Move more quickly
 (global-set-key (kbd "C-S-n") (lambda () (interactive) (ignore-errors (next-line 5))))
@@ -88,9 +83,11 @@
 ;; Comment/uncomment block
 (global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
 
+;; Copy the whole lines
+(global-set-key (kbd "C-c C-c") 'copy-whole-lines)
 
 ;; Copy file path to kill ring
-(global-set-key (kbd "C-x M-w") 'copy-current-file-path)
+(global-set-key (kbd "C-c M-w") 'copy-current-file-path)
 
 ;; Quick window navigation
 (define-key global-map (kbd "C-x C-n") 'other-window)
