@@ -184,6 +184,7 @@ The body of the advice is in BODY."
 
 ;; highlight the current line
 (global-hl-line-mode +1)
+(set-face-background 'hl-line "#1C1C1C")
 
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
@@ -269,6 +270,9 @@ The body of the advice is in BODY."
 ;; if there is a dired buffer displayed in the next window, use its
 ;; current subdir, instead of the current subdir of this dired buffer
 (setq dired-dwim-target t)
+
+;; auto hide details in Dired mode
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
 ;; enable some really cool extensions like C-x C-j(dired-jump)
 (require 'dired-x)
