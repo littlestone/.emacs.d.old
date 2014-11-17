@@ -51,6 +51,7 @@
     buffer-move
     csharp-mode
     dash
+    debbugs
     discover-my-major
     diff-hl
     diminish
@@ -66,6 +67,7 @@
     god-mode
     grizzl
     guru-mode
+    julia-mode
     ov
     projectile
     magit
