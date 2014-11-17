@@ -26,3 +26,11 @@ Including indent-buffer, which should not be called automatically on save."
   (untabify-buffer)
   (delete-trailing-whitespace)
   (indent-buffer))
+
+;; Quickly goto *scratch* buffer
+(defun prelude-goto-scratch ()
+  "this sends you to the scratch buffer"
+  (interactive)
+  (let ((prelude-scratch-buffer (get-buffer-create "*scratch*")))
+    (switch-to-buffer prelude-scratch-buffer)
+    (lisp-interaction-mode)))

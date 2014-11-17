@@ -68,6 +68,10 @@
 ;; Reverting buffer
 (global-set-key (kbd "C-c M-r") 'revert-this-buffer)
 
+;; Toggle two most recent buffers
+(fset 'quick-switch-buffer [?\C-x ?b return])
+(global-set-key (kbd "C-c C-b") 'quick-switch-buffer)
+
 ;; Quickly switch to scratch buffer
 (global-set-key (kbd "C-c <tab>") 'prelude-goto-scratch)
 
