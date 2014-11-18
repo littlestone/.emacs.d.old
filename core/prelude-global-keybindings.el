@@ -59,12 +59,6 @@
 ;; Interactive macro expansion for Emacs Lisp
 (define-key emacs-lisp-mode-map (kbd "C-c M-e") 'macrostep-expand)
 
-;; Killing text
-(global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
-(global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
-(global-set-key [remap kill-line] (bol-with-prefix kill-line))
-(global-set-key (kbd "C-k") (bol-with-prefix kill-line))
-
 ;; Killing buffer
 (global-set-key (kbd "C-c C-k") 'kill-this-buffer)
 
@@ -158,17 +152,27 @@
 (define-key 'help-command (kbd "C-l") 'find-library)
 (define-key 'help-command (kbd "C-i") 'info-display-manual)
 
-;; a complement to the zap-to-char command, that doesn't eat up the target character
+;; A complement to the zap-to-char command, that doesn't eat up the target character
 (autoload 'zap-up-to-char "misc" "Kill up to, but not including ARGth occurrence of CHAR.")
 (global-set-key (kbd "M-Z") 'zap-up-to-char)
 
-;; kill lines backward
+;; Killing text
+(global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
+(global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))
+(global-set-key [remap kill-line] (bol-with-prefix kill-line))
+(global-set-key (kbd "C-k") (bol-with-prefix kill-line))
+
+;; Kill lines backward
 (global-set-key (kbd "C-<backspace>") (lambda ()
                                         (interactive)
                                         (kill-line 0)
                                         (indent-according-to-mode)))
 
+;; Kill whole line easily
 (global-set-key [remap kill-whole-line] 'prelude-kill-whole-line)
+
+;; Show line number temporarily
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
@@ -178,16 +182,16 @@
                  isearch-string
                (regexp-quote isearch-string))))))
 
-;; use hippie-expand instead of dabbrev
+;; Use hippie-expand instead of dabbrev
 (global-set-key (kbd "M-/") 'hippie-expand)
 
-;; replace buffer-menu with ibuffer
+;; Replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (unless (fboundp 'toggle-frame-fullscreen)
   (global-set-key (kbd "<f11>") 'prelude-fullscreen))
 
-;; toggle menu-bar visibility
+;; Toggle menu-bar visibility
 (global-set-key (kbd "<C-f10>") 'menu-bar-mode)
 
 (global-set-key (kbd "C-x g") 'magit-status)
