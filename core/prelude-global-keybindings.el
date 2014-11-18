@@ -212,6 +212,9 @@
 ;; Toggle line wrap
 (global-set-key (kbd "<f8>") 'toggle-truncate-lines)
 
+;; Toggle window split
+(global-set-key (kbd "<C-f8>") 'toggle-window-split)
+
 ;; Toggle whitespace-mode
 (global-set-key (kbd "<f9>") 'whitespace-mode)
 
