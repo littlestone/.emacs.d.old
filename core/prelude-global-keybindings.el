@@ -56,6 +56,9 @@
 (global-set-key (kbd "C-c C-S-e") 'mc/edit-ends-of-lines)
 (global-set-key (kbd "C-c C-S-a") 'mc/edit-beginnings-of-lines)
 
+;; Interactive macro expansion for Emacs Lisp
+(define-key emacs-lisp-mode-map (kbd "C-c M-e") 'macrostep-expand)
+
 ;; Killing text
 (global-set-key [remap paredit-kill] (bol-with-prefix paredit-kill))
 (global-set-key [remap org-kill-line] (bol-with-prefix org-kill-line))

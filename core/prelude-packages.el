@@ -70,6 +70,7 @@
     julia-mode
     ov
     projectile
+    macrostep
     magit
     move-text
     multiple-cursors
