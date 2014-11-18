@@ -10,6 +10,9 @@
 ;; Show keystrokes in progress.
 (setq echo-keystrokes 0.1)
 
+;; When deleted a file goes to the OS's trash folder
+(setq delete-by-moving-to-trash t)
+
 ;; UTF-8 please
 (setq locale-coding-system 'utf-8-unix) ; pretty
 (set-terminal-coding-system 'utf-8-unix) ; pretty
@@ -34,5 +37,11 @@
       (setenv "GIT_ASKPASS" "git-gui--askpass") ; fix magit push hung up issue on windows (require OpenSSH)
       (setq exec-path (add-to-list 'exec-path "C:/Program Files (x86)/Git/bin"))
       (setenv "PATH" (concat "C:\\Program Files (x86)\\Git\\bin;" (getenv "PATH")))))
+
+;; Use GNU W32 Utils find and grep for Windows
+(when (or (eq system-type 'windows-nt) (eq system-type 'msdos))
+  (setenv "PATH" (concat "C:\\GNU\\bin\\gnuwin32\\bin;" (getenv "PATH")))
+  (setq find-program "C:\\GNU\\bin\\gnuwin32\\bin\\find.exe"
+        grep-program "C:\\GNU\\bin\\gnuwin32\\bin\\grep.exe"))
 
 (provide 'user)
