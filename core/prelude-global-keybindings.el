@@ -82,11 +82,10 @@
 (global-set-key (kbd "C-S-b") (lambda () (interactive) (ignore-errors (backward-char 5))))
 
 ;; Comment/uncomment block
-(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
-(global-set-key (kbd "C-c u") 'uncomment-region)
+(global-set-key (kbd "C-c M-c") 'comment-or-uncomment-region)
 
 ;; Copy the whole lines
-(global-set-key (kbd "C-c C-c") 'copy-whole-lines)
+(global-set-key (kbd "C-c c") 'copy-whole-lines)
 
 ;; Copy file path to kill ring
 (global-set-key (kbd "C-c M-w") 'copy-current-file-path)
@@ -228,6 +227,9 @@
 
 ;; Clean up buffer
 (global-set-key (kbd "<C-f9>") 'cleanup-buffer)
+
+;; Toggle highlight defined or undefined symbols in Emacs-Lisp
+(global-set-key (kbd "<C-f12>") 'hdefd-highlight-mode)
 
 (provide 'prelude-global-keybindings)
 
