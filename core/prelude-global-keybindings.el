@@ -123,6 +123,10 @@
 
 ;; Indentation help
 (global-set-key (kbd "C-^") 'prelude-top-join-line)
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
 
 ;; Start proced in a similar manner to dired
 (unless (eq system-type 'darwin)
