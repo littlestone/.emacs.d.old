@@ -95,6 +95,11 @@ by Prelude.")
   (message "Loading personal configuration files in %s..." prelude-personal-preload-dir)
   (mapc 'load (directory-files prelude-personal-preload-dir 't "^[^#].*el$")))
 
+;; preload the extra vendor packages from `prelude-vendor-dir'
+(when (file-exists-p prelude-vendor-dir)
+  (message "Loading extra vendor packages in %s..." prelude-vendor-dir)
+  (mapc 'load (directory-files prelude-vendor-dir 't "^[^#].*el$")))
+
 (message "Loading Prelude's core...")
 
 ;; the core stuff
