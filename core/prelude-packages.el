@@ -70,6 +70,7 @@
     julia-mode
     ov
     projectile
+    powershell-mode
     macrostep
     magit
     move-text

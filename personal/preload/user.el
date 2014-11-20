@@ -1,5 +1,8 @@
 ;;; user.el --- Prelude's personal configuration entry point.
 
+;; Don't defer screen updates when performing operations
+(setq redisplay-dont-pause t)
+
 ;; Run Emacs in server mode to speed up subsequent startups of Emacs significantl
 (load "server")
 (unless (server-running-p) (server-start))
